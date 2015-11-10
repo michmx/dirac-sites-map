@@ -1,0 +1,6 @@
+output/
+*.png
+*.kml
+*.kmz
+*.zip
+*.o
