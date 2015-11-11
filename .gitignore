@@ -1,8 +1,9 @@
 output/
+content/
 .idea/
 .DS_Store
-*.png
 *.kml
+*.pyc
 *.kmz
 *.zip
 *.o
