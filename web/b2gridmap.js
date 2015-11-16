@@ -271,29 +271,9 @@ var ce_sites =
     33.02
   ], 
   [
-    "OSG.FNAL.us", 
-    41.8412, 
-    -88.2546
-  ], 
-  [
-    "OSG.Nebraska.us", 
-    40.82, 
-    -96.68
-  ], 
-  [
-    "OSG.VT.us", 
-    37.2038, 
-    -80.4132
-  ], 
-  [
     "SSH.KMI.jp", 
     35.154506, 
     136.969546
-  ], 
-  [
-    "SSH.UVic.ca", 
-    48.464, 
-    -123.311
   ]
 ]
 var se_sites = 
@@ -659,11 +639,7 @@ var contentString =
   "<strong>LCG.Pisa.it</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 392996 (97.2%) </br>\n            Jobs Failed: 11473 (2.8%) </br>\n            (Total: 404469)<br />\n            </div><br />     ", 
   "<strong>LCG.Torino.it</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 21475 (97.7%) </br>\n            Jobs Failed: 513 (2.3%) </br>\n            (Total: 21988)<br />\n            </div><br />     ", 
   "<strong>LCG.ULAKBIM.tr</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 15940 (94.9%) </br>\n            Jobs Failed: 863 (5.1%) </br>\n            (Total: 16803)<br />\n            </div><br />     ", 
-  "<strong>OSG.FNAL.us</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 0 (- %) </br>\n            Jobs Failed: 0 (- %) </br>\n            (Total:0)<br />\n            </div><br />\n            ", 
-  "<strong>OSG.Nebraska.us</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 0 (- %) </br>\n            Jobs Failed: 0 (- %) </br>\n            (Total:0)<br />\n            </div><br />\n            ", 
-  "<strong>OSG.VT.us</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 0 (- %) </br>\n            Jobs Failed: 0 (- %) </br>\n            (Total:0)<br />\n            </div><br />\n            ", 
-  "<strong>SSH.KMI.jp</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 8094 (99.2%) </br>\n            Jobs Failed: 67 (0.8%) </br>\n            (Total: 8161)<br />\n            </div><br />     ", 
-  "<strong>SSH.UVic.ca</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 0 (- %) </br>\n            Jobs Failed: 0 (- %) </br>\n            (Total:0)<br />\n            </div><br />\n            "
+  "<strong>SSH.KMI.jp</strong></br><hr>\n            <font style=\"font-weight: bold\">Job Statistics:</font> </br>\n            <div style=\"padding-left: 5px;\">Jobs Succeeded: 8094 (99.2%) </br>\n            Jobs Failed: 67 (0.8%) </br>\n            (Total: 8161)<br />\n            </div><br />     "
 ]
 var se_contentString = 
 [
@@ -736,289 +712,221 @@ var images =
 [
   {
     url: 'images/pie_ARC.SIGNET.si.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_CLOUD.AWS_Sydney.au.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_CLOUD.AWS_Tokyo.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_CLOUD.AWS_Virginia.u.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_CLOUD.CC1_Krakow.pl.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.BINP.ru.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.Beihang.cn.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.CINVESTAV.mx.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.DESY.de.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.Hokudai.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.Nara-WU.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.Niigata.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.Osaka-CU.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.PNNL-CASCADE.u.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.PNNL-PIC.us.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.PNNL.us.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.TIFR.in.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.TMU.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.Tokyo.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.UAS.mx.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.UVic.ca.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_DIRAC.Yonsei.kr.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.CESNET.cz.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.CNAF.it.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.CYFRONET.pl.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.Cosenza.it.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.DESY.de.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.Frascati.it.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.HEPHY.at.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.KEK2.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.KISTI.kr.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.KIT.de.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.KMI.jp.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.Legnaro.it.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.MPPMU.de.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.McGill.ca.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.Melbourne.au.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.NCHC.tw.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.NTU.tw.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.Napoli.it.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.Pisa.it.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.Torino.it.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_LCG.ULAKBIM.tr.png', 
-    origin: new google.maps.Point(0,0), 
-    anchor: new google.maps.Point(0, 0), 
-    size: new google.maps.Size(40, 40)
-  }, 
-  {
-    url: 'images/pie_OSG.FNAL.us.png', 
-    origin: new google.maps.Point(0,0), 
-    anchor: new google.maps.Point(0, 0), 
-    size: new google.maps.Size(40, 40)
-  }, 
-  {
-    url: 'images/pie_OSG.Nebraska.us.png', 
-    origin: new google.maps.Point(0,0), 
-    anchor: new google.maps.Point(0, 0), 
-    size: new google.maps.Size(40, 40)
-  }, 
-  {
-    url: 'images/pie_OSG.VT.us.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/pie_SSH.KMI.jp.png', 
-    origin: new google.maps.Point(0,0), 
-    anchor: new google.maps.Point(0, 0), 
-    size: new google.maps.Size(40, 40)
-  }, 
-  {
-    url: 'images/pie_SSH.UVic.ca.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(0, 0), 
     size: new google.maps.Size(40, 40)
   }
@@ -1028,382 +936,1459 @@ var images_se =
 [
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }, 
   {
     url: 'images/db_blue.png', 
-    origin: new google.maps.Point(0,0), 
     anchor: new google.maps.Point(35, 0), 
     size: new google.maps.Size(40, 40)
   }
+]
+
+var lineCoordinates = 
+[
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 50.068978, 
+      lng: 19.90916
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 36.366, 
+      lng: 127.366
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: -34.910836, 
+      lng: 138.57121
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 50.068978, 
+      lng: 19.90916
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 46.347283, 
+      lng: -119.307833
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 45.03, 
+      lng: 7.4
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 48.2633, 
+      lng: 11.6731
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 25.015, 
+      lng: 121.539
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: -34.910836, 
+      lng: 138.57121
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 39.99, 
+      lng: 33.02
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: -34.910836, 
+      lng: 138.57121
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 46.347283, 
+      lng: -119.307833
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 48.2633, 
+      lng: 11.6731
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: -37.8, 
+      lng: 144.96
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: -34.910836, 
+      lng: 138.57121
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 39.99, 
+      lng: 33.02
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 36.366, 
+      lng: 127.366
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 48.2, 
+      lng: 16.2
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 48.2, 
+      lng: 16.2
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 48.2633, 
+      lng: 11.6731
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 50.068978, 
+      lng: 19.90916
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 45.03, 
+      lng: 7.4
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 50.068978, 
+      lng: 19.90916
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 48.2633, 
+      lng: 11.6731
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 25.015, 
+      lng: 121.539
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 50.068978, 
+      lng: 19.90916
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: -34.910836, 
+      lng: 138.57121
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 25.015, 
+      lng: 121.539
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 48.2, 
+      lng: 16.2
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 48.2, 
+      lng: 16.2
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 25.015, 
+      lng: 121.539
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 46.347283, 
+      lng: -119.307833
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 48.2633, 
+      lng: 11.6731
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 46.347283, 
+      lng: -119.307833
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 45.03, 
+      lng: 7.4
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 25.015, 
+      lng: 121.539
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 45.03, 
+      lng: 7.4
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 39.99, 
+      lng: 33.02
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 46.347283, 
+      lng: -119.307833
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }
+  ], 
+  [
+    {
+      lat: 40.83785, 
+      lng: 14.18287
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 46.347283, 
+      lng: -119.307833
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 45.03, 
+      lng: 7.4
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 50.068978, 
+      lng: 19.90916
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 48.2633, 
+      lng: 11.6731
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 36.366, 
+      lng: 127.366
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: -34.910836, 
+      lng: 138.57121
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 46.347283, 
+      lng: -119.307833
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 50.068978, 
+      lng: 19.90916
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 36.366, 
+      lng: 127.366
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 48.2, 
+      lng: 16.2
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 39.99, 
+      lng: 33.02
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
+    }
+  ], 
+  [
+    {
+      lat: 48.2633, 
+      lng: 11.6731
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: -34.910836, 
+      lng: 138.57121
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 50.102, 
+      lng: 14.3886
+    }
+  ], 
+  [
+    {
+      lat: 36.366, 
+      lng: 127.366
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 25.015, 
+      lng: 121.539
+    }, 
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }
+  ]
+]
+var linesColors = 
+[
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000", 
+  "#FF0000"
 ]
 
         function initialize() {
@@ -1435,7 +2420,7 @@ var images_se =
                   infowindow.open(map, this);
                 });
             }
-            for (var j = 0; i < se_sites.length; j++) {
+            for (var j = 0; j < se_sites.length; j++) {
                 var se_site = se_sites[j];
                 var se_marker = new google.maps.Marker({
                     position: {lat: se_site[1], lng: se_site[2]},
@@ -1451,6 +2436,16 @@ var images_se =
                   infowindow.setContent(this.html);
                   infowindow.open(map, this);
                 });
+            }
+            for (var j = 0; j < lineCoordinates.length; j++) {
+                var flightPath = new google.maps.Polyline({
+                  path: lineCoordinates[j],
+                  geodesic: true,
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 1.0,
+                  strokeWeight: 3
+                });
+                flightPath.setMap(map);
             }
         }
 

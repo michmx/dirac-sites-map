@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
-from kml_gen import pie_plot
-import json, os
+from kml_gen import pie_plot, SE_site
+import json, os, urllib2
 from shutil import copyfile
 
 # Used to export Javascript objects
@@ -9,7 +9,8 @@ class js_image:
     def __init__(self, url, anchorx = 0, anchory = 0):
         self.url = "'" + url + "'"
         self.size = 'new google.maps.Size(40, 40)'
-        self.origin = 'new google.maps.Point(0,0)'
+        #self.origin = 'new google.maps.Point(0,0)'
+        #self.anchor = 'new google.maps.Point(0,0)'
         self.anchor = 'new google.maps.Point('+str(anchorx)+', '+str(anchory)+')'
 
 
@@ -19,11 +20,14 @@ class JSgen:
         self.js_writer = open(path,"w")
         self.function_list = []
         self.ce_list = []
+        self.se_active = []
         self.se_list = []
         self.images_list = []
         self.se_images_list = []
         self.ce_description_list = []
         self.se_description_list = []
+        self.lines_list = []
+        self.lines_colors = []
 
     # Loads map style
     def init_map(self):
@@ -73,6 +77,7 @@ class JSgen:
 
             # Include a computing element in the map
     def add_se_site(self, se):
+        self.se_active.append(se)
         if not os.path.exists('./web/images/'):
             os.mkdir('./web/images')
         copyfile('input/db_blue.png','./web/images/db_blue.png')
@@ -86,6 +91,32 @@ class JSgen:
     """
         self.se_description_list.append(description_text)
 
+    # Draw a line on the map
+    def draw_line(self, se1, se2):
+        line_coordinates = []
+        line_coordinates.append(dict(lat = float(se1.coordinates[1]), lng = float(se1.coordinates[0])))
+        line_coordinates.append(dict(lat = float(se2.coordinates[1]), lng = float(se2.coordinates[0])))
+        self.lines_list.append(line_coordinates)
+        self.lines_colors.append('#FF0000')
+
+    def pull_dashboard(self, path):
+        se1 = SE_site()
+        se2 = SE_site()
+        js_data = urllib2.urlopen(path).read()
+        dashboard = json.loads(js_data)
+        # For now, we only need the data transfer info
+        data_matrix = dashboard['transfers']['rows']
+        # Search the pair of SE elements
+        for cell in data_matrix:
+            for se in self.se_active:
+                if se.endpoint[0] == cell[0]:
+                    se1 = se;
+            for se in self.se_active:
+                if se.endpoint[0] == cell[1]:
+                    se2 = se;
+            self.draw_line(se1, se2)
+
+
     # Finishes the Javascript code
     def close(self):
         # Write the sites
@@ -95,6 +126,10 @@ class JSgen:
         self.js_writer.write("\nvar se_contentString = \n" + json.dumps(self.se_description_list,indent = 2))
         self.js_writer.write("\n\nvar images = \n" + json.dumps(self.images_list,indent = 2).replace('"',''))
         self.js_writer.write("\n\nvar images_se = \n" + json.dumps(self.se_images_list,indent = 2).replace('"',''))
+        # Write the lines
+        self.js_writer.write("\n\nvar lineCoordinates = \n" + \
+                             json.dumps(self.lines_list,indent = 2).replace('"',''))
+        self.js_writer.write("\nvar linesColors = \n" + json.dumps(self.lines_colors,indent = 2))
         # Configure the map
         self.js_writer.write('\n\n')
         js_file = """\
@@ -127,7 +162,7 @@ class JSgen:
                   infowindow.open(map, this);
                 });
             }
-            for (var j = 0; i < se_sites.length; j++) {
+            for (var j = 0; j < se_sites.length; j++) {
                 var se_site = se_sites[j];
                 var se_marker = new google.maps.Marker({
                     position: {lat: se_site[1], lng: se_site[2]},
@@ -143,6 +178,16 @@ class JSgen:
                   infowindow.setContent(this.html);
                   infowindow.open(map, this);
                 });
+            }
+            for (var j = 0; j < lineCoordinates.length; j++) {
+                var flightPath = new google.maps.Polyline({
+                  path: lineCoordinates[j],
+                  geodesic: true,
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 1.0,
+                  strokeWeight: 3
+                });
+                flightPath.setMap(map);
             }
         }"""
         self.js_writer.write(js_file)
