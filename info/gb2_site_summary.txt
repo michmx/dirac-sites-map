@@ -12,8 +12,6 @@ DIRAC.Hokudai.jp          9025        88        40         0         0
 DIRAC.Nara-WU.jp         11140       257        20         0         0
 DIRAC.Niigata.jp         10418      2122        44         0         2
 DIRAC.Osaka-CU.jp        17108       126        35         0         0
-DIRAC.PNNL-CASCADE.u         0         0         0         0         2
-DIRAC.PNNL-PIC.us            0         0         0         0         0
 DIRAC.PNNL.us           373525      3000      2549         0         2
 DIRAC.TIFR.in             3457       141         8         0         2
 DIRAC.TMU.jp             15876       455        52         0         1

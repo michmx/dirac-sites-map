@@ -1,8 +1,6 @@
 #! /usr/bin/env python
 
-import simplejson
 from js_gen import *
-from kml_gen import read_gb2_site_summary, read_gb2_list_se
 
 # A simple script to generate Javascript file
 map = JSgen('web/b2gridmap.js')
@@ -20,7 +18,7 @@ for se in se_obj:
 map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                     'dashboard/request.py/transfer-matrix.json?' + \
                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
-                    '&dst_grouping=host&interval=720')
+                    '&dst_grouping=host&interval=720',720)
 
 map.init_map()
 map.close()
