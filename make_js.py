@@ -3,7 +3,7 @@
 from js_gen import *
 
 # A simple script to generate Javascript file
-map = JSgen('web/b2gridmap.js')
+map = JSgen('web/datagrid.js')
 # Include computing elements
 ce_obj = read_gb2_site_summary("info/gb2_site_summary.txt")
 for ce in ce_obj:
