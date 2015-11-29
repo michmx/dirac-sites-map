@@ -191,8 +191,8 @@ class JSgen:
 
     # Include a computing element in the map
     def add_ce_site(self, ce):
-        if not os.path.exists('./images/'):
-            os.mkdir('./images')
+        if not os.path.exists('./web/images/'):
+            os.mkdir('./web/images')
         copyfile('input/cloud.png','./web/images/cloud.png')
         self.ce_list.append([ce.name, float(ce.coordinates[1]),float(ce.coordinates[0])])
         pie_plot(ce.name, int(ce.jobs_done), int(ce.jobs_failed), 'web/images/', size = (0.4,0.4))
