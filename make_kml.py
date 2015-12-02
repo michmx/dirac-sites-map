@@ -42,6 +42,15 @@ for se in se_sites:
     if not 'TMP' in se.name and not 'DATA' in se.name :
         kml_document.append(add_se_site(se))
 
+kml_lines = pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
+                    'dashboard/request.py/transfer-matrix.json?' + \
+                    'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
+                    '&dst_grouping=host&interval=720',720)
+
+for line in kml_lines:
+    kml_document.append(line)
+
+
 kml_writer = open("content/KMLGen.kml","w")
 kml_writer.write(etree.tostring(kml_file, doctype='<?xml version="1.0" encoding="UTF-8"?>', pretty_print=True))
 kml_writer.close()

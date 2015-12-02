@@ -227,14 +227,30 @@ class JSgen:
             os.mkdir('./web/images')
         copyfile('input/db_blue.png','./web/images/db_blue.png')
         self.se_images_list.append(js_image("images/db_blue.png",35,0).__dict__)
-        self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0])])
-        description_text = '<strong>'+ se.name + '</strong>' + \
-        """</br><hr><font style="font-weight: bold">SE info:</font> </br>
-        <div style="padding-left: 5px;">Path: """ + se.path + """ </br>
-        Endpoint: """ + se.endpoint[0] + """ </br>
-        </div><br />
-    """
-        self.se_description_list.append(description_text)
+        if len(self.se_list) == 0:
+            self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0])])
+            description_text = '<strong>'+ se.name + '</strong>' + \
+            """</br><hr><font style="font-weight: bold">SE info:</font> </br>
+            <div style="padding-left: 5px;">Path: """ + se.path + """ </br>
+            Endpoint: """ + se.endpoint[0] + """ </br>
+            </div><br />
+            """
+            self.se_description_list.append(description_text)
+        else:
+            # To avoid duplicate sites (XXX-*-SE)
+            included = False
+            for se_included in self.se_list:
+                if se.name.split('-')[0] in se_included[0]:
+                  included = True
+            if not included:
+                self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0])])
+                description_text = '<strong>'+ se.name + '</strong>' + \
+                """</br><hr><font style="font-weight: bold">SE info:</font> </br>
+                <div style="padding-left: 5px;">Path: """ + se.path + """ </br>
+                Endpoint: """ + se.endpoint[0] + """ </br>
+                </div><br />
+                """
+                self.se_description_list.append(description_text)
 
     # Draw a line on the map
     def draw_line(self, se1, se2, color = '#FF0000'):
@@ -244,7 +260,7 @@ class JSgen:
         self.lines_list.append(line_coordinates)
         self.lines_colors.append(color)
 
-
+    # Pull data from Dashboard JSON file
     def pull_dashboard(self, path, hours=720):
         se1 = SE_site()
         se2 = SE_site()
@@ -286,7 +302,6 @@ class JSgen:
             self.lines_description.append(description_text)
 
 
-
     # Finishes the Javascript code
     def close(self):
         # Write the sites
@@ -301,7 +316,7 @@ class JSgen:
                              json.dumps(self.lines_list,indent = 2).replace('"',''))
         self.js_writer.write("\nvar linesColors = \n" + json.dumps(self.lines_colors,indent = 2))
         self.js_writer.write("\nvar linesDescription = \n" + json.dumps(self.lines_description,indent = 2))
-        #Write statistics
+        # Write statistics
         global_statistics = []
         global_statistics.append(round(self.total_speed,1))
         global_statistics.append(round(self.total_eff/len(self.lines_list),1))

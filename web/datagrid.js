@@ -274,22 +274,7 @@ var se_sites =
     138.57121
   ], 
   [
-    "Adelaide-SE", 
-    -34.910836, 
-    138.57121
-  ], 
-  [
-    "Adelaide-TMP-SE", 
-    -34.910836, 
-    138.57121
-  ], 
-  [
     "CESNET-DATA-SE", 
-    50.102, 
-    14.3886
-  ], 
-  [
-    "CESNET-TMP-SE", 
     50.102, 
     14.3886
   ], 
@@ -299,27 +284,7 @@ var se_sites =
     11.3417
   ], 
   [
-    "CNAF-SE", 
-    44.4948, 
-    11.3417
-  ], 
-  [
-    "CNAF-TMP-SE", 
-    44.4948, 
-    11.3417
-  ], 
-  [
     "CYFRONET-DATA-SE", 
-    50.068978, 
-    19.90916
-  ], 
-  [
-    "CYFRONET-SE", 
-    50.068978, 
-    19.90916
-  ], 
-  [
-    "CYFRONET-TMP-SE", 
     50.068978, 
     19.90916
   ], 
@@ -329,37 +294,12 @@ var se_sites =
     9.8772
   ], 
   [
-    "DESY-SE", 
-    53.5772, 
-    9.8772
-  ], 
-  [
-    "DESY-TMP-SE", 
-    53.5772, 
-    9.8772
-  ], 
-  [
     "Frascati-DATA-SE", 
     41.797, 
     12.6844
   ], 
   [
-    "Frascati-SE", 
-    41.797, 
-    12.6844
-  ], 
-  [
-    "Frascati-TMP-SE", 
-    41.797, 
-    12.6844
-  ], 
-  [
     "HEPHY-SE", 
-    48.2, 
-    16.2
-  ], 
-  [
-    "HEPHY-TMP-SE", 
     48.2, 
     16.2
   ], 
@@ -374,32 +314,7 @@ var se_sites =
     140.076051
   ], 
   [
-    "KEK2-LOCAL-SE", 
-    36.148578, 
-    140.076051
-  ], 
-  [
-    "KEK2-SE", 
-    36.148578, 
-    140.076051
-  ], 
-  [
-    "KEK2-TMP-SE", 
-    36.148578, 
-    140.076051
-  ], 
-  [
-    "KEK2-XRootD-SE", 
-    36.148578, 
-    140.076051
-  ], 
-  [
     "KISTI-DATA-SE", 
-    36.366, 
-    127.366
-  ], 
-  [
-    "KISTI-TMP-SE", 
     36.366, 
     127.366
   ], 
@@ -409,37 +324,7 @@ var se_sites =
     8.4321
   ], 
   [
-    "KIT-SE", 
-    49.0963, 
-    8.4321
-  ], 
-  [
-    "KIT-TMP-SE", 
-    49.0963, 
-    8.4321
-  ], 
-  [
     "KMI-DATA-SE", 
-    35.154506, 
-    136.969546
-  ], 
-  [
-    "KMI-LOCAL-SE", 
-    35.154506, 
-    136.969546
-  ], 
-  [
-    "KMI-SE", 
-    35.154506, 
-    136.969546
-  ], 
-  [
-    "KMI-TMP-SE", 
-    35.154506, 
-    136.969546
-  ], 
-  [
-    "KMI-XRootD-SE", 
     35.154506, 
     136.969546
   ], 
@@ -449,27 +334,7 @@ var se_sites =
     11.6731
   ], 
   [
-    "MPPMU-SE", 
-    48.2633, 
-    11.6731
-  ], 
-  [
-    "MPPMU-TMP-SE", 
-    48.2633, 
-    11.6731
-  ], 
-  [
     "Melbourne-DATA-SE", 
-    -37.8, 
-    144.96
-  ], 
-  [
-    "Melbourne-SE", 
-    -37.8, 
-    144.96
-  ], 
-  [
-    "Melbourne-TMP-SE", 
     -37.8, 
     144.96
   ], 
@@ -484,27 +349,7 @@ var se_sites =
     121.539
   ], 
   [
-    "NTU-SE", 
-    25.015, 
-    121.539
-  ], 
-  [
-    "NTU-TMP-SE", 
-    25.015, 
-    121.539
-  ], 
-  [
     "Napoli-DATA-SE", 
-    40.83785, 
-    14.18287
-  ], 
-  [
-    "Napoli-SE", 
-    40.83785, 
-    14.18287
-  ], 
-  [
-    "Napoli-TMP-SE", 
     40.83785, 
     14.18287
   ], 
@@ -514,37 +359,12 @@ var se_sites =
     -119.307833
   ], 
   [
-    "PNNL-DEDICATED-SE", 
-    46.347283, 
-    -119.307833
-  ], 
-  [
-    "PNNL-TMP-SE", 
-    46.347283, 
-    -119.307833
-  ], 
-  [
     "SIGNET-DATA-SE", 
     46.04217, 
     14.48767
   ], 
   [
-    "SIGNET-SE", 
-    46.04217, 
-    14.48767
-  ], 
-  [
-    "SIGNET-TMP-SE", 
-    46.04217, 
-    14.48767
-  ], 
-  [
     "Torino-DATA-SE", 
-    45.03, 
-    7.4
-  ], 
-  [
-    "Torino-TMP-SE", 
     45.03, 
     7.4
   ], 
@@ -559,27 +379,7 @@ var se_sites =
     33.02
   ], 
   [
-    "ULAKBIM-SE", 
-    39.99, 
-    33.02
-  ], 
-  [
-    "ULAKBIM-TMP-SE", 
-    39.99, 
-    33.02
-  ], 
-  [
     "UVic-DATA-SE", 
-    48.464, 
-    -123.311
-  ], 
-  [
-    "UVic-SE", 
-    48.464, 
-    -123.311
-  ], 
-  [
-    "UVic-TMP-SE", 
     48.464, 
     -123.311
   ]
@@ -631,69 +431,29 @@ var contentString =
 ]
 var se_contentString = 
 [
-  "<strong>Adelaide-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/ersa.edu.au/home/belle/DATA </br>\n        Endpoint: coepp-dpm-01.ersa.edu.au </br>\n        </div><br />\n    ", 
-  "<strong>Adelaide-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/ersa.edu.au/home/belle/belledisk </br>\n        Endpoint: coepp-dpm-01.ersa.edu.au </br>\n        </div><br />\n    ", 
-  "<strong>Adelaide-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/ersa.edu.au/home/belle/TMP </br>\n        Endpoint: coepp-dpm-01.ersa.edu.au </br>\n        </div><br />\n    ", 
-  "<strong>CESNET-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/cesnet.cz/home/belle/DATA </br>\n        Endpoint: dpm1.egee.cesnet.cz </br>\n        </div><br />\n    ", 
-  "<strong>CESNET-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/cesnet.cz/home/belle/TMP </br>\n        Endpoint: dpm1.egee.cesnet.cz </br>\n        </div><br />\n    ", 
-  "<strong>CNAF-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n        Endpoint: storm-fe-archive.cr.cnaf.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>CNAF-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: / </br>\n        Endpoint: storm-fe-archive.cr.cnaf.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>CNAF-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/TMP </br>\n        Endpoint: storm-fe-archive.cr.cnaf.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>CYFRONET-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/cyf-kr.edu.pl/home/belle/DATA </br>\n        Endpoint: dpm.cyf-kr.edu.pl </br>\n        </div><br />\n    ", 
-  "<strong>CYFRONET-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/cyf-kr.edu.pl/home </br>\n        Endpoint: dpm.cyf-kr.edu.pl </br>\n        </div><br />\n    ", 
-  "<strong>CYFRONET-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/cyf-kr.edu.pl/home/belle/TMP </br>\n        Endpoint: dpm.cyf-kr.edu.pl </br>\n        </div><br />\n    ", 
-  "<strong>DESY-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/desy.de/belle/belle2/DATA </br>\n        Endpoint: dcache-se-desy.desy.de </br>\n        </div><br />\n    ", 
-  "<strong>DESY-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/desy.de </br>\n        Endpoint: dcache-se-desy.desy.de </br>\n        </div><br />\n    ", 
-  "<strong>DESY-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/desy.de/belle/belle2/TMP </br>\n        Endpoint: dcache-se-desy.desy.de </br>\n        </div><br />\n    ", 
-  "<strong>Frascati-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/lnf.infn.it/home/belle/DATA </br>\n        Endpoint: atlasse.lnf.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>Frascati-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/lnf.infn.it/home </br>\n        Endpoint: atlasse.lnf.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>Frascati-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/lnf.infn.it/home/belle/TMP </br>\n        Endpoint: atlasse.lnf.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>HEPHY-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/oeaw.ac.at/home </br>\n        Endpoint: hephyse.oeaw.ac.at </br>\n        </div><br />\n    ", 
-  "<strong>HEPHY-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/oeaw.ac.at/home/belle/TMP </br>\n        Endpoint: hephyse.oeaw.ac.at </br>\n        </div><br />\n    ", 
-  "<strong>KEK-FailoverSE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /DataManagement/StorageElement </br>\n        Endpoint: dirac1.cc.kek.jp </br>\n        </div><br />\n    ", 
-  "<strong>KEK2-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n        Endpoint: kek2-se01.cc.kek.jp </br>\n        </div><br />\n    ", 
-  "<strong>KEK2-LOCAL-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle_local_test </br>\n        Endpoint: kek2-se01.cc.kek.jp </br>\n        </div><br />\n    ", 
-  "<strong>KEK2-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: / </br>\n        Endpoint: kek2-se01.cc.kek.jp </br>\n        </div><br />\n    ", 
-  "<strong>KEK2-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/TMP </br>\n        Endpoint: kek2-se01.cc.kek.jp </br>\n        </div><br />\n    ", 
-  "<strong>KEK2-XRootD-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: //grid </br>\n        Endpoint: xrootd.cc.kek.jp </br>\n        </div><br />\n    ", 
-  "<strong>KISTI-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/sdfarm.kr/home/belle/DATA </br>\n        Endpoint: belle-se-head.sdfarm.kr </br>\n        </div><br />\n    ", 
-  "<strong>KISTI-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/sdfarm.kr/home/belle/TMP </br>\n        Endpoint: belle-se-head.sdfarm.kr </br>\n        </div><br />\n    ", 
-  "<strong>KIT-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/gridka.de/belle/disk-only/DATA </br>\n        Endpoint: gridka-dcache.fzk.de </br>\n        </div><br />\n    ", 
-  "<strong>KIT-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/gridka.de/belle/disk-only </br>\n        Endpoint: gridka-dcache.fzk.de </br>\n        </div><br />\n    ", 
-  "<strong>KIT-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/gridka.de/belle/disk-only/TMP </br>\n        Endpoint: gridka-dcache.fzk.de </br>\n        </div><br />\n    ", 
-  "<strong>KMI-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n        Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp </br>\n        </div><br />\n    ", 
-  "<strong>KMI-LOCAL-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /b2j </br>\n        Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp </br>\n        </div><br />\n    ", 
-  "<strong>KMI-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: / </br>\n        Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp </br>\n        </div><br />\n    ", 
-  "<strong>KMI-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/TMP </br>\n        Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp </br>\n        </div><br />\n    ", 
-  "<strong>KMI-XRootD-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: //xrootd </br>\n        Endpoint: ntrq01.hepl.phys.nagoya-u.ac.jp </br>\n        </div><br />\n    ", 
-  "<strong>MPPMU-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/rzg.mpg.de/data/belle/DATA </br>\n        Endpoint: grid-srm.rzg.mpg.de </br>\n        </div><br />\n    ", 
-  "<strong>MPPMU-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/rzg.mpg.de/data </br>\n        Endpoint: grid-srm.rzg.mpg.de </br>\n        </div><br />\n    ", 
-  "<strong>MPPMU-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/rzg.mpg.de/data/belle/TMP </br>\n        Endpoint: grid-srm.rzg.mpg.de </br>\n        </div><br />\n    ", 
-  "<strong>Melbourne-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/mel.coepp.org.au/home/belle/DATA </br>\n        Endpoint: b2se.mel.coepp.org.au </br>\n        </div><br />\n    ", 
-  "<strong>Melbourne-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/mel.coepp.org.au/home/belle/bellescratchdisk </br>\n        Endpoint: b2se.mel.coepp.org.au </br>\n        </div><br />\n    ", 
-  "<strong>Melbourne-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/mel.coepp.org.au/home/belle/TMP </br>\n        Endpoint: b2se.mel.coepp.org.au </br>\n        </div><br />\n    ", 
-  "<strong>NCHC-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/grid.nchc.org.tw/home/belle/DATA </br>\n        Endpoint: se01.grid.nchc.org.tw </br>\n        </div><br />\n    ", 
-  "<strong>NTU-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/phys.ntu.edu.tw/home/belle/DATA </br>\n        Endpoint: bgrid3.phys.ntu.edu.tw </br>\n        </div><br />\n    ", 
-  "<strong>NTU-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/phys.ntu.edu.tw/home/ </br>\n        Endpoint: bgrid3.phys.ntu.edu.tw </br>\n        </div><br />\n    ", 
-  "<strong>NTU-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/phys.ntu.edu.tw/home/belle/TMP </br>\n        Endpoint: bgrid3.phys.ntu.edu.tw </br>\n        </div><br />\n    ", 
-  "<strong>Napoli-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/na.infn.it/home/belle/DATA </br>\n        Endpoint: belle-dpm-01.na.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>Napoli-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/scope.unina.it/home </br>\n        Endpoint: se.scope.unina.it </br>\n        </div><br />\n    ", 
-  "<strong>Napoli-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/na.infn.it/home/belle/TMP </br>\n        Endpoint: belle-dpm-01.na.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>PNNL-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /se/belle/DATA </br>\n        Endpoint: se.hep.pnnl.gov </br>\n        </div><br />\n    ", 
-  "<strong>PNNL-DEDICATED-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /se </br>\n        Endpoint: se.hep.pnnl.gov </br>\n        </div><br />\n    ", 
-  "<strong>PNNL-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /se/belle/TMP </br>\n        Endpoint: se.hep.pnnl.gov </br>\n        </div><br />\n    ", 
-  "<strong>SIGNET-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/ijs.si/belle/DATA </br>\n        Endpoint: dcache.ijs.si </br>\n        </div><br />\n    ", 
-  "<strong>SIGNET-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/ijs.si </br>\n        Endpoint: dcache.ijs.si </br>\n        </div><br />\n    ", 
-  "<strong>SIGNET-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/ijs.si/belle/TMP </br>\n        Endpoint: dcache.ijs.si </br>\n        </div><br />\n    ", 
-  "<strong>Torino-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n        Endpoint: se-srm-00.to.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>Torino-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /belle/TMP </br>\n        Endpoint: se-srm-00.to.infn.it </br>\n        </div><br />\n    ", 
-  "<strong>UA-ISMA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/isma.kharkov.ua/home </br>\n        Endpoint: gl-dpm.isma.kharkov.ua </br>\n        </div><br />\n    ", 
-  "<strong>ULAKBIM-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/ulakbim.gov.tr/home/belle/DATA </br>\n        Endpoint: torik1.ulakbim.gov.tr </br>\n        </div><br />\n    ", 
-  "<strong>ULAKBIM-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/ulakbim.gov.tr/home </br>\n        Endpoint: torik1.ulakbim.gov.tr </br>\n        </div><br />\n    ", 
-  "<strong>ULAKBIM-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /dpm/ulakbim.gov.tr/home/belle/TMP </br>\n        Endpoint: torik1.ulakbim.gov.tr </br>\n        </div><br />\n    ", 
-  "<strong>UVic-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/westgrid.uvic.ca/data/belle/belledisk/DATA </br>\n        Endpoint: charon01.westgrid.ca </br>\n        </div><br />\n    ", 
-  "<strong>UVic-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/westgrid.uvic.ca/data/belle/belledisk/ </br>\n        Endpoint: charon01.westgrid.ca </br>\n        </div><br />\n    ", 
-  "<strong>UVic-TMP-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n        <div style=\"padding-left: 5px;\">Path: /pnfs/westgrid.uvic.ca/data/belle/belledisk/TMP </br>\n        Endpoint: charon01.westgrid.ca </br>\n        </div><br />\n    "
+  "<strong>Adelaide-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n            <div style=\"padding-left: 5px;\">Path: /dpm/ersa.edu.au/home/belle/DATA </br>\n            Endpoint: coepp-dpm-01.ersa.edu.au </br>\n            </div><br />\n            ", 
+  "<strong>CESNET-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/cesnet.cz/home/belle/DATA </br>\n                Endpoint: dpm1.egee.cesnet.cz </br>\n                </div><br />\n                ", 
+  "<strong>CNAF-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n                Endpoint: storm-fe-archive.cr.cnaf.infn.it </br>\n                </div><br />\n                ", 
+  "<strong>CYFRONET-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/cyf-kr.edu.pl/home/belle/DATA </br>\n                Endpoint: dpm.cyf-kr.edu.pl </br>\n                </div><br />\n                ", 
+  "<strong>DESY-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /pnfs/desy.de/belle/belle2/DATA </br>\n                Endpoint: dcache-se-desy.desy.de </br>\n                </div><br />\n                ", 
+  "<strong>Frascati-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/lnf.infn.it/home/belle/DATA </br>\n                Endpoint: atlasse.lnf.infn.it </br>\n                </div><br />\n                ", 
+  "<strong>HEPHY-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/oeaw.ac.at/home </br>\n                Endpoint: hephyse.oeaw.ac.at </br>\n                </div><br />\n                ", 
+  "<strong>KEK-FailoverSE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /DataManagement/StorageElement </br>\n                Endpoint: dirac1.cc.kek.jp </br>\n                </div><br />\n                ", 
+  "<strong>KEK2-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n                Endpoint: kek2-se01.cc.kek.jp </br>\n                </div><br />\n                ", 
+  "<strong>KISTI-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/sdfarm.kr/home/belle/DATA </br>\n                Endpoint: belle-se-head.sdfarm.kr </br>\n                </div><br />\n                ", 
+  "<strong>KIT-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /pnfs/gridka.de/belle/disk-only/DATA </br>\n                Endpoint: gridka-dcache.fzk.de </br>\n                </div><br />\n                ", 
+  "<strong>KMI-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n                Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp </br>\n                </div><br />\n                ", 
+  "<strong>MPPMU-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /pnfs/rzg.mpg.de/data/belle/DATA </br>\n                Endpoint: grid-srm.rzg.mpg.de </br>\n                </div><br />\n                ", 
+  "<strong>Melbourne-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/mel.coepp.org.au/home/belle/DATA </br>\n                Endpoint: b2se.mel.coepp.org.au </br>\n                </div><br />\n                ", 
+  "<strong>NCHC-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/grid.nchc.org.tw/home/belle/DATA </br>\n                Endpoint: se01.grid.nchc.org.tw </br>\n                </div><br />\n                ", 
+  "<strong>NTU-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /pnfs/phys.ntu.edu.tw/home/belle/DATA </br>\n                Endpoint: bgrid3.phys.ntu.edu.tw </br>\n                </div><br />\n                ", 
+  "<strong>Napoli-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/na.infn.it/home/belle/DATA </br>\n                Endpoint: belle-dpm-01.na.infn.it </br>\n                </div><br />\n                ", 
+  "<strong>PNNL-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /se/belle/DATA </br>\n                Endpoint: se.hep.pnnl.gov </br>\n                </div><br />\n                ", 
+  "<strong>SIGNET-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /pnfs/ijs.si/belle/DATA </br>\n                Endpoint: dcache.ijs.si </br>\n                </div><br />\n                ", 
+  "<strong>Torino-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /belle/DATA </br>\n                Endpoint: se-srm-00.to.infn.it </br>\n                </div><br />\n                ", 
+  "<strong>UA-ISMA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/isma.kharkov.ua/home </br>\n                Endpoint: gl-dpm.isma.kharkov.ua </br>\n                </div><br />\n                ", 
+  "<strong>ULAKBIM-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /dpm/ulakbim.gov.tr/home/belle/DATA </br>\n                Endpoint: torik1.ulakbim.gov.tr </br>\n                </div><br />\n                ", 
+  "<strong>UVic-DATA-SE</strong></br><hr><font style=\"font-weight: bold\">SE info:</font> </br>\n                <div style=\"padding-left: 5px;\">Path: /pnfs/westgrid.uvic.ca/data/belle/belledisk/DATA </br>\n                Endpoint: charon01.westgrid.ca </br>\n                </div><br />\n                "
 ]
 
 var images = 
@@ -1338,12 +1098,12 @@ var lineCoordinates =
 [
   [
     {
-      lat: 48.2, 
-      lng: 16.2
+      lat: 48.464, 
+      lng: -123.311
     }, 
     {
-      lat: 53.5772, 
-      lng: 9.8772
+      lat: 49.0963, 
+      lng: 8.4321
     }
   ], 
   [
@@ -1374,6 +1134,16 @@ var lineCoordinates =
     {
       lat: 36.148578, 
       lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 41.797, 
+      lng: 12.6844
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
     }
   ], 
   [
@@ -1398,16 +1168,6 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: -34.910836, 
-      lng: 138.57121
-    }, 
-    {
-      lat: 49.0963, 
-      lng: 8.4321
-    }
-  ], 
-  [
-    {
       lat: 50.068978, 
       lng: 19.90916
     }, 
@@ -1428,12 +1188,12 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 50.102, 
-      lng: 14.3886
+      lat: 41.797, 
+      lng: 12.6844
     }, 
     {
-      lat: 46.04217, 
-      lng: 14.48767
+      lat: 53.5772, 
+      lng: 9.8772
     }
   ], 
   [
@@ -1528,12 +1288,52 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 44.4948, 
-      lng: 11.3417
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 35.154506, 
+      lng: 136.969546
+    }
+  ], 
+  [
+    {
+      lat: 48.464, 
+      lng: -123.311
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
+      lat: 40.83785, 
+      lng: 14.18287
     }, 
     {
       lat: 46.04217, 
       lng: 14.48767
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 36.148578, 
+      lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: 46.04217, 
+      lng: 14.48767
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
     }
   ], 
   [
@@ -1542,58 +1342,8 @@ var lineCoordinates =
       lng: 127.366
     }, 
     {
-      lat: 46.04217, 
-      lng: 14.48767
-    }
-  ], 
-  [
-    {
-      lat: 48.464, 
-      lng: -123.311
-    }, 
-    {
-      lat: 53.5772, 
-      lng: 9.8772
-    }
-  ], 
-  [
-    {
-      lat: 40.83785, 
-      lng: 14.18287
-    }, 
-    {
-      lat: 46.04217, 
-      lng: 14.48767
-    }
-  ], 
-  [
-    {
-      lat: 48.2, 
-      lng: 16.2
-    }, 
-    {
-      lat: 44.4948, 
-      lng: 11.3417
-    }
-  ], 
-  [
-    {
-      lat: -34.910836, 
-      lng: 138.57121
-    }, 
-    {
-      lat: 46.04217, 
-      lng: 14.48767
-    }
-  ], 
-  [
-    {
-      lat: 46.04217, 
-      lng: 14.48767
-    }, 
-    {
-      lat: 44.4948, 
-      lng: 11.3417
+      lat: 49.0963, 
+      lng: 8.4321
     }
   ], 
   [
@@ -1658,16 +1408,6 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 44.4948, 
-      lng: 11.3417
-    }, 
-    {
-      lat: 35.154506, 
-      lng: 136.969546
-    }
-  ], 
-  [
-    {
       lat: 46.347283, 
       lng: -119.307833
     }, 
@@ -1728,12 +1468,12 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 46.04217, 
-      lng: 14.48767
+      lat: 48.2, 
+      lng: 16.2
     }, 
     {
-      lat: 36.148578, 
-      lng: 140.076051
+      lat: 44.4948, 
+      lng: 11.3417
     }
   ], 
   [
@@ -1778,22 +1518,32 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 39.99, 
-      lng: 33.02
+      lat: -37.8, 
+      lng: 144.96
     }, 
     {
-      lat: 35.154506, 
-      lng: 136.969546
+      lat: 44.4948, 
+      lng: 11.3417
     }
   ], 
   [
     {
-      lat: 39.99, 
-      lng: 33.02
+      lat: -37.8, 
+      lng: 144.96
     }, 
     {
       lat: 36.148578, 
       lng: 140.076051
+    }
+  ], 
+  [
+    {
+      lat: -37.8, 
+      lng: 144.96
+    }, 
+    {
+      lat: 44.4948, 
+      lng: 11.3417
     }
   ], 
   [
@@ -1808,16 +1558,6 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 36.148578, 
-      lng: 140.076051
-    }, 
-    {
-      lat: 50.102, 
-      lng: 14.3886
-    }
-  ], 
-  [
-    {
       lat: 48.2633, 
       lng: 11.6731
     }, 
@@ -1828,12 +1568,12 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 46.04217, 
-      lng: 14.48767
+      lat: 44.4948, 
+      lng: 11.3417
     }, 
     {
-      lat: 46.04217, 
-      lng: 14.48767
+      lat: 35.154506, 
+      lng: 136.969546
     }
   ], 
   [
@@ -1852,16 +1592,6 @@ var lineCoordinates =
       lng: -123.311
     }, 
     {
-      lat: 46.04217, 
-      lng: 14.48767
-    }
-  ], 
-  [
-    {
-      lat: 48.464, 
-      lng: -123.311
-    }, 
-    {
       lat: 36.148578, 
       lng: 140.076051
     }
@@ -1938,12 +1668,12 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 48.464, 
-      lng: -123.311
+      lat: 48.2, 
+      lng: 16.2
     }, 
     {
-      lat: 49.0963, 
-      lng: 8.4321
+      lat: 53.5772, 
+      lng: 9.8772
     }
   ], 
   [
@@ -2058,6 +1788,16 @@ var lineCoordinates =
   ], 
   [
     {
+      lat: 40.83785, 
+      lng: 14.18287
+    }, 
+    {
+      lat: 53.5772, 
+      lng: 9.8772
+    }
+  ], 
+  [
+    {
       lat: -37.8, 
       lng: 144.96
     }, 
@@ -2104,16 +1844,6 @@ var lineCoordinates =
     {
       lat: 53.5772, 
       lng: 9.8772
-    }
-  ], 
-  [
-    {
-      lat: 25.015, 
-      lng: 121.539
-    }, 
-    {
-      lat: 36.148578, 
-      lng: 140.076051
     }
   ], 
   [
@@ -2198,6 +1928,16 @@ var lineCoordinates =
   ], 
   [
     {
+      lat: 41.797, 
+      lng: 12.6844
+    }, 
+    {
+      lat: 49.0963, 
+      lng: 8.4321
+    }
+  ], 
+  [
+    {
       lat: 48.2633, 
       lng: 11.6731
     }, 
@@ -2218,12 +1958,12 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: -34.910836, 
-      lng: 138.57121
+      lat: 25.015, 
+      lng: 121.539
     }, 
     {
-      lat: 46.04217, 
-      lng: 14.48767
+      lat: 44.4948, 
+      lng: 11.3417
     }
   ], 
   [
@@ -2288,16 +2028,6 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 45.03, 
-      lng: 7.4
-    }, 
-    {
-      lat: 44.4948, 
-      lng: 11.3417
-    }
-  ], 
-  [
-    {
       lat: 50.068978, 
       lng: 19.90916
     }, 
@@ -2334,6 +2064,16 @@ var lineCoordinates =
     {
       lat: 49.0963, 
       lng: 8.4321
+    }
+  ], 
+  [
+    {
+      lat: 25.015, 
+      lng: 121.539
+    }, 
+    {
+      lat: 40.83785, 
+      lng: 14.18287
     }
   ], 
   [
@@ -2408,28 +2148,18 @@ var lineCoordinates =
   ], 
   [
     {
-      lat: 40.83785, 
-      lng: 14.18287
+      lat: -34.910836, 
+      lng: 138.57121
     }, 
     {
-      lat: 53.5772, 
-      lng: 9.8772
+      lat: 44.4948, 
+      lng: 11.3417
     }
   ], 
   [
     {
       lat: 46.347283, 
       lng: -119.307833
-    }, 
-    {
-      lat: 46.04217, 
-      lng: 14.48767
-    }
-  ], 
-  [
-    {
-      lat: 50.068978, 
-      lng: 19.90916
     }, 
     {
       lat: 46.04217, 
@@ -2472,16 +2202,6 @@ var lineCoordinates =
       lng: 33.02
     }, 
     {
-      lat: 44.4948, 
-      lng: 11.3417
-    }
-  ], 
-  [
-    {
-      lat: 48.464, 
-      lng: -123.311
-    }, 
-    {
       lat: 35.154506, 
       lng: 136.969546
     }
@@ -2504,16 +2224,6 @@ var lineCoordinates =
     {
       lat: 53.5772, 
       lng: 9.8772
-    }
-  ], 
-  [
-    {
-      lat: 48.2, 
-      lng: 16.2
-    }, 
-    {
-      lat: 46.04217, 
-      lng: 14.48767
     }
   ]
 ]
@@ -2568,6 +2278,7 @@ var linesColors =
   "#00CC00", 
   "#00CC00", 
   "#00CC00", 
+  "#FFFF00", 
   "#00CC00", 
   "#00CC00", 
   "#00CC00", 
@@ -2586,13 +2297,7 @@ var linesColors =
   "#00CC00", 
   "#00CC00", 
   "#00CC00", 
-  "#00CC00", 
-  "#00CC00", 
-  "#00CC00", 
-  "#00CC00", 
-  "#00CC00", 
-  "#00CC00", 
-  "#00CC00", 
+  "#0033FF", 
   "#00CC00", 
   "#00CC00", 
   "#00CC00", 
@@ -2640,130 +2345,125 @@ var linesColors =
 ]
 var linesDescription = 
 [
-  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 282 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = DESY-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 16.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1113 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 12.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 115 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 35 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 142 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 60 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 9.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 631 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 78 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 191 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 79 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 270 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 26.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 903 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Torino-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 31.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1152 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 118 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 220 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KIT-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 23.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1587 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 33 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = UVic-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 345 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 8.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 300 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 155 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 105 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 273 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 17.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 757 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KIT-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 19.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1420 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 23.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 279 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 95 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 210 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KMI-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 7.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 270 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KMI-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 95% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
-  "<strong>Source = DESY-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 8.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 661 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 146 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 137 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 96 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = UVic-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 349 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KMI-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 38.9 KB/s </br>Efficiency: 99% </br>\n            Transfer Successes: 299 </br>\n            Transfer Failures: 2  </br>\n            </div><br />", 
-  "<strong>Source = KIT-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 13.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 908 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 14 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 4 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = CESNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 327 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 39 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 60 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = UVic-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 73 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = UVic-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 150 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 335 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 90% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 2  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 153 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KIT-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 10.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 734 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = UVic-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 56 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 17 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = DESY-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 23.0 KB/s </br>Efficiency: 99% </br>\n            Transfer Successes: 1682 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
+  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 125 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Frascati-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 14 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 59 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 213 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 54 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 7.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 582 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Frascati-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 18 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 250 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 23.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 225 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 213 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 15.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1106 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Torino-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 17.3 KB/s </br>Efficiency: 99% </br>\n            Transfer Successes: 805 </br>\n            Transfer Failures: 2  </br>\n            </div><br />", 
+  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 133 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 156 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KIT-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 20.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1326 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = UVic-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 234 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = UVic-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 244 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 102 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 116 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 31 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 217 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 47.7 KB/s </br>Efficiency: 99% </br>\n            Transfer Successes: 1021 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
+  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KIT-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 16.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1253 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 23.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 430 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 305 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KMI-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 8.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 256 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KMI-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 97% </br>\n            Transfer Successes: 36 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
+  "<strong>Source = DESY-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 13.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 921 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 241 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 223 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 160 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = UVic-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 302 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 19 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KMI-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 51.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 376 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KIT-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 13.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 984 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 17 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 95% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
+  "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 311 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 174 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 117 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = UVic-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.2 KB/s </br>Efficiency: 41% </br>\n            Transfer Successes: 153 </br>\n            Transfer Failures: 218  </br>\n            </div><br />", 
+  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 5.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 321 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 95% </br>\n            Transfer Successes: 38 </br>\n            Transfer Failures: 2  </br>\n            </div><br />", 
+  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 122 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KIT-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 7.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 545 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
   "<strong>Source = KISTI-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 193 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = UVic-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 260 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 5.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 211 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 7.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 492 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = DESY-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 6.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 431 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Frascati-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Torino-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 15 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 5.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 48 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 36 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 17 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 91.1 KB/s </br>Efficiency: 83% </br>\n            Transfer Successes: 725 </br>\n            Transfer Failures: 146  </br>\n            </div><br />", 
+  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 93 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 34 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 5.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 339 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 149 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 13.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 111 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 331 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = DESY-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Frascati-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 18 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Torino-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 6.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 56 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 66 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 36 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 13.4 KB/s </br>Efficiency: 70% </br>\n            Transfer Successes: 346 </br>\n            Transfer Failures: 147  </br>\n            </div><br />", 
+  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 52.4 KB/s </br>Efficiency: 99% </br>\n            Transfer Successes: 1375 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
   "<strong>Source = Melbourne-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 21.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 238 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = NTU-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 120 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 79 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = NTU-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 230 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = DESY-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 30.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 2264 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 286 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CNAF-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 233 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = NTU-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 19 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 64 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.9 KB/s </br>Efficiency: 98% </br>\n            Transfer Successes: 58 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
+  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 323 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = DESY-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 23.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1703 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CESNET-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 311 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
   "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 60 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KMI-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 80.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 483 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 60 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 156 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 101 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 138 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 37 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.9 KB/s </br>Efficiency: 95% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 1  </br>\n            </div><br />", 
-  "<strong>Source = Torino-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 16 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 6.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 444 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 65.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 765 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KMI-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 7.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 98 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 7.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 529 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Torino-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 110 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = DESY-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 13.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 888 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = UVic-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 171 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 19 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Torino-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = DESY-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 354 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = DESY-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 18 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KIT-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 6.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 500 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KMI-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 18 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KMI-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 187 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 18 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 34 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 201 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Frascati-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 235 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 59 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = NTU-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Torino-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 18 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 27 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 6.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 508 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 9.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 679 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KMI-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 10.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 192 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 6.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 462 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 100 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = DESY-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 11.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 870 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = UVic-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.7 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 124 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = NTU-TMP-SE</br>\n            Destination = Napoli-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Torino-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 12 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = DESY-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.4 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 146 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = DESY-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KIT-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 12.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 856 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KMI-TMP-SE</br>\n            Destination = KIT-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 14 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
   "<strong>Source = KISTI-TMP-SE</br>\n            Destination = KEK2-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KIT-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 274 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = Napoli-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 25.9 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 1205 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.9 KB/s </br>Efficiency: 95% </br>\n            Transfer Successes: 137 </br>\n            Transfer Failures: 7  </br>\n            </div><br />", 
-  "<strong>Source = CYFRONET-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 17 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 8.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 553 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KMI-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 4.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 282 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = UVic-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 210 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 1.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 77 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 57 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
-  "<strong>Source = HEPHY-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 55 </br>\n            Transfer Failures: 0  </br>\n            </div><br />"
+  "<strong>Source = KIT-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 47 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = Adelaide-TMP-SE</br>\n            Destination = CNAF-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.5 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 36 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = PNNL-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 96% </br>\n            Transfer Successes: 59 </br>\n            Transfer Failures: 2  </br>\n            </div><br />", 
+  "<strong>Source = KEK2-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 6.1 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 443 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KMI-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 2.0 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 60 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = SIGNET-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 3.2 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 207 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = ULAKBIM-TMP-SE</br>\n            Destination = KMI-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.3 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 20 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = MPPMU-TMP-SE</br>\n            Destination = SIGNET-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.8 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 52 </br>\n            Transfer Failures: 0  </br>\n            </div><br />", 
+  "<strong>Source = KISTI-TMP-SE</br>\n            Destination = DESY-TMP-SE</strong></br><hr>\n            <font style=\"font-weight: bold\">Connection info:</font> </br>\n            <div style=\"padding-left: 5px;\">Throughput: 0.6 KB/s </br>Efficiency: 100% </br>\n            Transfer Successes: 40 </br>\n            Transfer Failures: 0  </br>\n            </div><br />"
 ]
 var global_statistics = 
 [
-  781.9, 
+  597.8, 
   99.0, 
   42, 
-  63, 
-  118
+  23, 
+  113
 ]

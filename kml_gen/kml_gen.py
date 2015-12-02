@@ -2,8 +2,11 @@
 
 import matplotlib.pyplot as plt
 from lxml import etree
+import json, urllib2
 import os
 
+# Global
+se_active = []
 
 class CE_site:
     def __init__(self, se_name = 'CE'):
@@ -76,8 +79,8 @@ def read_gb2_list_se(file_path):
         for line in data_site:
             if line[0] in se.name:
                 coincidence = True
-                se.coordinates[0] = line[1]
-                se.coordinates[1] = line[2]
+                se.coordinates[0] = float(line[1])
+                se.coordinates[1] = float(line[2])
         if not coincidence:
             print "[WARNING]: No location info for " + se.name
     return se_site
@@ -111,17 +114,11 @@ def read_gb2_site_summary(file_path):
         for line in data_site:
             if line[0] in ce.name:
                 coincidence = True
-                ce.coordinates[0] = line[1]
-                ce.coordinates[1] = line[2]
+                ce.coordinates[0] = float(line[1])
+                ce.coordinates[1] = float(line[2])
         if not coincidence:
             print "[WARNING]: No location info for " + ce.name
     return ce_site
-
-# Pull the information of the site summary.
-# TO IMPLEMENT WITH HAYAKASA-SAN CODE -- Michel
-def read_site_summary(file_path):
-    ce_site = []
-    data_file = []
 
 
 # Read the data from CSV file
@@ -149,6 +146,7 @@ def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, si
     plt.axis('equal')
     plt.savefig(path + 'pie_' + site + '.png', transparent=True, dpi = dpi, figsize = size)
     plt.close()
+
 
 
 # Add a style for Computing Element to the KML file
@@ -225,6 +223,7 @@ def add_ce_site(ce_site):
 
 # Add a Storage Element placemark in the map
 def add_se_site(storage_site):
+    se_active.append(storage_site)
     kml_element = etree.Element('Placemark')
     site_name = etree.Element('name')
     site_name.text = storage_site.name
@@ -258,5 +257,84 @@ def add_se_site(storage_site):
     kml_description.text = (etree.CDATA(description_text))
     kml_element.append(kml_description)
     return kml_element
+
+
+# Add a style for line in the KML file
+def add_line_kml_style(se1, se2 ):
+    id_text = se1.name + se2.name + '_style'
+    kml_style = etree.Element('Style', id=id_text)
+    icon_style = etree.Element('IconStyle')
+    etree.SubElement(icon_style,'scale').text = str(1.3)
+    etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
+                            'db_blue.png'
+    kml_style.append(icon_style)
+    return kml_style
+
+
+# Add a connection line
+def draw_kml_line(se1, se2, color = '#ff0000', description_text = ''):
+    kml_element = etree.Element('Placemark')
+    # title
+    line_name = etree.Element('name')
+    line_name.text = se1.name + ' - ' + se2.name
+    kml_element.append(line_name)
+    # color
+    style = etree.Element('Style')
+    line_style = etree.Element('LineStyle')
+    etree.SubElement(line_style,'color').text = color
+    style.append(line_style)
+    kml_element.append(style)
+    # Coordinates
+    line_string = etree.Element('LineString')
+    etree.SubElement(line_string,'tessellate').text = str(1)
+    coordinates = etree.Element('coordinates')
+    coordinates.text = str(se1.coordinates[0]) + ',' + str(se1.coordinates[1]) + ',0 '
+    coordinates.text += str(se2.coordinates[0]) + ',' + str(se2.coordinates[1]) + ',0'
+    line_string.append(coordinates)
+    kml_element.append(line_string)
+    kml_description = etree.Element('description')
+    kml_description.text = (etree.CDATA(description_text))
+    kml_element.append(kml_description)
+    return kml_element
+
+# Return a kml_elements list to include on the kml file
+def pull_dashboard(path, hours=720):
+    kml_elements = []
+    se1 = SE_site()
+    se2 = SE_site()
+    js_data = urllib2.urlopen(path).read()
+    dashboard = json.loads(js_data)
+    # For now, we only need the data transfer info
+    data_matrix = dashboard['transfers']['rows']
+    # Search the pair of SE elements
+    for cell in data_matrix:
+        for se in se_active:
+            if se.endpoint[0] == cell[0]:
+                se1 = se;
+        for se in se_active:
+            if se.endpoint[0] == cell[1]:
+                se2 = se;
+        #We calculate the speed on kBs
+        speed = cell[2]/float(hours * 60 * 60 * 1000)
+        efficiency = cell[3] *100 / (cell[3] + cell[4])
+
+        description_text = """<strong>Source = """ + se1.name + """</br>
+        Destination = """ + se2.name + """</strong></br><hr>
+        <font style="font-weight: bold">Connection info:</font> </br>
+        <div style="padding-left: 5px;">Throughput: %0.1f KB/s </br>"""%speed +\
+        """Efficiency: %0.0f"""%efficiency +  """% </br>
+        Transfer Successes: """ + str(cell[3]) +  """ </br>
+        Transfer Failures: """ + str(cell[4]) + """  </br>
+        </div><br />"""
+        if efficiency < 20:
+            color = 'ffff0000'
+        elif efficiency >= 20 and efficiency < 60:
+            color = 'ffffff00'
+        elif efficiency >= 60 and efficiency < 80:
+            color = 'ff0033ff'
+        else:
+            color = 'ff00cc00'
+        kml_elements.append(draw_kml_line(se1, se2, color, description_text))
+    return kml_elements
 
 
