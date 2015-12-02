@@ -5,7 +5,7 @@ sys.path.insert(0, './js_gen')
 sys.path.insert(0, './dirac_script')
 
 from js_gen import *
-from jobsummary import read_site_summary 
+from jobsummary import read_site_summary
 
 # A simple script to generate Javascript file
 map = JSgen('web/datagrid.js')

@@ -1,14 +1,67 @@
+function ViewControl(controlDiv, map, name, latLng, zoom) {
+  controlDiv.style.padding = '10px';
+  var controlUI = document.createElement('div');
+  controlUI.style.backgroundColor = 'white';
+  controlUI.style.border='1px solid';
+  controlUI.style.padding = '10px';
+  controlUI.style.margin = '10px';
+  controlUI.style.cursor = 'pointer';
+  controlUI.style.textAlign = 'center';
+  controlDiv.appendChild(controlUI);
+  var controlText = document.createElement('div');
+  controlText.style.fontFamily='Helvetica';
+  controlText.style.fontSize='12px';
+  controlText.style.paddingLeft = '5px';
+  controlText.style.paddingRight = '5px';
+  controlText.innerHTML = '<b>'+name+'<b>'
+  controlUI.appendChild(controlText);
+
+  google.maps.event.addDomListener(controlUI, 'click', function() {
+    map.setCenter(new google.maps.LatLng(latLng[0], latLng[1]));
+    map.setZoom(zoom);
+  });
+}
+
+
 function initialize() {
     var mapCanvas = document.getElementById('map');
 
     var mapOptions = {
-        center: new google.maps.LatLng(20., 40.5463),
-        zoom: 3,
+        center: new google.maps.LatLng(30., 0.5463),
+        zoom: 2,
         styles: mapStyle,
         streetViewControl: false,
-        mapTypeId: google.maps.MapTypeId.SATELLITE
+        mapTypeId: google.maps.MapTypeId.SATELLITE,
+        mapTypeControl: false
+
     }
     var map = new google.maps.Map(mapCanvas, mapOptions)
+    
+
+    var bandwidthDiv = document.createElement('h3');
+    bandwidthDiv.style.fontFamily='Helvetica';
+    bandwidthDiv.style.fontSize='12px';
+    bandwidthDiv.style.color = 'black';
+    bandwidthDiv.style.padding = '10px';
+    bandwidthDiv.style.margin = '10px';
+    bandwidthDiv.style.paddingLeft = '10px';
+    bandwidthDiv.style.paddingRight = '10px';
+    bandwidthDiv.style.backgroundColor = 'white';
+    bandwidthDiv.style.border = "thin solid black";;
+    bandwidthDiv.innerHTML = '<b>Total throughput: ' + global_statistics[0] + ' KB/s</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Efficiency: ' + global_statistics[1] + '%</b><br />';
+    bandwidthDiv.innerHTML += '<br /><b>Compunting sites: '+ global_statistics[2] +'</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Storage element sites: '+ global_statistics[3] + '</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Total connections: '+ global_statistics[4] + '</b>';
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(bandwidthDiv);
+
+    var ViewDiv = document.createElement('div');
+    var Asia = new ViewControl(ViewDiv, map, 'Asia', [37.6, 110.6], 4);
+    var Europe = new ViewControl(ViewDiv, map, 'Europe', [46.0, 14.5], 5);
+    var America = new ViewControl(ViewDiv, map, 'America', [ 30.8, -87.6], 4);
+    var Oceania = new ViewControl(ViewDiv, map, 'Oceania', [ -30.8, 140.6], 5);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(ViewDiv);
+
 
     for (var i = 0; i < ce_sites.length; i++) {
         var ce_site = ce_sites[i];
@@ -49,7 +102,7 @@ function initialize() {
           path: lineCoordinates[j],
           geodesic: true,
           strokeColor: linesColors[j],
-          strokeOpacity: 1.0,
+          strokeOpacity: 0.7,
           strokeWeight: 3,
           html: linesDescription[j]
         });
@@ -63,22 +116,20 @@ function initialize() {
 
         });
     }
-    var legend = document.getElementById('legend');
-    var type = images[0];
-    var name = 'Computing Element';
-    var icon = type.url;
-    var div = document.createElement('div');
-    div.innerHTML = '<img src="' + icon + '" height="32" width="32" align="center"> &emsp;' + name;
-    legend.appendChild(div);
-
-    var type = images_se[0];
-    var name = 'Storage Element';
-    var icon = type.url;
-    var div = document.createElement('div');
-    div.innerHTML = '<img src="' + icon + '" height="32" width="32" align="center"> &emsp;' + name;
-    legend.appendChild(div);
-
-    map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
+    // var legend = document.getElementById('legend');
+    // var type = images[0];
+    // var name = 'Computing Element';
+    // var icon = type.url;
+    // var div = document.createElement('div');
+    // div.innerHTML = '<img src="' + icon + '" height="32" width="32" align="center"> &emsp;' + name;
+    // legend.appendChild(div);
+    // var type = images_se[0];
+    // var name = 'Storage Element';
+    // var icon = type.url;
+    // var div = document.createElement('div');
+    // div.innerHTML = '<img src="' + icon + '" height="32" width="32" align="center"> &emsp;' + name;
+    // legend.appendChild(div);
+    // map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
 
     
 }

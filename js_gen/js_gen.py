@@ -81,7 +81,7 @@ def read_gb2_list_se(file_path):
     return se_site
 
 
-# Pull the information of CE sites from the gb2_site_summary output
+# Pull the information of CE sites from the gb2_site_summary output (to use without DIRAC enviroment)
 def read_gb2_site_summary(file_path):
     ce_site = []
     data_file = []
@@ -115,12 +115,6 @@ def read_gb2_site_summary(file_path):
             print "[WARNING]: No location info for " + ce.name
     return ce_site
 
-# Pull the information of the site summary.
-# TO IMPLEMENT WITH HAYAKASA-SAN CODE -- Michel
-def read_site_summary(file_path):
-    ce_site = []
-    data_file = []
-
 
 # Read the data from CSV file
 def read_data(file,split):
@@ -131,6 +125,7 @@ def read_data(file,split):
         if row != "":
             data.append(row.split(split))
     return data
+
 
 # Draw a pie plot for each CE site
 def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, size = (0.5,0.5)):
@@ -173,6 +168,8 @@ class JSgen:
         self.lines_list = []
         self.lines_colors = []
         self.lines_description = []
+        self.total_speed = 0
+        self.total_eff = 0
 
     # Loads map style
     def init_map(self):
@@ -265,12 +262,14 @@ class JSgen:
                     se2 = se;
             #We calculate the speed on kBs
             speed = cell[2]/float(hours * 60 * 60 * 1000)
+            self.total_speed += speed
             efficiency = cell[3] *100 / (cell[3] + cell[4])
+            self.total_eff += efficiency
 
             description_text = """<strong>Source = """ + se1.name + """</br>
             Destination = """ + se2.name + """</strong></br><hr>
             <font style="font-weight: bold">Connection info:</font> </br>
-            <div style="padding-left: 5px;">Throughput: %0.1f kB/s </br>"""%speed +\
+            <div style="padding-left: 5px;">Throughput: %0.1f KB/s </br>"""%speed +\
             """Efficiency: %0.0f"""%efficiency +  """% </br>
             Transfer Successes: """ + str(cell[3]) +  """ </br>
             Transfer Failures: """ + str(cell[4]) + """  </br>
@@ -302,6 +301,14 @@ class JSgen:
                              json.dumps(self.lines_list,indent = 2).replace('"',''))
         self.js_writer.write("\nvar linesColors = \n" + json.dumps(self.lines_colors,indent = 2))
         self.js_writer.write("\nvar linesDescription = \n" + json.dumps(self.lines_description,indent = 2))
+        #Write statistics
+        global_statistics = []
+        global_statistics.append(round(self.total_speed,1))
+        global_statistics.append(round(self.total_eff/len(self.lines_list),1))
+        global_statistics.append(len(self.ce_list))
+        global_statistics.append(len(self.se_list))
+        global_statistics.append(len(self.lines_list))
+        self.js_writer.write("\nvar global_statistics = \n" + json.dumps(global_statistics,indent = 2))
         self.js_writer.close()
 
 
