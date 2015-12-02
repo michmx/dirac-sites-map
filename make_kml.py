@@ -1,4 +1,10 @@
 #! /usr/bin/env python
+import sys
+sys.path.insert(0, './kml_gen')
+sys.path.insert(0, './js_gen')
+sys.path.insert(0, './dirac_script')
+
+from jobsummary import read_site_summary
 
 from kml_gen import *
 from lxml import etree
@@ -20,7 +26,9 @@ if not os.path.exists('./content/'):
     print "'content' directory created."
 
 # Pull the CE sites summary
-ce_sites = read_gb2_site_summary('info/gb2_site_summary.txt')
+ce_sites = read_site_summary()
+#To obtain the info without DIRAC enviroment (to test)
+#ce_sites = read_gb2_site_summary('info/gb2_site_summary.txt')
 
 # Pull the SE sites summary
 se_sites = read_gb2_list_se('info/gb2_list_se.txt')

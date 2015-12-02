@@ -5,14 +5,14 @@ sys.path.insert(0, './js_gen')
 sys.path.insert(0, './dirac_script')
 
 from js_gen import *
-#from jobsummary import read_site_summary
+from jobsummary import read_site_summary
 
 # A simple script to generate Javascript file
 map = JSgen('web/datagrid.js')
 # Include computing elements
-#ce_obj = read_site_summary()
+ce_obj = read_site_summary()
 #To obtain the info without DIRAC enviroment (to test)
-ce_obj = read_gb2_site_summary("info/gb2_site_summary.txt")
+#ce_obj = read_gb2_site_summary("info/gb2_site_summary.txt")
 for ce in ce_obj:
     map.add_ce_site(ce)
 
