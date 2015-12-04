@@ -1,10 +1,9 @@
 # kml-gen
-Take information from a text file and generates kml file to use on Google Earth.
+Takes information from DIRAC environment and generates JSON data to use on Google Maps, and kml file to use on Google Earth.
 
-The python script will generate `output/KMLGen.kml` file and images of each site. These should be compress on a `.kmz` file to make easier the load of information.
+The script `make_js.py` generates JSON data located on `web/datagrid.js`.
 
-To run the map, the KMZ file should be stored on a webserver.
+The python script `make_kml.py` will generate `output/KMLGen.kml` file and images of each site. These should be compress on a `.kmz` file to make easier the information transfer.
 
-We included too a Javascript generator, to display the map on Google Maps. The standard output is located on directory `web` .
 
 
