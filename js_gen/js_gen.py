@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import matplotlib.pyplot as plt
-import json, os, urllib2
+import json, os, urllib2, math
 from shutil import copyfile
 
 class CE_site:
@@ -134,7 +134,7 @@ def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, si
     labels = 'succeeded', 'failed'
     sizes = [jobs_succeeded, jobs_failed]
     colors = ['#04FB00', 'red']
-    plt.figure(figsize=size, dpi=100)
+    plt.figure(figsize=size, dpi=dpi)
     if jobs_failed + jobs_succeeded != 0:
         plt.pie(sizes, colors=colors, startangle=180, radius=0.8)
     else:
@@ -146,9 +146,9 @@ def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, si
 
 # Used to export Javascript objects
 class js_image:
-    def __init__(self, url, anchorx = 0, anchory = 0):
+    def __init__(self, url, anchorx = 0, anchory = 0, size=40):
         self.url = "'" + url + "'"
-        self.size = 'new google.maps.Size(40, 40)'
+        self.size = 'new google.maps.Size('+str(size)+', '+str(size)+')'
         self.origin = 'new google.maps.Point(0,0)'
         self.anchor = 'new google.maps.Point('+str(anchorx)+', '+str(anchory)+')'
 
@@ -188,15 +188,26 @@ class JSgen:
 
     # Include a computing element in the map
     def add_ce_site(self, ce):
+        # Calculate the size of the pie plot based on running jobs
+        min_jobs = 50
+        max_jobs = 5000
+        scale = 5.0
+        if int(ce.jobs_running) > max_jobs:
+            radius = math.log10(50)/scale
+        elif int(ce.jobs_running) < min_jobs:
+            radius = math.log10(50)/scale
+        else:
+            radius = math.log10(float(ce.jobs_running))/scale
+
         if not os.path.exists('./web/images/'):
             os.mkdir('./web/images')
         copyfile('input/cloud.png','./web/images/cloud.png')
         self.ce_list.append([ce.name, float(ce.coordinates[1]),float(ce.coordinates[0])])
-        pie_plot(ce.name, int(ce.jobs_done), int(ce.jobs_failed), 'web/images/', size = (0.4,0.4))
+        pie_plot(ce.name, int(ce.jobs_done), int(ce.jobs_failed), 'web/images/', size=(radius, radius))
         if 'CLOUD' in ce.name:
             self.images_list.append(js_image("images/cloud.png",0,0).__dict__)
         else:
-            self.images_list.append(js_image("images/pie_" + ce.name + ".png",0,0).__dict__)
+            self.images_list.append(js_image("images/pie_" + ce.name + ".png",0,0,radius*100).__dict__)
         jobs_total = int(ce.jobs_done) + int(ce.jobs_failed)
         if jobs_total != 0:
             description_text = '<strong>'+ ce.name + '</strong>' + \
@@ -206,7 +217,8 @@ class JSgen:
             ' (%.1f' % (int(ce.jobs_done)/float(jobs_total) *100) + """%) </br>
             Jobs Failed: """ + str(ce.jobs_failed) + ' (%.1f' % (int(ce.jobs_failed)/float(jobs_total)*100) + \
             """%) </br>
-            (Total: """ + str(jobs_total) + """)<br />
+            (Total: """ + str(jobs_total) + """)<br /><br />
+            Jobs Running: """+str(ce.jobs_running)+ """
             </div><br />     """
         else:
             description_text = '<strong>'+ ce.name + '</strong>' + \
@@ -277,7 +289,7 @@ class JSgen:
                 if se.endpoint[0] == cell[1]:
                     se2 = se;
             #We calculate the speed on kBs
-            speed = cell[2]/float(hours * 60 * 60 * 1000)
+            speed = cell[2]/float(hours * 60 * 1000)
             self.total_speed += speed
             efficiency = cell[3] *100 / (cell[3] + cell[4])
             self.total_eff += efficiency
@@ -318,7 +330,7 @@ class JSgen:
         self.js_writer.write("\nvar linesDescription = \n" + json.dumps(self.lines_description,indent = 2))
         # Write statistics
         global_statistics = []
-        global_statistics.append(round(self.total_speed,1))
+        global_statistics.append(round(self.total_speed/1000,1))
         global_statistics.append(round(self.total_eff/len(self.lines_list),1))
         global_statistics.append(len(self.ce_list))
         global_statistics.append(len(self.se_list))

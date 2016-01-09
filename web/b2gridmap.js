@@ -48,7 +48,7 @@ function initialize() {
     bandwidthDiv.style.paddingRight = '10px';
     bandwidthDiv.style.backgroundColor = 'white';
     bandwidthDiv.style.border = "thin solid black";;
-    bandwidthDiv.innerHTML = '<b>Total throughput: ' + global_statistics[0] + ' KB/s</b>';
+    bandwidthDiv.innerHTML = '<b>Total throughput: ' + global_statistics[0] + ' MB/s</b>';
     bandwidthDiv.innerHTML += '<br /><b>Efficiency: ' + global_statistics[1] + '%</b><br />';
     bandwidthDiv.innerHTML += '<br /><b>Compunting sites: '+ global_statistics[2] +'</b>';
     bandwidthDiv.innerHTML += '<br /><b>Storage element sites: '+ global_statistics[3] + '</b>';
