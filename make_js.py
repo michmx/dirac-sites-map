@@ -10,9 +10,9 @@ from js_gen import *
 # A simple script to generate Javascript file
 map = JSgen('web/datagrid.js')
 # Include computing elements
-ce_obj = read_site_summary()
+#ce_obj = read_site_summary()
 #To obtain the info without DIRAC enviroment (to test)
-#ce_obj = read_gb2_site_summary("info/gb2_site_summary.txt")
+ce_obj = read_gb2_site_summary("info/gb2_site_summary.txt")
 for ce in ce_obj:
     map.add_ce_site(ce)
 
@@ -25,7 +25,7 @@ for se in se_obj:
 map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                     'dashboard/request.py/transfer-matrix.json?' + \
                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
-                    '&dst_grouping=host&interval=720',720)
+                    '&dst_grouping=host&interval=40320',40320)
 
 map.init_map()
 map.close()

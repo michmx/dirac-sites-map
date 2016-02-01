@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import matplotlib.pyplot as plt
-import json, os, urllib2, math
+import json, os, urllib2, math, time
 from shutil import copyfile
 
 class CE_site:
@@ -147,7 +147,8 @@ def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, si
 # Used to export Javascript objects
 class js_image:
     def __init__(self, url, anchorx = 0, anchory = 0, size=40):
-        self.url = "'" + url + "'"
+        t = time.strftime("%Y/%m/%d:%H:%M", time.gmtime())
+        self.url = "'" + url + "?t="+ t + "'"
         self.size = 'new google.maps.Size('+str(size)+', '+str(size)+')'
         self.origin = 'new google.maps.Point(0,0)'
         self.anchor = 'new google.maps.Point('+str(anchorx)+', '+str(anchory)+')'
@@ -272,11 +273,16 @@ class JSgen:
         self.lines_list.append(line_coordinates)
         self.lines_colors.append(color)
 
+
     # Pull data from Dashboard JSON file
     def pull_dashboard(self, path, hours=720):
         se1 = SE_site()
         se2 = SE_site()
+
         js_data = urllib2.urlopen(path).read()
+        # Testing locally
+        #js_data = open('/Users/michmx/Dashboard.js','r').read()
+
         dashboard = json.loads(js_data)
         # For now, we only need the data transfer info
         data_matrix = dashboard['transfers']['rows']
