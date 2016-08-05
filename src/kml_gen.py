@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 from lxml import etree
-import json, urllib2
+import json, urllib2, math
 import os
 
 # Global
@@ -131,20 +131,32 @@ def read_data(file,split):
             data.append(row.split(split))
     return data
 
+
 # Draw a pie plot for each CE site
-def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, size = (0.5,0.5)):
+def pie_plot(site, path='content/'):
     if not os.path.exists(path):
             os.mkdir(path)
     labels = 'succeeded', 'failed'
-    sizes = [jobs_succeeded, jobs_failed]
+    sizes = [site.jobs_done, site.jobs_failed]
     colors = ['#04FB00', 'red']
-    plt.figure(figsize=size, dpi=100)
-    if jobs_failed + jobs_succeeded != 0:
-        plt.pie(sizes, colors=colors, startangle=180, radius=0.8)
+    # Calculate the size of the pie plot based on running jobs
+    dpi=100
+    min_jobs = 50
+    max_jobs = 5000
+    scale = 5.0
+    if int(site.jobs_running) > max_jobs:
+        radius = math.log10(5000)/scale
+    elif int(site.jobs_running) < min_jobs:
+        radius = math.log10(50)/scale
     else:
-        plt.pie([0,100],colors = ['black','white'], startangle = 180,radius = 0.8)
+        radius = math.log10(float(site.jobs_running))/scale
+    plt.figure(figsize=(radius,radius), dpi=dpi)
+    if site.jobs_failed + site.jobs_done != 0:
+        plt.pie(sizes, colors=colors, startangle=180, radius=radius)
+    else:
+        plt.pie([0,100],colors = ['black','white'], startangle = 180,radius = radius)
     plt.axis('equal')
-    plt.savefig(path + 'pie_' + site + '.png', transparent=True, dpi = dpi, figsize = size)
+    plt.savefig(path + 'pie_' + site.name + '.png', transparent=True, dpi = dpi, figsize = (radius,radius))
     plt.close()
 
 
@@ -260,7 +272,7 @@ def add_se_site(storage_site):
 
 
 # Add a style for line in the KML file
-def add_line_kml_style(se1, se2 ):
+def add_line_kml_style(se1, se2):
     id_text = se1.name + se2.name + '_style'
     kml_style = etree.Element('Style', id=id_text)
     icon_style = etree.Element('IconStyle')

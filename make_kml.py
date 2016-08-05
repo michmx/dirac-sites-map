@@ -2,9 +2,9 @@
 import sys
 sys.path.insert(0, './kml_gen')
 sys.path.insert(0, './js_gen')
-sys.path.insert(0, './dirac_script')
+#sys.path.insert(0, './dirac_script')
 
-from jobsummary import read_site_summary
+#from jobsummary import read_site_summary
 
 from kml_gen import *
 from lxml import etree
@@ -26,9 +26,9 @@ if not os.path.exists('./content/'):
     print "'content' directory created."
 
 # Pull the CE sites summary
-ce_sites = read_site_summary()
+#ce_sites = read_site_summary()
 #To obtain the info without DIRAC enviroment (to test)
-#ce_sites = read_gb2_site_summary('info/gb2_site_summary.txt')
+ce_sites = read_gb2_site_summary('info/gb2_site_summary.txt')
 
 # Pull the SE sites summary
 se_sites = read_gb2_list_se('info/gb2_list_se.txt')
@@ -43,7 +43,7 @@ for se in se_sites:
 # Include the CE sites
 for ce in ce_sites:
     kml_document.append(add_ce_site(ce))
-    pie_plot(ce.name, ce.jobs_done, ce.jobs_failed)
+    pie_plot(ce)
 
 # Include the SE sites
 for se in se_sites:
@@ -53,7 +53,7 @@ for se in se_sites:
 kml_lines = pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                     'dashboard/request.py/transfer-matrix.json?' + \
                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
-                    '&dst_grouping=host&interval=720',720)
+                    '&dst_grouping=host&interval=40320',40320)
 
 for line in kml_lines:
     kml_document.append(line)

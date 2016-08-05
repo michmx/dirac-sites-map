@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import matplotlib.pyplot as plt
-import json, os, urllib2, math, time
+import json, os, urllib2, math, time, pickle
 from shutil import copyfile
 
 class CE_site:
@@ -28,6 +28,7 @@ class SE_site:
         self.name = ce_name
         self.endpoint = ['', '']
         self.coordinates = [0,0]
+        self.health = ''
 
     def print_info(self):
         print "Name: " + self.name
@@ -194,7 +195,7 @@ class JSgen:
         max_jobs = 5000
         scale = 5.0
         if int(ce.jobs_running) > max_jobs:
-            radius = math.log10(50)/scale
+            radius = math.log10(5000)/scale
         elif int(ce.jobs_running) < min_jobs:
             radius = math.log10(50)/scale
         else:
@@ -233,14 +234,36 @@ class JSgen:
             """
         self.ce_description_list.append(description_text)
 
+
     # Include a computing element in the map
     def add_se_site(self, se):
+        # Take the health info of the SE sites
+        health = self.pull_se_health(se.name.replace('DATA','TMP'))
+        if  health != 0:
+            se.health = health
+
         self.se_active.append(se)
+
+        # Images of the SE sites
         if not os.path.exists('./web/images/'):
             os.mkdir('./web/images')
         copyfile('input/db_blue.png','./web/images/db_blue.png')
-        self.se_images_list.append(js_image("images/db_blue.png",35,0).__dict__)
-        if len(self.se_list) == 0:
+        copyfile('input/db_yellow.png','./web/images/db_yellow.png')
+        copyfile('input/db_red.png','./web/images/db_red.png')
+        copyfile('input/db_green.png','./web/images/db_green.png')
+        copyfile('input/db_unknown.png','./web/images/db_unknown.png')
+        copyfile('input/db_error.png','./web/images/db_error.png')
+        copyfile('input/db_66y.png','./web/images/db_66y.png')
+        copyfile('input/db_99y.png','./web/images/db_99y.png')
+        copyfile('input/db_33y.png','./web/images/db_33y.png')
+        copyfile('input/db_0y.png','./web/images/db_0y.png')
+
+        # To avoid duplicate sites (XXX-*-SE)
+        included = False
+        for se_included in self.se_list:
+            if se.name.split('-')[0] in se_included[0]:
+                included = True
+        if not included:
             self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0])])
             description_text = '<strong>'+ se.name + '</strong>' + \
             """</br><hr><font style="font-weight: bold">SE info:</font> </br>
@@ -248,25 +271,36 @@ class JSgen:
             Endpoint: """ + se.endpoint[0] + """ </br>
             </div><br />
             """
+
+
+             # The color depends of the health
+            if se.health == '':
+                self.se_images_list.append(js_image("images/db_unknown.png",35,0).__dict__)
+                description_text += """</br><div style="padding-left: 5px;">Free space: """ + \
+                                        'unknown' + " </div>"
+            else:
+                if se.health['isHealthy'] != 1:
+                    self.se_images_list.append(js_image("images/db_error.png",35,0).__dict__)
+
+                else:
+                    free_space = se.health['UnusedSizeBYTE']/float(se.health['GuaranteedSizeBYTE'])
+                    print se.name
+                    print free_space
+                    if free_space > 0.66:
+                        self.se_images_list.append(js_image("images/db_99y.png",35,0).__dict__)
+                    elif free_space <= 0.66 and free_space > 0.33:
+                        self.se_images_list.append(js_image("images/db_66y.png",35,0).__dict__)
+                    elif free_space < 0.33 and free_space > 0.05:
+                        self.se_images_list.append(js_image("images/db_33y.png",35,0).__dict__)
+                    else:
+                        self.se_images_list.append(js_image("images/db_0y.png",35,0).__dict__)
+                    description_text += """</br><div style="padding-left: 5px;">Free space: """ + \
+                                        str(format(free_space*100,'.2f')) + "% </div>"
+
             self.se_description_list.append(description_text)
-        else:
-            # To avoid duplicate sites (XXX-*-SE)
-            included = False
-            for se_included in self.se_list:
-                if se.name.split('-')[0] in se_included[0]:
-                  included = True
-            if not included:
-                self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0])])
-                description_text = '<strong>'+ se.name + '</strong>' + \
-                """</br><hr><font style="font-weight: bold">SE info:</font> </br>
-                <div style="padding-left: 5px;">Path: """ + se.path + """ </br>
-                Endpoint: """ + se.endpoint[0] + """ </br>
-                </div><br />
-                """
-                self.se_description_list.append(description_text)
 
     # Draw a line on the map
-    def draw_line(self, se1, se2, color = '#FF0000'):
+    def draw_line(self, se1, se2, color='#FF0000'):
         line_coordinates = []
         line_coordinates.append(dict(lat = float(se1.coordinates[1]), lng = float(se1.coordinates[0])))
         line_coordinates.append(dict(lat = float(se2.coordinates[1]), lng = float(se2.coordinates[0])))
@@ -318,6 +352,22 @@ class JSgen:
                 color = '#00CC00'
             self.draw_line(se1, se2, color)
             self.lines_description.append(description_text)
+
+
+    # Obtains SE health info
+    def pull_se_health(self, se_name = ''):
+
+        #To work for now without Dirac enviroment
+        js_se_health = open('input/healty.dat','r')
+        se_health = pickle.load(js_se_health)['Value']
+        js_se_health.close()
+
+        if se_name in se_health:
+            return se_health[se_name][0]
+        else:
+            return 0
+
+
 
 
     # Finishes the Javascript code
