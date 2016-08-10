@@ -103,7 +103,7 @@ function initialize() {
           geodesic: true,
           strokeColor: linesColors[j],
           strokeOpacity: 0.7,
-          strokeWeight: 3,
+          strokeWeight: linesStroke[j],
           html: linesDescription[j]
         });
         flightPath.setMap(map);

@@ -170,6 +170,7 @@ class JSgen:
         self.lines_list = []
         self.lines_colors = []
         self.lines_description = []
+        self.lines_stroke = []
         self.total_speed = 0
         self.total_eff = 0
 
@@ -300,12 +301,13 @@ class JSgen:
             self.se_description_list.append(description_text)
 
     # Draw a line on the map
-    def draw_line(self, se1, se2, color='#FF0000'):
+    def draw_line(self, se1, se2, color='#FF0000',strokeWeight = 3):
         line_coordinates = []
         line_coordinates.append(dict(lat = float(se1.coordinates[1]), lng = float(se1.coordinates[0])))
         line_coordinates.append(dict(lat = float(se2.coordinates[1]), lng = float(se2.coordinates[0])))
         self.lines_list.append(line_coordinates)
         self.lines_colors.append(color)
+        self.lines_stroke.append(strokeWeight)
 
 
     # Pull data from Dashboard JSON file
@@ -350,7 +352,12 @@ class JSgen:
                 color = '#0033FF'
             else:
                 color = '#00CC00'
-            self.draw_line(se1, se2, color)
+            # The stroke weight of the line depends of the throughput.
+            if speed < 1:
+                self.draw_line(se1, se2, color, 1)
+            else:
+                print 'Speed:', 1 + math.log(speed,2)
+                self.draw_line(se1, se2, color, 1 + math.log(speed,2))
             self.lines_description.append(description_text)
 
 
@@ -384,6 +391,7 @@ class JSgen:
                              json.dumps(self.lines_list,indent = 2).replace('"',''))
         self.js_writer.write("\nvar linesColors = \n" + json.dumps(self.lines_colors,indent = 2))
         self.js_writer.write("\nvar linesDescription = \n" + json.dumps(self.lines_description,indent = 2))
+        self.js_writer.write("\nvar linesStroke = \n" + json.dumps(self.lines_stroke,indent = 2))
         # Write statistics
         global_statistics = []
         global_statistics.append(round(self.total_speed/1000,1))
