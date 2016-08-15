@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 from lxml import etree
-import json, urllib2, math
+import json, urllib2, math, pickle
 import os
 
 # Global
@@ -32,6 +32,7 @@ class SE_site:
         self.name = ce_name
         self.endpoint = ['', '']
         self.coordinates = [0,0]
+        self.health = ''
 
     def print_info(self):
         print "Name: " + self.name
@@ -160,7 +161,6 @@ def pie_plot(site, path='content/'):
     plt.close()
 
 
-
 # Add a style for Computing Element to the KML file
 def add_ce_kml_style(name):
     id_text = name + '_style'
@@ -173,14 +173,49 @@ def add_ce_kml_style(name):
     return kml_style
 
 
+# Obtains SE health info
+def pull_se_health(se_name = ''):
+    # To work for now without Dirac enviroment
+    js_se_health = open('input/healty.dat','r')
+    se_health = pickle.load(js_se_health)['Value']
+    js_se_health.close()
+    if se_name in se_health:
+        return se_health[se_name][0]
+    else:
+        return 0
+
 # Add a style for Storage Element to the KML file
 def add_se_kml_style(name):
     id_text = name + '_style'
     kml_style = etree.Element('Style', id=id_text)
     icon_style = etree.Element('IconStyle')
     etree.SubElement(icon_style,'scale').text = str(1.3)
-    etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
-                            'db_blue.png'
+
+    # Read the health of the site
+    health = pull_se_health(name.replace('DATA','TMP'))
+    if health == 0:
+        etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
+                            'db_unknown.png'
+    else:
+        if health['isHealthy'] != 1:
+            etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
+                            'db_error.png'
+        else:
+            free_space = health['UnusedSizeBYTE']/float(health['GuaranteedSizeBYTE'])
+            print name
+            print free_space
+            if free_space > 0.66:
+                etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
+                            'db_99y.png'
+            elif free_space <= 0.66 and free_space > 0.33:
+                etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
+                            'db_66y.png'
+            elif free_space < 0.33 and free_space > 0.05:
+                etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
+                            'db_33y.png'
+            else:
+                etree.SubElement(etree.SubElement(icon_style,'Icon'),'href').text =  \
+                            'db_0y.png'
     kml_style.append(icon_style)
     return kml_style
 

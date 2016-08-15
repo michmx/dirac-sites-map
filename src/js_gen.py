@@ -240,7 +240,7 @@ class JSgen:
     def add_se_site(self, se):
         # Take the health info of the SE sites
         health = self.pull_se_health(se.name.replace('DATA','TMP'))
-        if  health != 0:
+        if health != 0:
             se.health = health
 
         self.se_active.append(se)
@@ -272,9 +272,7 @@ class JSgen:
             Endpoint: """ + se.endpoint[0] + """ </br>
             </div><br />
             """
-
-
-             # The color depends of the health
+            # The color depends of the health
             if se.health == '':
                 self.se_images_list.append(js_image("images/db_unknown.png",35,0).__dict__)
                 description_text += """</br><div style="padding-left: 5px;">Free space: """ + \

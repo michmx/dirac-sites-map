@@ -1,12 +1,12 @@
 #! /usr/bin/env python
 import sys
-sys.path.insert(0, './kml_gen')
-sys.path.insert(0, './js_gen')
+# sys.path.insert(0, './kml_gen')
+# sys.path.insert(0, './js_gen')
 #sys.path.insert(0, './dirac_script')
 
 #from jobsummary import read_site_summary
 
-from kml_gen import *
+from src.kml_gen import *
 from lxml import etree
 from shutil import copyfile
 import os, zipfile
@@ -35,6 +35,14 @@ se_sites = read_gb2_list_se('info/gb2_list_se.txt')
 
 # Include the styles
 copyfile('./input/db_blue.png','./content/db_blue.png')
+copyfile('./input/db_unknown.png','./content/db_unknown.png')
+copyfile('./input/db_error.png','./content/db_error.png')
+copyfile('./input/db_99y.png','./content/db_99y.png')
+copyfile('./input/db_66y.png','./content/db_66y.png')
+copyfile('./input/db_33y.png','./content/db_33y.png')
+copyfile('./input/db_0y.png','./content/db_0y.png')
+
+
 for ce in ce_sites:
     kml_document.append(add_ce_kml_style(ce.name))
 for se in se_sites:
@@ -47,7 +55,7 @@ for ce in ce_sites:
 
 # Include the SE sites
 for se in se_sites:
-    if not 'TMP' in se.name and not 'DATA' in se.name :
+    if 'TMP' in se.name or 'DATA' in se.name :
         kml_document.append(add_se_site(se))
 
 kml_lines = pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
