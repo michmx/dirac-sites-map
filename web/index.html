@@ -11,6 +11,23 @@
         width: 100%;
         height: 100%;
       }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 30%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Helvetica';
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+
     </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="datagrid.js"></script>
@@ -26,9 +43,19 @@
   <META HTTP-EQUIV="Expires" CONTENT="-1">
   </head>
   <body>
+
+<!-- [START region_toolbar] -->
+    <div id="floating-panel">
+        Show / Hide :
+      <input type="button" value="Computing sites" onclick="toogleCE();"></input>
+      <input type="button" value="Storage sites" onclick="toogleSE();"></input>
+      <input type="button" value="Connections" onclick="toogleLines();"></input>
+    </div>
+<!-- [END region_toolbar] -->
     <div id="map"></div>
     <div id="legend"><h3>Legend</h3></div>
-    
+
+
  </body>
 </html>
 

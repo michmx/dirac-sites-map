@@ -344,6 +344,7 @@ class JSgen:
             Transfer Successes: """ + str(cell[3]) +  """ </br>
             Transfer Failures: """ + str(cell[4]) + """  </br>
             </div><br />"""
+            # The color depends of the efficiency
             if efficiency < 20:
                 color = '#FF0000'
             elif efficiency >= 20 and efficiency < 60:
@@ -358,6 +359,7 @@ class JSgen:
             else:
                 print 'Speed:', 1 + math.log(speed,2)
                 self.draw_line(se1, se2, color, 1 + math.log(speed,2))
+
             self.lines_description.append(description_text)
 
 
@@ -373,9 +375,6 @@ class JSgen:
             return se_health[se_name][0]
         else:
             return 0
-
-
-
 
     # Finishes the Javascript code
     def close(self):

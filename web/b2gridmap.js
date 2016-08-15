@@ -22,8 +22,15 @@ function ViewControl(controlDiv, map, name, latLng, zoom) {
   });
 }
 
+var SEsites = [];
+var CEsites = [];
+var Lines = [];
+
+// Contains the info of the map outside the initialize function
+var pointMap;
 
 function initialize() {
+
     var mapCanvas = document.getElementById('map');
 
     var mapOptions = {
@@ -32,11 +39,14 @@ function initialize() {
         styles: mapStyle,
         streetViewControl: false,
         mapTypeId: google.maps.MapTypeId.SATELLITE,
-        mapTypeControl: false
-
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.LEFT_BOTTOM
+        }
     }
-    var map = new google.maps.Map(mapCanvas, mapOptions)
-    
+
+    var map = new google.maps.Map(mapCanvas, mapOptions)    
 
     var bandwidthDiv = document.createElement('h3');
     bandwidthDiv.style.fontFamily='Helvetica';
@@ -62,7 +72,6 @@ function initialize() {
     var Oceania = new ViewControl(ViewDiv, map, 'Oceania', [ -30.8, 140.6], 5);
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(ViewDiv);
 
-
     for (var i = 0; i < ce_sites.length; i++) {
         var ce_site = ce_sites[i];
         var ce_marker = new google.maps.Marker({
@@ -79,6 +88,7 @@ function initialize() {
           infowindow.setContent(this.html);
           infowindow.open(map, this);
         });
+        CEsites.push(ce_marker);
     }
     for (var j = 0; j < se_sites.length; j++) {
         var se_site = se_sites[j];
@@ -96,6 +106,7 @@ function initialize() {
           infowindow.setContent(this.html);
           infowindow.open(map, this);
         });
+        SEsites.push(se_marker);
     }
     for (var j = 0; j < lineCoordinates.length; j++) {
         var flightPath = new google.maps.Polyline({
@@ -111,11 +122,14 @@ function initialize() {
         {
           infowindow = new google.maps.InfoWindow({content: "Loading..."});
           infowindow.setContent(this.html);
-        infowindow.setPosition(e.latLng);
+          infowindow.setPosition(e.latLng);
           infowindow.open(map);
 
         });
+        Lines.push(flightPath);
     }
+
+    pointMap = map;
     // var legend = document.getElementById('legend');
     // var type = images[0];
     // var name = 'Computing Element';
@@ -131,7 +145,61 @@ function initialize() {
     // legend.appendChild(div);
     // map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
 
-    
+}
+
+// To know the status of the sites
+var CEvisible = true;
+var SEvisible = true;
+var Linesvisible = true;
+
+
+// Show or hide the sites
+function toogleCE(){
+  if(CEvisible){
+    setMapOnAll(CEsites,null);
+    CEvisible = false;
+  }
+  else{
+   setMapOnAll(CEsites,pointMap);
+   CEvisible = true;
+  }
+}
+
+function toogleSE(){
+  if(SEvisible){
+    setMapOnAll(SEsites,null);
+    SEvisible = false;
+    setMapOnAll(Lines,null);
+    Linesvisible = false;
+  }
+  else{
+   setMapOnAll(SEsites,pointMap);
+   SEvisible = true;
+  }
+}
+
+function toogleLines(){
+  if(Linesvisible){
+    setMapOnAll(Lines,null);
+    Linesvisible = false;
+  }
+  else{
+   setMapOnAll(SEsites,pointMap);
+   SEvisible = true;
+   setMapOnAll(Lines,pointMap);
+   Linesvisible = true;
+  }
+}
+
+
+
+
+
+// Sets the map on all markers in the array.
+function setMapOnAll(sites,map) {
+  for (var i = 0; i < sites.length; i++){
+    sites[i].setMap(map);
+  }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
