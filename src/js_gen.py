@@ -4,6 +4,13 @@ import matplotlib.pyplot as plt
 import json, os, urllib2, math, time, pickle
 from shutil import copyfile
 
+try:
+    from dirac_script.health_sites import *
+except ImportError:
+    print "Dirac enviroment not ready. Reading SE health from file."
+    Dirac_env = False
+
+
 class CE_site:
     def __init__(self, se_name = 'CE'):
         self.name = se_name
@@ -173,6 +180,7 @@ class JSgen:
         self.lines_stroke = []
         self.total_speed = 0
         self.total_eff = 0
+        self.Dirac_env = Dirac_env
 
     # Loads map style
     def init_map(self):
@@ -283,8 +291,6 @@ class JSgen:
 
                 else:
                     free_space = se.health['UnusedSizeBYTE']/float(se.health['GuaranteedSizeBYTE'])
-                    print se.name
-                    print free_space
                     if free_space > 0.66:
                         self.se_images_list.append(js_image("images/db_99y.png",35,0).__dict__)
                     elif free_space <= 0.66 and free_space > 0.33:
@@ -355,7 +361,6 @@ class JSgen:
             if speed < 1:
                 self.draw_line(se1, se2, color, 1)
             else:
-                print 'Speed:', 1 + math.log(speed,2)
                 self.draw_line(se1, se2, color, 1 + math.log(speed,2))
 
             self.lines_description.append(description_text)
@@ -363,11 +368,23 @@ class JSgen:
 
     # Obtains SE health info
     def pull_se_health(self, se_name = ''):
-
-        #To work for now without Dirac enviroment
-        js_se_health = open('input/healty.dat','r')
-        se_health = pickle.load(js_se_health)['Value']
-        js_se_health.close()
+        if self.Dirac_env:
+            if not os.path.exists('input/health.tmp'):
+                result = get_health()
+                file_name = 'input/health.tmp'
+                file_obj = open(file_name,'wb')
+                pickle.dump(result,file_obj)
+                file_obj.close()
+                se_health = result
+            else:
+                js_se_health = open('input/health.tmp','r')
+                se_health = pickle.load(js_se_health)['Value']
+                js_se_health.close()
+        else:
+            #To work for now without Dirac enviroment
+            js_se_health = open('input/healty.dat','r')
+            se_health = pickle.load(js_se_health)['Value']
+            js_se_health.close()
 
         if se_name in se_health:
             return se_health[se_name][0]
@@ -398,6 +415,8 @@ class JSgen:
         global_statistics.append(len(self.lines_list))
         self.js_writer.write("\nvar global_statistics = \n" + json.dumps(global_statistics,indent = 2))
         self.js_writer.close()
+        if os.path.exists('input/health.tmp'):
+            os.remove('input/health.tmp')
 
 
 

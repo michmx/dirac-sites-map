@@ -5,16 +5,24 @@
 #sys.path.insert(0, './dirac_script')
 
 from src.js_gen import *
-#from jobsummary.dirac_script import read_site_summary
+
+try:
+    from jobsummary.dirac_script import read_site_summary
+except ImportError:
+    print "Dirac enviroment not ready. Reading CE sites from file."
+    Dirac_env = False
 
 # A simple script to generate Javascript file
 map = JSgen('web/datagrid.js')
 
-# Include computing elements
-#ce_obj = read_site_summary()
+if Dirac_env:
+    print "Running with Dirac enviroment"
+    # Include computing elements
+    ce_obj = read_site_summary()
+else:
+    #To obtain the info without DIRAC enviroment (to test)
+    ce_obj = read_gb2_site_summary("info/gb2_site_summary.txt")
 
-#To obtain the info without DIRAC enviroment (to test)
-ce_obj = read_gb2_site_summary("info/gb2_site_summary.txt")
 for ce in ce_obj:
     map.add_ce_site(ce)
 
