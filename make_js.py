@@ -7,7 +7,8 @@
 from src.js_gen import *
 
 try:
-    from jobsummary.dirac_script import read_site_summary
+    from dirac_script.jobsummary import read_site_summary
+    Dirac_env = True
 except ImportError:
     print "Dirac enviroment not ready. Reading CE sites from file."
     Dirac_env = False
@@ -35,7 +36,7 @@ for se in se_obj:
 map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                     'dashboard/request.py/transfer-matrix.json?' + \
                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
-                    '&dst_grouping=host&interval=40320',40320)
+                    '&dst_grouping=host&interval=720',720)
 
 map.init_map()
 map.close()

@@ -3,9 +3,11 @@
 import matplotlib.pyplot as plt
 import json, os, urllib2, math, time, pickle
 from shutil import copyfile
+from datetime import datetime
 
 try:
     from dirac_script.health_sites import *
+    Dirac_env = True
 except ImportError:
     print "Dirac enviroment not ready. Reading SE health from file."
     Dirac_env = False
@@ -181,6 +183,9 @@ class JSgen:
         self.total_speed = 0
         self.total_eff = 0
         self.Dirac_env = Dirac_env
+        
+        if os.path.exists('input/health.tmp'):
+            os.remove('input/health.tmp')
 
     # Loads map style
     def init_map(self):
@@ -409,10 +414,16 @@ class JSgen:
         # Write statistics
         global_statistics = []
         global_statistics.append(round(self.total_speed/1000,1))
-        global_statistics.append(round(self.total_eff/len(self.lines_list),1))
+        if len(self.lines_list) != 0:
+            global_statistics.append(round(self.total_eff/len(self.lines_list),1))
+        else:
+            global_statistics.append('-')
         global_statistics.append(len(self.ce_list))
         global_statistics.append(len(self.se_list))
         global_statistics.append(len(self.lines_list))
+        # Get the date of the update
+        now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+        global_statistics.append(now+' UTC')
         self.js_writer.write("\nvar global_statistics = \n" + json.dumps(global_statistics,indent = 2))
         self.js_writer.close()
         if os.path.exists('input/health.tmp'):

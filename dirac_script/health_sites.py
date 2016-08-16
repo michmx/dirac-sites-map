@@ -11,3 +11,7 @@ service = RPCClient('DistributedDataManagement/StorageElementStatus')
 def get_health():
     result = service.getHealthyProductionSEs()
     return result
+
+if __name__ == "__main__":
+    result = get_health()
+    pprint(result)
