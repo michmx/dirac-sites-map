@@ -63,6 +63,7 @@ function initialize() {
     bandwidthDiv.innerHTML += '<br /><b>Compunting sites: '+ global_statistics[2] +'</b>';
     bandwidthDiv.innerHTML += '<br /><b>Storage element sites: '+ global_statistics[3] + '</b>';
     bandwidthDiv.innerHTML += '<br /><b>Total connections: '+ global_statistics[4] + '</b>';
+    bandwidthDiv.innerHTML += '<br /><br /><b>Last updated: <br />'+ global_statistics[5] + '</b>';
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(bandwidthDiv);
 
     var ViewDiv = document.createElement('div');
