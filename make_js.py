@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-#import sys
+from os import system
 #sys.path.insert(0, './js_gen')
 #sys.path.insert(0, './dirac_script')
 
@@ -27,7 +27,12 @@ for ce in ce_obj:
     map.add_ce_site(ce)
 
 # Include storage elements too
+if Dirac_env:
+    system('gb2_list_se -l > info/gb2_list_se.txt')
+else:
+    print 'Dirac enviroment not ready. Using last info obtained from gb2_list_se.'
 se_obj = read_gb2_list_se("info/gb2_list_se.txt")
+
 for se in se_obj:
     map.add_se_site(se)
 
