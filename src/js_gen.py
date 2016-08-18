@@ -33,16 +33,16 @@ class SE_site:
     def __init__(self, ce_name = 'SE'):
         self.read = ''
         self.write = ''
-        self.host = ''
+        self.path = ''
         self.name = ce_name
-        self.endpoint = ['', '']
+        self.host = ['', '']
         self.coordinates = [0,0]
         self.health = ''
 
     def print_info(self):
         print "Name: " + self.name
-        print "Host: " + self.host
-        print "Endpoint: " + self.endpoint[0] + " : " + self.endpoint[1]
+        print "Host: " + self.path
+        print "Endpoint: " + self.host[0] + " : " + self.host[1]
         print "Read/Write: " + self.read + "/" + self.write
         print "Coordinates: " + str(self.coordinates[0]) + "," + str(self.coordinates[1])
 
@@ -66,11 +66,11 @@ def read_gb2_list_se(file_path):
                 aux += 1
                 se_site.append(SE_site(data_file[i][j].strip()))
             if counter%10. == 2:
-                se_site[aux].endpoint[0] = data_file[i][j].strip()
+                se_site[aux].host[0] = data_file[i][j].strip()
             if counter%10. == 3:
-                se_site[aux].endpoint[1] = data_file[i][j].strip()
+                se_site[aux].host[1] = data_file[i][j].strip()
             if counter%10. == 5:
-                se_site[aux].host = data_file[i][j].strip()
+                se_site[aux].path = data_file[i][j].strip()
             if counter%10. == 7:
                 se_site[aux].read = data_file[i][j].strip()
             if counter%10. == 9:
@@ -176,6 +176,7 @@ class JSgen:
         self.se_images_list = []
         self.ce_description_list = []
         self.se_description_list = []
+        self.se_description_list_space = []
         self.lines_list = []
         self.lines_colors = []
         self.lines_description = []
@@ -183,6 +184,20 @@ class JSgen:
         self.total_speed = 0
         self.total_eff = 0
         self.Dirac_env = Dirac_env
+
+        # Images of the SE sites
+        if not os.path.exists('./web/images/'):
+            os.mkdir('./web/images')
+        copyfile('input/db_blue.png','./web/images/db_blue.png')
+        copyfile('input/db_yellow.png','./web/images/db_yellow.png')
+        copyfile('input/db_red.png','./web/images/db_red.png')
+        copyfile('input/db_green.png','./web/images/db_green.png')
+        copyfile('input/db_unknown.png','./web/images/db_unknown.png')
+        copyfile('input/db_error.png','./web/images/db_error.png')
+        copyfile('input/db_66y.png','./web/images/db_66y.png')
+        copyfile('input/db_99y.png','./web/images/db_99y.png')
+        copyfile('input/db_33y.png','./web/images/db_33y.png')
+        copyfile('input/db_0y.png','./web/images/db_0y.png')
         
         if os.path.exists('input/health.tmp'):
             os.remove('input/health.tmp')
@@ -252,44 +267,26 @@ class JSgen:
     # Include a computing element in the map
     def add_se_site(self, se):
         # Take the health info of the SE sites
-        health = self.pull_se_health(se.name.replace('DATA','TMP'))
+        health = self.pull_se_health(se.name)
         if health != 0:
             se.health = health
 
         self.se_active.append(se)
 
-        # Images of the SE sites
-        if not os.path.exists('./web/images/'):
-            os.mkdir('./web/images')
-        copyfile('input/db_blue.png','./web/images/db_blue.png')
-        copyfile('input/db_yellow.png','./web/images/db_yellow.png')
-        copyfile('input/db_red.png','./web/images/db_red.png')
-        copyfile('input/db_green.png','./web/images/db_green.png')
-        copyfile('input/db_unknown.png','./web/images/db_unknown.png')
-        copyfile('input/db_error.png','./web/images/db_error.png')
-        copyfile('input/db_66y.png','./web/images/db_66y.png')
-        copyfile('input/db_99y.png','./web/images/db_99y.png')
-        copyfile('input/db_33y.png','./web/images/db_33y.png')
-        copyfile('input/db_0y.png','./web/images/db_0y.png')
-
         # To avoid duplicate sites (XXX-*-SE)
         included = False
         for se_included in self.se_list:
-            if se.name.split('-')[0] in se_included[0]:
+            if se.host == se_included[3]:
                 included = True
         if not included:
-            self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0])])
-            description_text = '<strong>'+ se.name + '</strong>' + \
-            """</br><hr><font style="font-weight: bold">SE info:</font> </br>
-            <div style="padding-left: 5px;">Host: """ + se.host + """ </br>
-            Endpoint: """ + se.endpoint[0] + """ </br>
-            </div><br />
-            """
+            self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0]),se.host])
+            description_text = '<strong>'+ se.host[0] + '</strong></br><hr>'
+
             # The color depends of the health
             if se.health == '':
                 self.se_images_list.append(js_image("images/db_unknown.png",35,0).__dict__)
-                description_text += """</br><div style="padding-left: 5px;">Free space: """ + \
-                                        'unknown' + " </div>"
+                description_text += """<strong>Free space: """ + \
+                                        'unknown' + " </strong></br></br>"
             else:
                 if se.health['isHealthy'] != 1:
                     self.se_images_list.append(js_image("images/db_error.png",35,0).__dict__)
@@ -304,10 +301,47 @@ class JSgen:
                         self.se_images_list.append(js_image("images/db_33y.png",35,0).__dict__)
                     else:
                         self.se_images_list.append(js_image("images/db_0y.png",35,0).__dict__)
-                    description_text += """</br><div style="padding-left: 5px;">Free space: """ + \
-                                        str(format(free_space*100,'.2f')) + "% </div>"
+                    description_text += """<strong>Free space: """ + \
+                                        str(format(free_space*100,'.2f')) + "% </strong></br>"
+
+            description_text += """<font style="font-weight: bold">Endpoints:</font> </br>"""
+            description_text += """<div style="padding-left: 5px;">Endpoint: """ + se.name + """ </br>
+            Path: """ + se.path + """ </br>
+            </div>
+            """
 
             self.se_description_list.append(description_text)
+            #self.se_description_list_space.append(description_text_space)
+
+        else:
+            for x in range(len(self.se_list)):
+                if se.host == self.se_list[x][3]:
+                    self.se_description_list[x] += """----- </br>
+                    <div style="padding-left: 5px;">Endpoint: """ + se.name + """ </br>
+                    Path: """ + se.path + """ </br>
+                    </div>
+                    """
+
+                    # The color depends of the health
+                    if se.health != '':
+                        if se.health['isHealthy'] != 1:
+                            self.se_images_list[x] = js_image("images/db_error.png",35,0).__dict__
+                        else:
+                            free_space = se.health['UnusedSizeBYTE']/float(se.health['GuaranteedSizeBYTE'])
+                            if free_space > 0.66:
+                                self.se_images_list[x] = js_image("images/db_99y.png",35,0).__dict__
+                            elif free_space <= 0.66 and free_space > 0.33:
+                                self.se_images_list[x] = js_image("images/db_66y.png",35,0).__dict__
+                            elif free_space < 0.33 and free_space > 0.05:
+                                self.se_images_list[x] = js_image("images/db_33y.png",35,0).__dict__
+                            else:
+                                self.se_images_list[x] = js_image("images/db_0y.png",35,0).__dict__
+                            space = str(format(free_space*100,'.2f')) + "%"
+                            self.se_description_list[x] = self.se_description_list[x].replace('unknown',space)
+                            #description_text_space = """</br><div style="padding-left: 5px;"><strong>Free space: """ + \
+                            #str(format(free_space*100,'.2f')) + "% </strong></div>"
+                            #self.se_description_list_space[x] = description_text_space
+
 
     # Draw a line on the map
     def draw_line(self, se1, se2, color='#FF0000',strokeWeight = 3):
@@ -334,10 +368,10 @@ class JSgen:
         # Search the pair of SE elements
         for cell in data_matrix:
             for se in self.se_active:
-                if se.endpoint[0] == cell[0]:
+                if se.host[0] == cell[0]:
                     se1 = se;
             for se in self.se_active:
-                if se.endpoint[0] == cell[1]:
+                if se.host[0] == cell[1]:
                     se2 = se;
             #We calculate the speed on kBs
             speed = cell[2]/float(hours * 60 * 1000)
@@ -402,6 +436,9 @@ class JSgen:
         self.js_writer.write("\nvar ce_sites = \n" + json.dumps(self.ce_list,indent = 2))
         self.js_writer.write("\nvar se_sites = \n" + json.dumps(self.se_list,indent = 2))
         self.js_writer.write("\nvar contentString = \n" + json.dumps(self.ce_description_list,indent = 2))
+        # To include the free space info
+        #for x in range(len(self.se_description_list)):
+        #    self.se_description_list[x] += self.se_description_list_space[x]
         self.js_writer.write("\nvar se_contentString = \n" + json.dumps(self.se_description_list,indent = 2))
         self.js_writer.write("\n\nvar images = \n" + json.dumps(self.images_list,indent = 2).replace('"',''))
         self.js_writer.write("\n\nvar images_se = \n" + json.dumps(self.se_images_list,indent = 2).replace('"',''))

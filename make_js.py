@@ -34,6 +34,7 @@ else:
     print 'Dirac enviroment not ready. Using last info obtained from gb2_list_se.'
 se_obj = read_gb2_list_se("info/gb2_list_se.txt")
 
+
 for se in se_obj:
     map.add_se_site(se)
 
