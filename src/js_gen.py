@@ -33,7 +33,7 @@ class SE_site:
     def __init__(self, ce_name = 'SE'):
         self.read = ''
         self.write = ''
-        self.path = ''
+        self.host = ''
         self.name = ce_name
         self.endpoint = ['', '']
         self.coordinates = [0,0]
@@ -41,7 +41,7 @@ class SE_site:
 
     def print_info(self):
         print "Name: " + self.name
-        print "Path: " + self.path
+        print "Host: " + self.host
         print "Endpoint: " + self.endpoint[0] + " : " + self.endpoint[1]
         print "Read/Write: " + self.read + "/" + self.write
         print "Coordinates: " + str(self.coordinates[0]) + "," + str(self.coordinates[1])
@@ -70,7 +70,7 @@ def read_gb2_list_se(file_path):
             if counter%10. == 3:
                 se_site[aux].endpoint[1] = data_file[i][j].strip()
             if counter%10. == 5:
-                se_site[aux].path = data_file[i][j].strip()
+                se_site[aux].host = data_file[i][j].strip()
             if counter%10. == 7:
                 se_site[aux].read = data_file[i][j].strip()
             if counter%10. == 9:
@@ -204,16 +204,16 @@ class JSgen:
 
     # Include a computing element in the map
     def add_ce_site(self, ce):
-        # Calculate the size of the pie plot based on running jobs
-        min_jobs = 50
-        max_jobs = 5000
-        scale = 5.0
-        if int(ce.jobs_running) > max_jobs:
-            radius = math.log10(5000)/scale
-        elif int(ce.jobs_running) < min_jobs:
-            radius = math.log10(50)/scale
+        # Calculate the size of the pie plot based on total jobs
+        min_jobs = 1000
+        max_jobs = 1000000
+        scale = 9.0
+        if int(ce.jobs_done) > max_jobs:
+            radius = math.log10(max_jobs)/scale
+        elif int(ce.jobs_done) < min_jobs:
+            radius = math.log10(min_jobs)/scale
         else:
-            radius = math.log10(float(ce.jobs_running))/scale
+            radius = math.log10(float(ce.jobs_done))/scale
 
         if not os.path.exists('./web/images/'):
             os.mkdir('./web/images')
@@ -281,7 +281,7 @@ class JSgen:
             self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0])])
             description_text = '<strong>'+ se.name + '</strong>' + \
             """</br><hr><font style="font-weight: bold">SE info:</font> </br>
-            <div style="padding-left: 5px;">Path: """ + se.path + """ </br>
+            <div style="padding-left: 5px;">Host: """ + se.host + """ </br>
             Endpoint: """ + se.endpoint[0] + """ </br>
             </div><br />
             """
@@ -422,7 +422,7 @@ class JSgen:
         global_statistics.append(len(self.se_list))
         global_statistics.append(len(self.lines_list))
         # Get the date of the update
-        now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+        now = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
         global_statistics.append(now+' UTC')
         self.js_writer.write("\nvar global_statistics = \n" + json.dumps(global_statistics,indent = 2))
         self.js_writer.close()

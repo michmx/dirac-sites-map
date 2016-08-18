@@ -71,6 +71,7 @@ function initialize() {
     var Europe = new ViewControl(ViewDiv, map, 'Europe', [46.0, 14.5], 5);
     var America = new ViewControl(ViewDiv, map, 'America', [ 30.8, -87.6], 4);
     var Oceania = new ViewControl(ViewDiv, map, 'Oceania', [ -30.8, 140.6], 5);
+    var Oceania = new ViewControl(ViewDiv, map, 'Global', [ 30., 0.5463], 2);
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(ViewDiv);
 
     for (var i = 0; i < ce_sites.length; i++) {

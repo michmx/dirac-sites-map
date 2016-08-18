@@ -41,7 +41,7 @@ for se in se_obj:
 map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                     'dashboard/request.py/transfer-matrix.json?' + \
                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
-                    '&dst_grouping=host&interval=720',720)
+                    '&dst_grouping=host&interval=50000',50000)
 
 map.init_map()
 map.close()
