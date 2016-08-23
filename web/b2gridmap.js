@@ -29,6 +29,7 @@ var Lines = [];
 // Contains the info of the map outside the initialize function
 var pointMap;
 
+
 function initialize() {
 
     var mapCanvas = document.getElementById('map');
@@ -47,6 +48,12 @@ function initialize() {
     }
 
     var map = new google.maps.Map(mapCanvas, mapOptions)    
+
+    // To display multiple markers at the same point
+    var oms = new OverlappingMarkerSpiderfier(map,
+            {markersWontMove: false, markersWontHide: false, nearbyDistance: 20, circleSpiralSwitchover: Infinity});
+    var oms_se = new OverlappingMarkerSpiderfier(map,
+            {markersWontMove: false, markersWontHide: false, nearbyDistance: 20, circleSpiralSwitchover: Infinity});
 
     var bandwidthDiv = document.createElement('h3');
     bandwidthDiv.style.fontFamily='Helvetica';
@@ -84,14 +91,21 @@ function initialize() {
             //zIndex: ce_site[3],
             html: contentString[i]
         });
-        ce_marker.addListener('click',function()
-        {
-          infowindow = new google.maps.InfoWindow({content: "Loading..."});
-          infowindow.setContent(this.html);
-          infowindow.open(map, this);
-        });
+        
+        oms.addMarker(ce_marker)
         CEsites.push(ce_marker);
     }
+
+    oms.addListener('click',function(marker,event){
+      infowindow = new google.maps.InfoWindow({content: "Loading..."});
+      infowindow.setContent(marker.html);
+      infowindow.open(map, marker);
+    });
+
+    oms.addListener('spiderfy', function(markers) {
+        infowindow.close();
+    });
+
     for (var j = 0; j < se_sites.length; j++) {
         var se_site = se_sites[j];
         var se_marker = new google.maps.Marker({
@@ -102,14 +116,20 @@ function initialize() {
             //zIndex: j,
             html: se_contentString[j]
         });
-        se_marker.addListener('click',function()
-        {
-          infowindow = new google.maps.InfoWindow({content: "Loading..."});
-          infowindow.setContent(this.html);
-          infowindow.open(map, this);
-        });
+        oms_se.addMarker(se_marker)
         SEsites.push(se_marker);
     }
+
+    oms_se.addListener('click',function(marker,event){
+      infowindow = new google.maps.InfoWindow({content: "Loading..."});
+      infowindow.setContent(marker.html);
+      infowindow.open(map, marker);
+    });
+
+    oms_se.addListener('spiderfy', function(markers) {
+        infowindow.close();
+    });
+
     for (var j = 0; j < lineCoordinates.length; j++) {
         var flightPath = new google.maps.Polyline({
           path: lineCoordinates[j],
@@ -132,6 +152,7 @@ function initialize() {
     }
 
     pointMap = map;
+
     // var legend = document.getElementById('legend');
     // var type = images[0];
     // var name = 'Computing Element';
@@ -192,9 +213,6 @@ function toogleLines(){
    Linesvisible = true;
   }
 }
-
-
-
 
 
 // Sets the map on all markers in the array.

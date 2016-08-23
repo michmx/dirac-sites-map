@@ -379,8 +379,8 @@ class JSgen:
             efficiency = cell[3] *100 / (cell[3] + cell[4])
             self.total_eff += efficiency
 
-            description_text = """<strong>Source = """ + se1.name + """</br>
-            Destination = """ + se2.name + """</strong></br><hr>
+            description_text = """<strong>Source = """ + se1.host[0] + """</br>
+            Destination = """ + se2.host[0] + """</strong></br><hr>
             <font style="font-weight: bold">Connection info:</font> </br>
             <div style="padding-left: 5px;">Throughput: %0.1f KB/s </br>"""%speed +\
             """Efficiency: %0.0f"""%efficiency +  """% </br>
