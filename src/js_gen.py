@@ -1,9 +1,16 @@
 #! /usr/bin/env python
 
-import matplotlib.pyplot as plt
-import json, os, urllib2, math, time, pickle
+import json, os, urllib2, math, time, pickle, sys
 from shutil import copyfile
-from datetime import datetime
+from datetime import datetime as dt
+
+#To use matplotlib without graphic enviroment
+try:
+    import matplotlib as mpl
+    mpl.use('Agg')
+    import matplotlib.pyplot as plt
+except ImportError:
+    sys.exit("Error: Matplotlib package not found. Please install running 'pip install matplotlib'.")
 
 try:
     from dirac_script.health_sites import *
@@ -286,13 +293,18 @@ class JSgen:
             if se.health == '':
                 self.se_images_list.append(js_image("images/db_unknown.png",35,0).__dict__)
                 description_text += """<strong>Free space: """ + \
-                                        'unknown' + " </strong></br></br>"
+                                        'unknown' + " </strong></br><!--abs--></br> "
             else:
                 if se.health['isHealthy'] != 1:
                     self.se_images_list.append(js_image("images/db_error.png",35,0).__dict__)
 
                 else:
-                    free_space = se.health['UnusedSizeBYTE']/float(se.health['GuaranteedSizeBYTE'])
+                    free_absolute = se.health['UnusedSizeBYTE']
+                    size_absolute = se.health['GuaranteedSizeBYTE']
+                    free_space = free_absolute/float(size_absolute)
+                    # In Terabytes
+                    free_absolute = free_absolute/1000000000000.0
+                    size_absolute = size_absolute/1000000000000.0
                     if free_space > 0.66:
                         self.se_images_list.append(js_image("images/db_99y.png",35,0).__dict__)
                     elif free_space <= 0.66 and free_space > 0.33:
@@ -303,6 +315,8 @@ class JSgen:
                         self.se_images_list.append(js_image("images/db_0y.png",35,0).__dict__)
                     description_text += """<strong>Free space: """ + \
                                         str(format(free_space*100,'.2f')) + "% </strong></br>"
+                    description_text += "<strong>("+str(format(free_absolute,'.1f')) + " TB of " +\
+                                        str(format(size_absolute,'.1f'))+ " TB)</strong> </br></br>"
 
             description_text += """<font style="font-weight: bold">Endpoints:</font> </br>"""
             description_text += """<div style="padding-left: 5px;">Endpoint: """ + se.name + """ </br>
@@ -327,7 +341,13 @@ class JSgen:
                         if se.health['isHealthy'] != 1:
                             self.se_images_list[x] = js_image("images/db_error.png",35,0).__dict__
                         else:
-                            free_space = se.health['UnusedSizeBYTE']/float(se.health['GuaranteedSizeBYTE'])
+                            free_absolute = se.health['UnusedSizeBYTE']
+                            size_absolute = se.health['GuaranteedSizeBYTE']
+                            free_space = free_absolute/float(size_absolute)
+                            # In Terabytes
+                            free_absolute = free_absolute/1000000000000.0
+                            size_absolute = size_absolute/1000000000000.0
+
                             if free_space > 0.66:
                                 self.se_images_list[x] = js_image("images/db_99y.png",35,0).__dict__
                             elif free_space <= 0.66 and free_space > 0.33:
@@ -337,7 +357,11 @@ class JSgen:
                             else:
                                 self.se_images_list[x] = js_image("images/db_0y.png",35,0).__dict__
                             space = str(format(free_space*100,'.2f')) + "%"
+                            space_abs = "<strong>("+str(format(free_absolute,'.1f')) + \
+                                        " TB of " + str(format(size_absolute,'.1f'))+ " TB)</strong> </br>"
                             self.se_description_list[x] = self.se_description_list[x].replace('unknown',space)
+                            self.se_description_list[x] = self.se_description_list[x].replace('<!--abs-->',space_abs)
+
                             #description_text_space = """</br><div style="padding-left: 5px;"><strong>Free space: """ + \
                             #str(format(free_space*100,'.2f')) + "% </strong></div>"
                             #self.se_description_list_space[x] = description_text_space
@@ -459,8 +483,10 @@ class JSgen:
         global_statistics.append(len(self.se_list))
         global_statistics.append(len(self.lines_list))
         # Get the date of the update
-        now = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
-        global_statistics.append(now+' UTC')
+        now = dt.utcnow().strftime("%Y-%m-%d %H:%M") + ' UTC'
+        if Dirac_env == False:
+            now += '</br></br> Debug mode. No real data.'
+        global_statistics.append(now)
         self.js_writer.write("\nvar global_statistics = \n" + json.dumps(global_statistics,indent = 2))
         self.js_writer.close()
         if os.path.exists('input/health.tmp'):
