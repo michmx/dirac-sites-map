@@ -3,11 +3,6 @@ Adelaide-DATA-SE
  Path: /dpm/ersa.edu.au/home/belle/DATA
  Read: Active
  Write: Active
-Adelaide-SE
- Endpoint: coepp-dpm-01.ersa.edu.au:8446/srm/managerv2?SFN=
- Path: /dpm/ersa.edu.au/home/belle/belledisk
- Read: Active
- Write: Active
 Adelaide-TMP-SE
  Endpoint: coepp-dpm-01.ersa.edu.au:8446/srm/managerv2?SFN=
  Path: /dpm/ersa.edu.au/home/belle/TMP
@@ -28,11 +23,6 @@ CNAF-DATA-SE
  Path: /belle/DATA
  Read: Active
  Write: Active
-CNAF-SE
- Endpoint: storm-fe-archive.cr.cnaf.infn.it:8444/srm/managerv2?SFN=
- Path: /
- Read: Active
- Write: Active
 CNAF-TMP-SE
  Endpoint: storm-fe-archive.cr.cnaf.infn.it:8444/srm/managerv2?SFN=
  Path: /belle/TMP
@@ -41,11 +31,6 @@ CNAF-TMP-SE
 CYFRONET-DATA-SE
  Endpoint: dpm.cyf-kr.edu.pl:8446/srm/managerv2?SFN=
  Path: /dpm/cyf-kr.edu.pl/home/belle/DATA
- Read: Active
- Write: Active
-CYFRONET-SE
- Endpoint: dpm.cyf-kr.edu.pl:8446/srm/managerv2?SFN=
- Path: /dpm/cyf-kr.edu.pl/home
  Read: Active
  Write: Active
 CYFRONET-TMP-SE
@@ -58,11 +43,6 @@ DESY-DATA-SE
  Path: /pnfs/desy.de/belle/belle2/DATA
  Read: Active
  Write: Active
-DESY-SE
- Endpoint: dcache-se-desy.desy.de:8443/srm/managerv2?SFN=
- Path: /pnfs/desy.de
- Read: Active
- Write: Active
 DESY-TMP-SE
  Endpoint: dcache-se-desy.desy.de:8443/srm/managerv2?SFN=
  Path: /pnfs/desy.de/belle/belle2/TMP
@@ -73,19 +53,9 @@ Frascati-DATA-SE
  Path: /dpm/lnf.infn.it/home/belle/DATA
  Read: Active
  Write: Active
-Frascati-SE
- Endpoint: atlasse.lnf.infn.it:8446/srm/managerv2?SFN=
- Path: /dpm/lnf.infn.it/home
- Read: Active
- Write: Active
 Frascati-TMP-SE
  Endpoint: atlasse.lnf.infn.it:8446/srm/managerv2?SFN=
  Path: /dpm/lnf.infn.it/home/belle/TMP
- Read: Active
- Write: Active
-HEPHY-SE
- Endpoint: hephyse.oeaw.ac.at:8446/srm/managerv2?SFN=
- Path: /dpm/oeaw.ac.at/home
  Read: Active
  Write: Active
 HEPHY-TMP-SE
@@ -93,29 +63,19 @@ HEPHY-TMP-SE
  Path: /dpm/oeaw.ac.at/home/belle/TMP
  Read: Active
  Write: Active
+IPHC-DATA-SE
+ Endpoint: sbgse1.in2p3.fr:8446/srm/managerv2?SFN=
+ Path: /dpm/in2p3.fr/home/belle/DATA
+ Read: Active
+ Write: Active
 KEK-FailoverSE
  Endpoint: dirac1.cc.kek.jp:9149
  Path: /DataManagement/StorageElement
  Read: Active
  Write: Active
-KEK2-DATA-SE
- Endpoint: kek2-se01.cc.kek.jp:8444/srm/managerv2?SFN=
- Path: /belle/DATA
- Read: Active
- Write: Active
 KEK2-LOCAL-SE
  Endpoint: kek2-se01.cc.kek.jp:8444/srm/managerv2?SFN=
  Path: /belle_local_test
- Read: Active
- Write: Active
-KEK2-SE
- Endpoint: kek2-se01.cc.kek.jp:8444/srm/managerv2?SFN=
- Path: /
- Read: Active
- Write: Active
-KEK2-TMP-SE
- Endpoint: kek2-se01.cc.kek.jp:8444/srm/managerv2?SFN=
- Path: /belle/TMP
  Read: Active
  Write: Active
 KEK2-XRootD-SE
@@ -138,11 +98,6 @@ KIT-DATA-SE
  Path: /pnfs/gridka.de/belle/disk-only/DATA
  Read: Active
  Write: Active
-KIT-SE
- Endpoint: gridka-dcache.fzk.de:8443/srm/managerv2?SFN=
- Path: /pnfs/gridka.de/belle/disk-only
- Read: Active
- Write: Active
 KIT-TMP-SE
  Endpoint: gridka-dcache.fzk.de:8443/srm/managerv2?SFN=
  Path: /pnfs/gridka.de/belle/disk-only/TMP
@@ -151,16 +106,6 @@ KIT-TMP-SE
 KMI-DATA-SE
  Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp:8444/srm/managerv2?SFN=
  Path: /belle/DATA
- Read: Active
- Write: Active
-KMI-LOCAL-SE
- Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp:8444/srm/managerv2?SFN=
- Path: /b2j
- Read: Active
- Write: Active
-KMI-SE
- Endpoint: nsrmfe01.hepl.phys.nagoya-u.ac.jp:8444/srm/managerv2?SFN=
- Path: /
  Read: Active
  Write: Active
 KMI-TMP-SE
@@ -178,14 +123,19 @@ MPPMU-DATA-SE
  Path: /pnfs/rzg.mpg.de/data/belle/DATA
  Read: Active
  Write: Active
-MPPMU-SE
- Endpoint: grid-srm.rzg.mpg.de:8443/srm/managerv2?SFN=
- Path: /pnfs/rzg.mpg.de/data
- Read: Active
- Write: Active
 MPPMU-TMP-SE
  Endpoint: grid-srm.rzg.mpg.de:8443/srm/managerv2?SFN=
  Path: /pnfs/rzg.mpg.de/data/belle/TMP
+ Read: Active
+ Write: Active
+McGill-DATA-SE
+ Endpoint: storm02.clumeq.mcgill.ca:8444/srm/managerv2?SFN=
+ Path: /belle/DATA
+ Read: Active
+ Write: Active
+McGill-TMP-SE
+ Endpoint: storm02.clumeq.mcgill.ca:8444/srm/managerv2?SFN=
+ Path: /belle/TMP
  Read: Active
  Write: Active
 Melbourne-DATA-SE
@@ -193,29 +143,14 @@ Melbourne-DATA-SE
  Path: /dpm/mel.coepp.org.au/home/belle/DATA
  Read: Active
  Write: Active
-Melbourne-SE
- Endpoint: b2se.mel.coepp.org.au:8446/srm/managerv2?SFN=
- Path: /dpm/mel.coepp.org.au/home/belle/bellescratchdisk
- Read: Active
- Write: Active
 Melbourne-TMP-SE
  Endpoint: b2se.mel.coepp.org.au:8446/srm/managerv2?SFN=
  Path: /dpm/mel.coepp.org.au/home/belle/TMP
  Read: Active
  Write: Active
-NCHC-DATA-SE
- Endpoint: se01.grid.nchc.org.tw:8446/srm/managerv2?SFN=
- Path: /dpm/grid.nchc.org.tw/home/belle/DATA
- Read: Active
- Write: Active
 NTU-DATA-SE
  Endpoint: bgrid3.phys.ntu.edu.tw:8443/srm/managerv2?SFN=
  Path: /pnfs/phys.ntu.edu.tw/home/belle/DATA
- Read: Active
- Write: Active
-NTU-SE
- Endpoint: bgrid3.phys.ntu.edu.tw:8443/srm/managerv2?SFN=
- Path: /pnfs/phys.ntu.edu.tw/home/
  Read: Active
  Write: Active
 NTU-TMP-SE
@@ -228,24 +163,9 @@ Napoli-DATA-SE
  Path: /dpm/na.infn.it/home/belle/DATA
  Read: Active
  Write: Active
-Napoli-SE
- Endpoint: se.scope.unina.it:8446/srm/managerv2?SFN=
- Path: /dpm/scope.unina.it/home
- Read: Active
- Write: Active
 Napoli-TMP-SE
  Endpoint: belle-dpm-01.na.infn.it:8446/srm/managerv2?SFN=
  Path: /dpm/na.infn.it/home/belle/TMP
- Read: Active
- Write: Active
-PNNL-DATA-SE
- Endpoint: se.hep.pnnl.gov:8443/srm/v2/server?SFN=
- Path: /se/belle/DATA
- Read: Active
- Write: Active
-PNNL-DEDICATED-SE
- Endpoint: se.hep.pnnl.gov:8443/srm/v2/server?SFN=
- Path: /se
  Read: Active
  Write: Active
 PNNL-TMP-SE
@@ -253,14 +173,14 @@ PNNL-TMP-SE
  Path: /se/belle/TMP
  Read: Active
  Write: Active
-SIGNET-DATA-SE
- Endpoint: dcache.ijs.si:8443/srm/managerv2?SFN=
- Path: /pnfs/ijs.si/belle/DATA
+Pisa-DATA-SE
+ Endpoint: stormfe1.pi.infn.it:8444/srm/managerv2?SFN=
+ Path: /belle/DATA
  Read: Active
  Write: Active
-SIGNET-SE
- Endpoint: dcache.ijs.si:8443/srm/managerv2?SFN=
- Path: /pnfs/ijs.si
+Pisa-TMP-SE
+ Endpoint: stormfe1.pi.infn.it:8444/srm/managerv2?SFN=
+ Path: /belle/TMP
  Read: Active
  Write: Active
 SIGNET-TMP-SE
@@ -278,34 +198,9 @@ Torino-TMP-SE
  Path: /belle/TMP
  Read: Active
  Write: Active
-UA-ISMA-SE
- Endpoint: gl-dpm.isma.kharkov.ua:8446/srm/managerv2?SFN=
- Path: /dpm/isma.kharkov.ua/home
- Read: Active
- Write: Active
-ULAKBIM-DATA-SE
- Endpoint: torik1.ulakbim.gov.tr:8446/srm/managerv2?SFN=
- Path: /dpm/ulakbim.gov.tr/home/belle/DATA
- Read: Active
- Write: Active
-ULAKBIM-SE
- Endpoint: torik1.ulakbim.gov.tr:8446/srm/managerv2?SFN=
- Path: /dpm/ulakbim.gov.tr/home
- Read: Active
- Write: Active
-ULAKBIM-TMP-SE
- Endpoint: torik1.ulakbim.gov.tr:8446/srm/managerv2?SFN=
- Path: /dpm/ulakbim.gov.tr/home/belle/TMP
- Read: Active
- Write: Active
 UVic-DATA-SE
  Endpoint: charon01.westgrid.ca:8443/srm/managerv2?SFN=
  Path: /pnfs/westgrid.uvic.ca/data/belle/belledisk/DATA
- Read: Active
- Write: Active
-UVic-SE
- Endpoint: charon01.westgrid.ca:8443/srm/managerv2?SFN=
- Path: /pnfs/westgrid.uvic.ca/data/belle/belledisk/
  Read: Active
  Write: Active
 UVic-TMP-SE
@@ -313,3 +208,4 @@ UVic-TMP-SE
  Path: /pnfs/westgrid.uvic.ca/data/belle/belledisk/TMP
  Read: Active
  Write: Active
+

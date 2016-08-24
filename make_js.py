@@ -8,13 +8,14 @@ from src.js_gen import *
 
 try:
     from dirac_script.jobsummary import read_site_summary
+    from dirac_script.health_sites import get_se_list
     Dirac_env = True
 except ImportError:
     print "Dirac enviroment not ready. Reading CE sites from file."
     Dirac_env = False
 
 # A simple script to generate Javascript file
-map = JSgen('web/datagrid.js')
+map = JSgen('web/datagrid.js',Dirac_env)
 
 if Dirac_env:
     print "Running with Dirac enviroment"
@@ -29,10 +30,11 @@ for ce in ce_obj:
 
 # Include storage elements too
 if Dirac_env:
-    system('gb2_list_se -l > info/gb2_list_se.txt')
+    se_obj = get_se_list(read_coordinates('input/sites.csv'))
 else:
     print 'Dirac enviroment not ready. Using last info obtained from gb2_list_se.'
-se_obj = read_gb2_list_se("info/gb2_list_se.txt")
+    #To obtain the info without DIRAC enviroment (to test)
+    se_obj = read_gb2_list_se("info/gb2_list_se.txt")
 
 
 for se in se_obj:

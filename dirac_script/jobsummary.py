@@ -3,7 +3,6 @@ from DIRAC.Core.DISET.RPCClient import RPCClient
 from DIRAC import gConfig
 
 import sys
-# sys.path.insert(0, '../')
 from src.js_gen import CE_site
 
 import datetime

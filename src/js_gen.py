@@ -12,14 +12,6 @@ try:
 except ImportError:
     sys.exit("Error: Matplotlib package not found. Please install running 'pip install matplotlib'.")
 
-try:
-    from dirac_script.health_sites import *
-    Dirac_env = True
-except ImportError:
-    print "Dirac enviroment not ready. Reading SE health from file."
-    Dirac_env = False
-
-
 class CE_site:
     def __init__(self, se_name = 'CE'):
         self.name = se_name
@@ -42,18 +34,22 @@ class SE_site:
         self.write = ''
         self.path = ''
         self.name = ce_name
-        self.host = ['', '']
+        self.host = ['', '', '']
         self.coordinates = [0,0]
         self.health = ''
+        self.token = ''
 
-    def print_info(self):
-        print "Name: " + self.name
-        print "Host: " + self.path
-        print "Endpoint: " + self.host[0] + " : " + self.host[1]
-        print "Read/Write: " + self.read + "/" + self.write
-        print "Coordinates: " + str(self.coordinates[0]) + "," + str(self.coordinates[1])
+    def __str__(self):
+        string = "Name: " + self.name
+        string += "\npath: " + self.path
+        string += "\nHost: " + self.host[0] + " : " + self.host[1]
+        string += "\nRead/Write: " + self.read + "/" + self.write
+        string += "\nCoordinates: " + str(self.coordinates[0]) + "," + str(self.coordinates[1])
+        return string
 
 # #### Functions #### #
+
+
 
 # Pull the information of SE sites from the gb2_list_se output
 def read_gb2_list_se(file_path):
@@ -117,30 +113,27 @@ def read_gb2_site_summary(file_path):
         ce.jobs_running = cell[3]
         ce.jobs_stalled = cell[4]
         ce.jobs_waiting = cell[5]
-        ce_site.append(ce)
 
-    # Add coordinates
-    data_site = read_data("input/sites.csv", split = ',')
-    for ce in ce_site:
-        coincidence = False
-        for line in data_site:
-            if line[0] in ce.name:
-                coincidence = True
-                ce.coordinates[0] = line[1]
-                ce.coordinates[1] = line[2]
-        if not coincidence:
+        # Add coordinates
+        data_site = read_coordinates("input/sites.csv")
+        
+        if ce.name.split('.')[1] in data_site:
+            ce.coordinates = data_site[ce.name.split('.')[1]]
+        else:
             print "[WARNING]: No location info for " + ce.name
+        ce_cite.append(ce)
     return ce_site
 
 
-# Read the data from CSV file
-def read_data(file,split):
-    data = []
+# Read the data from CSV file and returns dictionary
+def read_coordinates(file):
+    data = {}
     csv_file = open(file, "r")
-    line = csv_file.read().split("\n")
-    for row in line:
+    lines = csv_file.read().split("\n")
+    for row in lines:
         if row != "":
-            data.append(row.split(split))
+            site = row.split(',')
+            data[site[0]] = [site[1],site[2]]      
     return data
 
 
@@ -173,7 +166,7 @@ class js_image:
 
 # This encapsulates all the functions to generate Javascript file
 class JSgen:
-    def __init__(self, path):
+    def __init__(self, path, Dirac_proxy = False):
         self.js_writer = open(path,"w")
         self.function_list = []
         self.ce_list = []
@@ -190,7 +183,7 @@ class JSgen:
         self.lines_stroke = []
         self.total_speed = 0
         self.total_eff = 0
-        self.Dirac_env = Dirac_env
+        self.Dirac_env = Dirac_proxy
 
         # Images of the SE sites
         if not os.path.exists('./web/images/'):
@@ -274,9 +267,9 @@ class JSgen:
     # Include a computing element in the map
     def add_se_site(self, se):
         # Take the health info of the SE sites
-        health = self.pull_se_health(se.name)
-        if health != 0:
-            se.health = health
+        #health = self.pull_se_health(se.name)
+        #if health != 0:
+        #    se.health = health
 
         self.se_active.append(se)
 
@@ -297,7 +290,13 @@ class JSgen:
             else:
                 if se.health['isHealthy'] != 1:
                     self.se_images_list.append(js_image("images/db_error.png",35,0).__dict__)
+                    description_text += """<strong>Free space: """ + \
+                                              'unknown' + " </strong></br><!--abs--></br> "
 
+                elif se.health['GuaranteedSizeBYTE'] == 0:
+                    self.se_images_list.append(js_image("images/db_unknown.png",35,0).__dict__)
+                    description_text += """<strong>Free space: """ + \
+                                                        'unknown' + " </strong></br><!--abs--></br> "
                 else:
                     free_absolute = se.health['UnusedSizeBYTE']
                     size_absolute = se.health['GuaranteedSizeBYTE']
@@ -340,7 +339,7 @@ class JSgen:
                     if se.health != '':
                         if se.health['isHealthy'] != 1:
                             self.se_images_list[x] = js_image("images/db_error.png",35,0).__dict__
-                        else:
+                        elif se.health['GuaranteedSizeBYTE'] != 0:
                             free_absolute = se.health['UnusedSizeBYTE']
                             size_absolute = se.health['GuaranteedSizeBYTE']
                             free_space = free_absolute/float(size_absolute)
@@ -438,7 +437,7 @@ class JSgen:
                 file_obj = open(file_name,'wb')
                 pickle.dump(result,file_obj)
                 file_obj.close()
-                se_health = result
+                se_health = result['Value']
             else:
                 js_se_health = open('input/health.tmp','r')
                 se_health = pickle.load(js_se_health)['Value']
@@ -450,7 +449,7 @@ class JSgen:
             js_se_health.close()
 
         if se_name in se_health:
-            return se_health[se_name][0]
+            return se_health[se_name]
         else:
             return 0
 
@@ -484,7 +483,7 @@ class JSgen:
         global_statistics.append(len(self.lines_list))
         # Get the date of the update
         now = dt.utcnow().strftime("%Y-%m-%d %H:%M") + ' UTC'
-        if Dirac_env == False:
+        if not self.Dirac_env:
             now += '</br></br> Debug mode. No real data.'
         global_statistics.append(now)
         self.js_writer.write("\nvar global_statistics = \n" + json.dumps(global_statistics,indent = 2))
