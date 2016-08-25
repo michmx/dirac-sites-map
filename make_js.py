@@ -11,7 +11,7 @@ try:
     from dirac_script.health_sites import get_se_list
     Dirac_env = True
 except ImportError:
-    print "Dirac enviroment not ready. Reading CE sites from file."
+    print "Dirac enviroment not ready. Reading sites from file."
     Dirac_env = False
 
 # A simple script to generate Javascript file

@@ -51,7 +51,7 @@ class SE_site:
 
 
 
-# Pull the information of SE sites from the gb2_list_se output
+# Pull the information of SE sites from the gb2_list_se output (to use without DIRAC enviroment)
 def read_gb2_list_se(file_path):
     se_site = []
     data_file = []
@@ -81,15 +81,11 @@ def read_gb2_list_se(file_path):
             counter += 1
 
     # Add coordinates
-    data_site = read_data("input/sites.csv", split = ',')
+    data_coord = read_coordinates("input/sites.csv")
     for se in se_site:
-        coincidence = False
-        for line in data_site:
-            if line[0] in se.name:
-                coincidence = True
-                se.coordinates[0] = line[1]
-                se.coordinates[1] = line[2]
-        if not coincidence:
+        if se.name.split('-')[0] in data_coord:
+            se.coordinates = data_coord[se.name.split('-')[0]]
+        else:
             print "[WARNING]: No location info for " + se.name
     return se_site
 
@@ -116,12 +112,12 @@ def read_gb2_site_summary(file_path):
 
         # Add coordinates
         data_site = read_coordinates("input/sites.csv")
-        
+
         if ce.name.split('.')[1] in data_site:
             ce.coordinates = data_site[ce.name.split('.')[1]]
         else:
             print "[WARNING]: No location info for " + ce.name
-        ce_cite.append(ce)
+        ce_site.append(ce)
     return ce_site
 
 
@@ -267,9 +263,10 @@ class JSgen:
     # Include a computing element in the map
     def add_se_site(self, se):
         # Take the health info of the SE sites
-        #health = self.pull_se_health(se.name)
-        #if health != 0:
-        #    se.health = health
+        if not self.Dirac_env:
+            health = self.pull_se_health(se.name)
+            if health != 0:
+                se.health = health[0]
 
         self.se_active.append(se)
 
@@ -430,19 +427,7 @@ class JSgen:
 
     # Obtains SE health info
     def pull_se_health(self, se_name = ''):
-        if self.Dirac_env:
-            if not os.path.exists('input/health.tmp'):
-                result = get_health()
-                file_name = 'input/health.tmp'
-                file_obj = open(file_name,'wb')
-                pickle.dump(result,file_obj)
-                file_obj.close()
-                se_health = result['Value']
-            else:
-                js_se_health = open('input/health.tmp','r')
-                se_health = pickle.load(js_se_health)['Value']
-                js_se_health.close()
-        else:
+        if not self.Dirac_env:
             #To work for now without Dirac enviroment
             js_se_health = open('input/healty.dat','r')
             se_health = pickle.load(js_se_health)['Value']
