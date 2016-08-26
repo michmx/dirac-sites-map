@@ -7,8 +7,8 @@ from os import system
 from src.js_gen import *
 
 try:
-    from dirac_script.jobsummary import read_site_summary
-    from dirac_script.health_sites import get_se_list
+    from dirac_script.computing_sites import read_site_summary
+    from dirac_script.storage_sites import get_se_list
     Dirac_env = True
 except ImportError:
     print "Dirac enviroment not ready. Reading sites from file."
@@ -30,7 +30,7 @@ for ce in ce_obj:
 
 # Include storage elements too
 if Dirac_env:
-    se_obj = get_se_list(read_coordinates('input/sites.csv'))
+    se_obj = get_se_list()
 else:
     print 'Dirac enviroment not ready. Using last info obtained from gb2_list_se.'
     #To obtain the info without DIRAC enviroment (to test)

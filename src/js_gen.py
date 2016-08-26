@@ -273,10 +273,10 @@ class JSgen:
         # To avoid duplicate sites (XXX-*-SE)
         included = False
         for se_included in self.se_list:
-            if se.host == se_included[3]:
+            if se.host == se_included[3] and se.token == se_included[4]:
                 included = True
         if not included:
-            self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0]),se.host])
+            self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0]),se.host,se.token])
             description_text = '<strong>'+ se.host[0] + '</strong></br><hr>'
 
             # The color depends of the health
@@ -285,6 +285,7 @@ class JSgen:
                 description_text += """<strong>Free space: """ + \
                                         'unknown' + " </strong></br><!--abs--></br> "
             else:
+                se.health = se.health[0]
                 if se.health['isHealthy'] != 1:
                     self.se_images_list.append(js_image("images/db_error.png",35,0).__dict__)
                     description_text += """<strong>Free space: """ + \
@@ -316,24 +317,27 @@ class JSgen:
 
             description_text += """<font style="font-weight: bold">Endpoints:</font> </br>"""
             description_text += """<div style="padding-left: 5px;">Endpoint: """ + se.name + """ </br>
-            Path: """ + se.path + """ </br>
-            </div>
-            """
+            Path: """ + se.path + " </br> "
+            if se.token != '': 
+                description_text += "SpaceToken: " + se.token + " </br> "
+            description_text += "</div>"
 
             self.se_description_list.append(description_text)
             #self.se_description_list_space.append(description_text_space)
 
         else:
             for x in range(len(self.se_list)):
-                if se.host == self.se_list[x][3]:
+                if se.host == self.se_list[x][3] and se.token == self.se_list[x][4]:
                     self.se_description_list[x] += """----- </br>
                     <div style="padding-left: 5px;">Endpoint: """ + se.name + """ </br>
-                    Path: """ + se.path + """ </br>
-                    </div>
-                    """
+                    Path: """ + se.path + "</br>"                    
+                    if se.token != '':
+                        self.se_description_list[x] += "SpaceToken: " + se.token + "</br>"
+                    self.se_description_list[x] += "</div>"
 
                     # The color depends of the health
                     if se.health != '':
+                        se.health = se.health[0]
                         if se.health['isHealthy'] != 1:
                             self.se_images_list[x] = js_image("images/db_error.png",35,0).__dict__
                         elif se.health['GuaranteedSizeBYTE'] != 0:
@@ -475,12 +479,3 @@ class JSgen:
         self.js_writer.close()
         if os.path.exists('input/health.tmp'):
             os.remove('input/health.tmp')
-
-
-
-
-
-
-
-
-

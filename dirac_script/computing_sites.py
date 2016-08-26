@@ -26,6 +26,14 @@ def read_site_summary():
     sitesummary=result['Value']
 
     sitelists = getSiteList()
+    # Write the coordinates in a temporal file
+    coord_file = open('input/sites.tmp','w')
+    coord_file.write("Sites,x,y")
+    # For now, for sites without coordinates info in DIRAC
+    coord_file.write("\nAdelaide,138.57121,-34.910836")
+    coord_file.write("\nIPHC,7.7095,48.6056")
+    coord_file.write("\nKEK,140.2303,36.06")
+
     for site in sorted(sitelists):
 
         ele = site.split('.')
@@ -44,6 +52,10 @@ def read_site_summary():
         y='0'
         if 'Coordinates' in optionsdict:
             [x,y] = optionsdict['Coordinates'].split(':')
+            coord_file.write('\n'+ site.split('.')[1]+','+ str(x) + ',' + str(y))
+        else:
+            print "[WARNING:] No location info for",site
+            
         ce = CE_site(site)
         ce.coordinates = [x,y]
         ce.jobs_done = sitesummary[site]['Done']
@@ -52,6 +64,7 @@ def read_site_summary():
         ce.jobs_waiting = sitesummary[site]['Waiting']
         ce.jobs_stalled = sitesummary[site]['Stalled']
         ce_site.append(ce)
+    coord_file.close()
     return ce_site
 
 
