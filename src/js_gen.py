@@ -4,6 +4,8 @@ import json, os, urllib2, math, time, pickle, sys
 from shutil import copyfile
 from datetime import datetime as dt
 
+from pprint import pprint
+
 #To use matplotlib without graphic enviroment
 try:
     import matplotlib as mpl
@@ -12,115 +14,8 @@ try:
 except ImportError:
     sys.exit("Error: Matplotlib package not found. Please install running 'pip install matplotlib'.")
 
-class CE_site:
-    def __init__(self, se_name = 'CE'):
-        self.name = se_name
-        self.jobs_done = 0
-        self.jobs_failed = 0
-        self.jobs_running = 0
-        self.jobs_waiting = 0
-        self.jobs_stalled = 0
-        self.coordinates = [0,0]
-
-    def print_info(self):
-        print "Name: " + self.name
-        print "Jobs_succeeded: " + str(self.jobs_done)
-        print "Jobs_failed: " + str(self.jobs_failed)
-        print "Coordinates: " + str(self.coordinates[0]) + "," + str(self.coordinates[1])
-
-class SE_site:
-    def __init__(self, ce_name = 'SE'):
-        self.read = ''
-        self.write = ''
-        self.path = ''
-        self.name = ce_name
-        self.host = ['', '', '']
-        self.coordinates = [0,0]
-        self.health = ''
-        self.token = ''
-
-    def __str__(self):
-        string = "Name: " + self.name
-        string += "\npath: " + self.path
-        string += "\nHost: " + self.host[0] + " : " + self.host[1]
-        string += "\nRead/Write: " + self.read + "/" + self.write
-        string += "\nCoordinates: " + str(self.coordinates[0]) + "," + str(self.coordinates[1])
-        return string
 
 # #### Functions #### #
-
-
-
-# Pull the information of SE sites from the gb2_list_se output (to use without DIRAC enviroment)
-def read_gb2_list_se(file_path):
-    se_site = []
-    data_file = []
-    se_file = open(file_path, 'r')
-    line = se_file.read().split("\n")
-    for row in line:
-        if row != "":
-            data_file.append(row.split(':'))
-    # Organize the information
-    counter = 0.
-    aux = -1
-    for i in range(0, len(data_file)):
-        for j in range(0, len(data_file[i])):
-            if counter%10. == 0:
-                aux += 1
-                se_site.append(SE_site(data_file[i][j].strip()))
-            if counter%10. == 2:
-                se_site[aux].host[0] = data_file[i][j].strip()
-            if counter%10. == 3:
-                se_site[aux].host[1] = data_file[i][j].strip()
-            if counter%10. == 5:
-                se_site[aux].path = data_file[i][j].strip()
-            if counter%10. == 7:
-                se_site[aux].read = data_file[i][j].strip()
-            if counter%10. == 9:
-                se_site[aux].write = data_file[i][j].strip()
-            counter += 1
-
-    # Add coordinates
-    data_coord = read_coordinates("input/sites.csv")
-    for se in se_site:
-        if se.name.split('-')[0] in data_coord:
-            se.coordinates = data_coord[se.name.split('-')[0]]
-        else:
-            print "[WARNING]: No location info for " + se.name
-    return se_site
-
-
-# Pull the information of CE sites from the gb2_site_summary output (to use without DIRAC enviroment)
-def read_gb2_site_summary(file_path):
-    ce_site = []
-    data_file = []
-    se_file = open(file_path, 'r')
-    line = se_file.read().split("\n")
-    for row in line:
-        if row != "":
-            data_file.append(filter(None,row.split(' ')))
-    data_file.pop(0)
-    data_file.pop()
-    data_file.pop()
-    for cell in data_file:
-        ce = CE_site(cell[0])
-        ce.jobs_done = cell[1]
-        ce.jobs_failed = cell[2]
-        ce.jobs_running = cell[3]
-        ce.jobs_stalled = cell[4]
-        ce.jobs_waiting = cell[5]
-
-        # Add coordinates
-        data_site = read_coordinates("input/sites.csv")
-
-        if ce.name.split('.')[1] in data_site:
-            ce.coordinates = data_site[ce.name.split('.')[1]]
-        else:
-            print "[WARNING]: No location info for " + ce.name
-        ce_site.append(ce)
-    return ce_site
-
-
 # Read the data from CSV file and returns dictionary
 def read_coordinates(file):
     data = {}
@@ -129,7 +24,7 @@ def read_coordinates(file):
     for row in lines:
         if row != "":
             site = row.split(',')
-            data[site[0]] = [site[1],site[2]]      
+            data[site[0]] = [site[1],site[2]]
     return data
 
 
@@ -151,28 +46,24 @@ def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, si
 
 
 # Used to export Javascript objects
-class js_image:
-    def __init__(self, url, anchorx = 0, anchory = 0, size=40):
-        t = time.strftime("%Y/%m/%d:%H:%M", time.gmtime())
-        self.url = "'" + url + "?t="+ t + "'"
-        self.size = 'new google.maps.Size('+str(size)+', '+str(size)+')'
-        self.origin = 'new google.maps.Point(0,0)'
-        self.anchor = 'new google.maps.Point('+str(anchorx)+', '+str(anchory)+')'
+def js_icon(url, anchorx = 0, anchory = 0, size=40):
+    icon = {}
+    t = time.strftime("%Y/%m/%d:%H:%M", time.gmtime())
+    icon['url'] = url + "?t=" + t
+    icon['size'] = size
+    icon['anchor'] = [anchorx,anchory]
+    return icon
 
 
 # This encapsulates all the functions to generate Javascript file
 class JSgen:
     def __init__(self, path, Dirac_proxy = False):
         self.js_writer = open(path,"w")
-        self.function_list = []
-        self.ce_list = []
-        self.se_active = []
-        self.se_list = []
+        self.ce_sites = {}
+        self.se_sites = {}
+
         self.images_list = []
-        self.se_images_list = []
-        self.ce_description_list = []
-        self.se_description_list = []
-        self.se_description_list_space = []
+
         self.lines_list = []
         self.lines_colors = []
         self.lines_description = []
@@ -209,162 +100,172 @@ class JSgen:
         map_style.append(dict(featureType = 'water',elementType = 'geometry', \
                               stylers = [dict(visibility = 'on'),dict(hue = '#5f94ff'),dict(lightness = 60)]))
         self.js_writer.write('var mapStyle = \n')
-        js_file = json.dumps(map_style,indent=2)
-        self.js_writer.write(js_file)
+        self.js_writer.write(json.dumps(map_style,indent=2))
         self.js_writer.write(';\n')
 
     # Include a computing element in the map
-    def add_ce_site(self, ce):
+    def add_ce_site(self, key, ce):
         # Calculate the size of the pie plot based on total jobs
         min_jobs = 1000
         max_jobs = 1000000
         scale = 9.0
-        if int(ce.jobs_done) > max_jobs:
+        if int(ce['Done']) > max_jobs:
             radius = math.log10(max_jobs)/scale
-        elif int(ce.jobs_done) < min_jobs:
+        elif int(ce['Done']) < min_jobs:
             radius = math.log10(min_jobs)/scale
         else:
-            radius = math.log10(float(ce.jobs_done))/scale
+            radius = math.log10(float(ce['Done']))/scale
 
         if not os.path.exists('./web/images/'):
             os.mkdir('./web/images')
         copyfile('input/cloud.png','./web/images/cloud.png')
-        self.ce_list.append([ce.name, float(ce.coordinates[1]),float(ce.coordinates[0])])
-        pie_plot(ce.name, int(ce.jobs_done), int(ce.jobs_failed), 'web/images/', size=(radius, radius))
-        if 'CLOUD' in ce.name:
-            self.images_list.append(js_image("images/cloud.png",0,0).__dict__)
+        self.ce_sites[key] = ce
+
+        #### To remove
+        pie_plot(key, int(ce['Done']), int(ce['Failed']), 'web/images/', size=(radius, radius))
+        if 'CLOUD' in key:
+            self.images_list.append(js_icon("images/cloud.png",0,0))
         else:
-            self.images_list.append(js_image("images/pie_" + ce.name + ".png",0,0,radius*100).__dict__)
-        jobs_total = int(ce.jobs_done) + int(ce.jobs_failed)
+            self.images_list.append(js_icon("images/pie_" + key + ".png",0,0,radius*100))
+        ####
+
+        jobs_total = int(ce['Done']) + int(ce['Failed'])
         if jobs_total != 0:
-            description_text = '<strong>'+ ce.name + '</strong>' + \
+            description_text = '<strong>'+ key + '</strong>' + \
             """</br><hr>
             <font style="font-weight: bold">Job Statistics:</font> </br>
-            <div style="padding-left: 5px;">Jobs Succeeded: """ + str(ce.jobs_done) + \
-            ' (%.1f' % (int(ce.jobs_done)/float(jobs_total) *100) + """%) </br>
-            Jobs Failed: """ + str(ce.jobs_failed) + ' (%.1f' % (int(ce.jobs_failed)/float(jobs_total)*100) + \
+            <div style="padding-left: 5px;">Jobs Succeeded: """ + str(ce['Done']) + \
+            ' (%.1f' % (int(ce['Done'])/float(jobs_total) *100) + """%) </br>
+            Jobs Failed: """ + str(ce['Failed']) + ' (%.1f' % (int(ce['Failed'])/float(jobs_total)*100) + \
             """%) </br>
             (Total: """ + str(jobs_total) + """)<br /><br />
-            Jobs Running: """+str(ce.jobs_running)+ """
+            Jobs Running: """+str(ce['Running'])+ """
             </div><br />     """
         else:
-            description_text = '<strong>'+ ce.name + '</strong>' + \
+            description_text = '<strong>'+ key + '</strong>' + \
             """</br><hr>
             <font style="font-weight: bold">Job Statistics:</font> </br>
-            <div style="padding-left: 5px;">Jobs Succeeded: """ + str(ce.jobs_done) + \
+            <div style="padding-left: 5px;">Jobs Succeeded: """ + str(ce['Done']) + \
             """ (- %) </br>
-            Jobs Failed: """ + str(ce.jobs_failed) + """ (- %) </br>
+            Jobs Failed: """ + str(ce['Failed']) + """ (- %) </br>
             (Total:""" + str(jobs_total) + """)<br />
             </div><br />
             """
-        self.ce_description_list.append(description_text)
+        self.ce_sites[key]['Description'] = description_text
 
 
-    # Include a computing element in the map
-    def add_se_site(self, se):
+    # Include a storage element in the map
+    def add_se_site(self, key, se):
         # Take the health info of the SE sites
         if not self.Dirac_env:
-            health = self.pull_se_health(se.name)
+            health = self.pull_se_health(key)
             if health != 0:
-                se.health = health[0]
+                se['Health'] = health[0]
+                se['Health'].pop('HealthUpdateTime',None)
+            else:
+                se['Health'] = ''
 
-        self.se_active.append(se)
+        if not 'Token' in se:
+            se['Token'] = ''
 
         # To avoid duplicate sites (XXX-*-SE)
         included = False
-        for se_included in self.se_list:
-            if se.host == se_included[3] and se.token == se_included[4]:
+        for se_included in self.se_sites:
+            if se['Host'] == self.se_sites[se_included]['Host'] and se['Token'] == self.se_sites[se_included]['Token']:
                 included = True
         if not included:
-            self.se_list.append([se.name, float(se.coordinates[1]),float(se.coordinates[0]),se.host,se.token])
-            description_text = '<strong>'+ se.host[0] + '</strong></br><hr>'
+            self.se_sites[key] = se
+
+            description_text = '<strong>'+ se['Host'] + '</strong></br><hr>'
 
             # The color depends of the health
-            if se.health == '':
-                self.se_images_list.append(js_image("images/db_unknown.png",35,0).__dict__)
+            if se['Health'] == '':
+                self.se_sites[key]['Icon'] = js_icon("images/db_unknown.png",35,0)
                 description_text += """<strong>Free space: """ + \
                                         'unknown' + " </strong></br><!--abs--></br> "
             else:
-                se.health = se.health[0]
-                if se.health['isHealthy'] != 1:
-                    self.se_images_list.append(js_image("images/db_error.png",35,0).__dict__)
+                if se['Health']['isHealthy'] != 1:
+                    self.se_sites[key]['Icon'] = js_icon("images/db_error.png",35,0)
                     description_text += """<strong>Free space: """ + \
                                               'unknown' + " </strong></br><!--abs--></br> "
 
-                elif se.health['GuaranteedSizeBYTE'] == 0:
-                    self.se_images_list.append(js_image("images/db_unknown.png",35,0).__dict__)
+                elif se['Health']['GuaranteedSizeBYTE'] == 0:
+                    self.se_sites[key]['Icon'] = js_icon("images/db_unknown.png",35,0)
                     description_text += """<strong>Free space: """ + \
                                                         'unknown' + " </strong></br><!--abs--></br> "
                 else:
-                    free_absolute = se.health['UnusedSizeBYTE']
-                    size_absolute = se.health['GuaranteedSizeBYTE']
+                    free_absolute = se['Health']['UnusedSizeBYTE']
+                    size_absolute = se['Health']['GuaranteedSizeBYTE']
                     free_space = free_absolute/float(size_absolute)
                     # In Terabytes
                     free_absolute = free_absolute/1000000000000.0
                     size_absolute = size_absolute/1000000000000.0
                     if free_space > 0.66:
-                        self.se_images_list.append(js_image("images/db_99y.png",35,0).__dict__)
+                        self.se_sites[key]['Icon'] = js_icon("images/db_99y.png",35,0)
                     elif free_space <= 0.66 and free_space > 0.33:
-                        self.se_images_list.append(js_image("images/db_66y.png",35,0).__dict__)
+                        self.se_sites[key]['Icon'] = js_icon("images/db_66y.png",35,0)
                     elif free_space < 0.33 and free_space > 0.05:
-                        self.se_images_list.append(js_image("images/db_33y.png",35,0).__dict__)
+                        self.se_sites[key]['Icon'] = js_icon("images/db_33y.png",35,0)
                     else:
-                        self.se_images_list.append(js_image("images/db_0y.png",35,0).__dict__)
+                        self.se_sites[key]['Icon'] = js_icon("images/db_0y.png",35,0)
+
                     description_text += """<strong>Free space: """ + \
                                         str(format(free_space*100,'.2f')) + "% </strong></br>"
                     description_text += "<strong>("+str(format(free_absolute,'.1f')) + " TB of " +\
                                         str(format(size_absolute,'.1f'))+ " TB)</strong> </br></br>"
 
             description_text += """<font style="font-weight: bold">Endpoints:</font> </br>"""
-            description_text += """<div style="padding-left: 5px;">Endpoint: """ + se.name + """ </br>
-            Path: """ + se.path + " </br> "
-            if se.token != '': 
-                description_text += "SpaceToken: " + se.token + " </br> "
+            description_text += """<div style="padding-left: 5px;">Endpoint: """ + key + """ </br>
+            Path: """ + se['Path'] + " </br> "
+            if se['Token'] != '':
+                description_text += "SpaceToken: " + se['Token'] + " </br> "
             description_text += "</div>"
 
-            self.se_description_list.append(description_text)
-            #self.se_description_list_space.append(description_text_space)
+            self.se_sites[key]['Description'] = description_text
+
+
+
 
         else:
-            for x in range(len(self.se_list)):
-                if se.host == self.se_list[x][3] and se.token == self.se_list[x][4]:
-                    self.se_description_list[x] += """----- </br>
-                    <div style="padding-left: 5px;">Endpoint: """ + se.name + """ </br>
-                    Path: """ + se.path + "</br>"                    
-                    if se.token != '':
-                        self.se_description_list[x] += "SpaceToken: " + se.token + "</br>"
-                    self.se_description_list[x] += "</div>"
+            for included in self.se_sites:
+                if se['Host'] == self.se_sites[included]['Host'] and se['Token'] == self.se_sites[included]['Token']:
+                    self.se_sites[included]['Description'] += """----- </br>
+                    <div style="padding-left: 5px;">Endpoint: """ + key + """ </br>
+                    Path: """ + se['Path'] + "</br>"
+                    if se['Token'] != '':
+                        self.se_sites[included]['Description'] += "SpaceToken: " + se.token + "</br>"
+                    self.se_sites[included]['Description'] += "</div>"
 
                     # The color depends of the health
-                    if se.health != '':
-                        se.health = se.health[0]
-                        if se.health['isHealthy'] != 1:
-                            self.se_images_list[x] = js_image("images/db_error.png",35,0).__dict__
-                        elif se.health['GuaranteedSizeBYTE'] != 0:
-                            free_absolute = se.health['UnusedSizeBYTE']
-                            size_absolute = se.health['GuaranteedSizeBYTE']
+                    if se['Health'] != '':
+                        if se['Health']['isHealthy'] != 1:
+                            self.se_sites[included]['Icon'] = js_icon("images/db_error.png",35,0)
+                        elif se['Health']['GuaranteedSizeBYTE'] != 0:
+                            free_absolute = se['Health']['UnusedSizeBYTE']
+                            size_absolute = se['Health']['GuaranteedSizeBYTE']
                             free_space = free_absolute/float(size_absolute)
                             # In Terabytes
                             free_absolute = free_absolute/1000000000000.0
                             size_absolute = size_absolute/1000000000000.0
 
                             if free_space > 0.66:
-                                self.se_images_list[x] = js_image("images/db_99y.png",35,0).__dict__
+                                self.se_sites[included]['Icon'] = js_icon("images/db_99y.png",35,0)
                             elif free_space <= 0.66 and free_space > 0.33:
-                                self.se_images_list[x] = js_image("images/db_66y.png",35,0).__dict__
+                                self.se_sites[included]['Icon'] = js_icon("images/db_66y.png",35,0)
                             elif free_space < 0.33 and free_space > 0.05:
-                                self.se_images_list[x] = js_image("images/db_33y.png",35,0).__dict__
+                                self.se_sites[included]['Icon'] = js_icon("images/db_33y.png",35,0)
                             else:
-                                self.se_images_list[x] = js_image("images/db_0y.png",35,0).__dict__
+                                self.se_sites[included]['Icon'] = js_icon("images/db_0y.png",35,0)
                             space = str(format(free_space*100,'.2f')) + "%"
                             space_abs = "<strong>("+str(format(free_absolute,'.1f')) + \
                                         " TB of " + str(format(size_absolute,'.1f'))+ " TB)</strong> </br>"
-                            self.se_description_list[x] = self.se_description_list[x].replace('unknown',space)
-                            self.se_description_list[x] = self.se_description_list[x].replace('<!--abs-->',space_abs)
+                            self.se_sites[included]['Description'] = \
+                                self.se_sites[included]['Description'].replace('unknown',space)
+                            self.se_sites[included]['Description'] = \
+                                self.se_sites[included]['Description'].replace('<!--abs-->',space_abs)
 
-                            #description_text_space = """</br><div style="padding-left: 5px;"><strong>Free space: """ + \
-                            #str(format(free_space*100,'.2f')) + "% </strong></div>"
-                            #self.se_description_list_space[x] = description_text_space
+
+
 
 
     # Draw a line on the map
@@ -391,10 +292,10 @@ class JSgen:
         data_matrix = dashboard['transfers']['rows']
         # Search the pair of SE elements
         for cell in data_matrix:
-            for se in self.se_active:
+            for se in self.se_sites:
                 if se.host[0] == cell[0]:
                     se1 = se;
-            for se in self.se_active:
+            for se in self.se_sites:
                 if se.host[0] == cell[1]:
                     se2 = se;
             #We calculate the speed on kBs
@@ -445,21 +346,19 @@ class JSgen:
     # Finishes the Javascript code
     def close(self):
         # Write the sites
-        self.js_writer.write("\nvar ce_sites = \n" + json.dumps(self.ce_list,indent = 2))
-        self.js_writer.write("\nvar se_sites = \n" + json.dumps(self.se_list,indent = 2))
-        self.js_writer.write("\nvar contentString = \n" + json.dumps(self.ce_description_list,indent = 2))
-        # To include the free space info
-        #for x in range(len(self.se_description_list)):
-        #    self.se_description_list[x] += self.se_description_list_space[x]
-        self.js_writer.write("\nvar se_contentString = \n" + json.dumps(self.se_description_list,indent = 2))
-        self.js_writer.write("\n\nvar images = \n" + json.dumps(self.images_list,indent = 2).replace('"',''))
-        self.js_writer.write("\n\nvar images_se = \n" + json.dumps(self.se_images_list,indent = 2).replace('"',''))
+        self.js_writer.write("\nvar ce_sites = \n" + json.dumps(self.ce_sites,indent = 2))
+
+        self.js_writer.write("\nvar se_sites = \n" + json.dumps(self.se_sites,indent = 2))
+
+        #self.js_writer.write("\nvar se_contentString = \n" + json.dumps(self.se_description_list,indent = 2))
+        self.js_writer.write("\n\nvar images = \n" + json.dumps(self.images_list,indent = 2))
+        #self.js_writer.write("\n\nvar images_se = \n" + json.dumps(self.se_images_list,indent = 2).replace('"',''))
         # Write the lines
-        self.js_writer.write("\n\nvar lineCoordinates = \n" + \
-                             json.dumps(self.lines_list,indent = 2).replace('"',''))
-        self.js_writer.write("\nvar linesColors = \n" + json.dumps(self.lines_colors,indent = 2))
-        self.js_writer.write("\nvar linesDescription = \n" + json.dumps(self.lines_description,indent = 2))
-        self.js_writer.write("\nvar linesStroke = \n" + json.dumps(self.lines_stroke,indent = 2))
+        #self.js_writer.write("\n\nvar lineCoordinates = \n" + \
+        #                     json.dumps(self.lines_list,indent = 2).replace('"',''))
+        #self.js_writer.write("\nvar linesColors = \n" + json.dumps(self.lines_colors,indent = 2))
+        #self.js_writer.write("\nvar linesDescription = \n" + json.dumps(self.lines_description,indent = 2))
+        #self.js_writer.write("\nvar linesStroke = \n" + json.dumps(self.lines_stroke,indent = 2))
         # Write statistics
         global_statistics = []
         global_statistics.append(round(self.total_speed/1000,1))
@@ -467,8 +366,8 @@ class JSgen:
             global_statistics.append(round(self.total_eff/len(self.lines_list),1))
         else:
             global_statistics.append('-')
-        global_statistics.append(len(self.ce_list))
-        global_statistics.append(len(self.se_list))
+        global_statistics.append(len(self.ce_sites))
+        global_statistics.append(len(self.se_sites))
         global_statistics.append(len(self.lines_list))
         # Get the date of the update
         now = dt.utcnow().strftime("%Y-%m-%d %H:%M") + ' UTC'

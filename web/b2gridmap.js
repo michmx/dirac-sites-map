@@ -1,3 +1,8 @@
+// Sites map v0.2  -- Michel
+
+
+
+
 function ViewControl(controlDiv, map, name, latLng, zoom) {
   controlDiv.style.padding = '10px';
   var controlUI = document.createElement('div');
@@ -22,9 +27,10 @@ function ViewControl(controlDiv, map, name, latLng, zoom) {
   });
 }
 
+
 var SEsites = [];
 var CEsites = [];
-var Lines = [];
+//var Lines = [];
 
 // Contains the info of the map outside the initialize function
 var pointMap;
@@ -81,15 +87,17 @@ function initialize() {
     var Oceania = new ViewControl(ViewDiv, map, 'Global', [ 30., 0.5463], 2);
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(ViewDiv);
 
-    for (var i = 0; i < ce_sites.length; i++) {
-        var ce_site = ce_sites[i];
+    for (ce in ce_sites) {
+
+        
+
         var ce_marker = new google.maps.Marker({
-            position: {lat: ce_site[1], lng: ce_site[2]},
+            position: {lat: ce_sites[ce]['Coordinates'][1], lng: ce_sites[ce]['Coordinates'][0]},
             map: map,
-            icon: images[i],
-            title: ce_site[0],
+            //icon: images[1],
+            title: ce,
             //zIndex: ce_site[3],
-            html: contentString[i]
+            html: ce_sites[ce]['Description']
         });
         
         oms.addMarker(ce_marker)
@@ -106,16 +114,26 @@ function initialize() {
         infowindow.close();
     });
 
-    for (var j = 0; j < se_sites.length; j++) {
-        var se_site = se_sites[j];
+
+
+
+
+    for (se in se_sites) {
+        
         var se_marker = new google.maps.Marker({
-            position: {lat: se_site[1], lng: se_site[2]},
+
+            position: {lat: se_sites[se]['Coordinates'][1], lng: se_sites[se]['Coordinates'][0]},
             map: map,
-            icon: images_se[j],
-            title: se_site[0],
-            //zIndex: j,
-            html: se_contentString[j]
+            icon: {
+               url: se_sites[se]['Icon']['url'],
+               origin: new google.maps.Point(0,0), 
+               anchor: new google.maps.Point(35, 0), 
+               size: new google.maps.Size(40, 40)
+            },
+            title: se,
+            html: se_sites[se]['Description']
         });
+        
         oms_se.addMarker(se_marker)
         SEsites.push(se_marker);
     }
@@ -130,43 +148,31 @@ function initialize() {
         infowindow.close();
     });
 
-    for (var j = 0; j < lineCoordinates.length; j++) {
-        var flightPath = new google.maps.Polyline({
-          path: lineCoordinates[j],
-          geodesic: true,
-          strokeColor: linesColors[j],
-          strokeOpacity: 0.7,
-          strokeWeight: linesStroke[j],
-          html: linesDescription[j]
-        });
-        flightPath.setMap(map);
-        flightPath.addListener('click',function(e)
-        {
-          infowindow = new google.maps.InfoWindow({content: "Loading..."});
-          infowindow.setContent(this.html);
-          infowindow.setPosition(e.latLng);
-          infowindow.open(map);
+    // for (var j = 0; j < lineCoordinates.length; j++) {
+    //     var flightPath = new google.maps.Polyline({
+    //       path: lineCoordinates[j],
+    //       geodesic: true,
+    //       strokeColor: linesColors[j],
+    //       strokeOpacity: 0.7,
+    //       strokeWeight: linesStroke[j],
+    //       html: linesDescription[j]
+    //     });
+    //     flightPath.setMap(map);
+    //     flightPath.addListener('click',function(e)
+    //     {
+    //       infowindow = new google.maps.InfoWindow({content: "Loading..."});
+    //       infowindow.setContent(this.html);
+    //       infowindow.setPosition(e.latLng);
+    //       infowindow.open(map);
 
-        });
-        Lines.push(flightPath);
-    }
+    //     });
+    //     Lines.push(flightPath);
+    // }
+
+
 
     pointMap = map;
 
-    // var legend = document.getElementById('legend');
-    // var type = images[0];
-    // var name = 'Computing Element';
-    // var icon = type.url;
-    // var div = document.createElement('div');
-    // div.innerHTML = '<img src="' + icon + '" height="32" width="32" align="center"> &emsp;' + name;
-    // legend.appendChild(div);
-    // var type = images_se[0];
-    // var name = 'Storage Element';
-    // var icon = type.url;
-    // var div = document.createElement('div');
-    // div.innerHTML = '<img src="' + icon + '" height="32" width="32" align="center"> &emsp;' + name;
-    // legend.appendChild(div);
-    // map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
 
 }
 
@@ -192,8 +198,8 @@ function toogleSE(){
   if(SEvisible){
     setMapOnAll(SEsites,null);
     SEvisible = false;
-    setMapOnAll(Lines,null);
-    Linesvisible = false;
+    //setMapOnAll(Lines,null);
+    //Linesvisible = false;
   }
   else{
    setMapOnAll(SEsites,pointMap);
@@ -201,18 +207,18 @@ function toogleSE(){
   }
 }
 
-function toogleLines(){
-  if(Linesvisible){
-    setMapOnAll(Lines,null);
-    Linesvisible = false;
-  }
-  else{
-   setMapOnAll(SEsites,pointMap);
-   SEvisible = true;
-   setMapOnAll(Lines,pointMap);
-   Linesvisible = true;
-  }
-}
+// function toogleLines(){
+//   if(Linesvisible){
+//     setMapOnAll(Lines,null);
+//     Linesvisible = false;
+//   }
+//   else{
+//    setMapOnAll(SEsites,pointMap);
+//    SEvisible = true;
+//    setMapOnAll(Lines,pointMap);
+//    Linesvisible = true;
+//   }
+// }
 
 
 // Sets the map on all markers in the array.
