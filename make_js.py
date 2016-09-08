@@ -8,7 +8,7 @@ from src.js_gen import *
 
 try:
     from dirac_script.computing_sites import read_site_summary
-    from dirac_script.storage_sites import get_se_list
+    from dirac_script.storage_sites import get_se_sites
     Dirac_env = True
 except ImportError:
     print "Dirac enviroment not ready. Reading sites from file."
@@ -31,7 +31,7 @@ for ce in ce_sites:
 
 # Include storage elements too
 if Dirac_env:
-     se_sites = get_se_list()
+     se_sites = get_se_sites()
 else:
      #To obtain the info without DIRAC enviroment (to test)
      se_sites = read_gb2_list_se("info/gb2_list_se.txt")

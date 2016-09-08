@@ -168,6 +168,8 @@ class JSgen:
         if not 'Token' in se:
             se['Token'] = ''
 
+        if 'Health' in se and 'HealthUpdateTime' in se['Health']:
+            se['Health'].pop('HealthUpdateTime',None)
         # To avoid duplicate sites (XXX-*-SE)
         included = False
         for se_included in self.se_sites:
@@ -179,7 +181,7 @@ class JSgen:
             description_text = '<strong>'+ se['Host'] + '</strong></br><hr>'
 
             # The color depends of the health
-            if se['Health'] == '':
+            if not 'Health' in se or se['Health'] == '':
                 self.se_sites[key]['Icon'] = js_icon("images/db_unknown.png",35,0)
                 description_text += """<strong>Free space: """ + \
                                         'unknown' + " </strong></br><!--abs--></br> "
@@ -237,7 +239,7 @@ class JSgen:
                     self.se_sites[included]['Description'] += "</div>"
 
                     # The color depends of the health
-                    if se['Health'] != '':
+                    if 'Health' in se and se['Health'] != '':
                         if se['Health']['isHealthy'] != 1:
                             self.se_sites[included]['Icon'] = js_icon("images/db_error.png",35,0)
                         elif se['Health']['GuaranteedSizeBYTE'] != 0:
