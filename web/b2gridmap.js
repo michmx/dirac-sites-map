@@ -1,7 +1,6 @@
 // Sites map v0.2  -- Michel
 
-
-
+google.load( 'visualization', '1', { packages:['corechart'] });
 
 function ViewControl(controlDiv, map, name, latLng, zoom) {
   controlDiv.style.padding = '10px';
@@ -86,15 +85,48 @@ function initialize() {
     var Oceania = new ViewControl(ViewDiv, map, 'Oceania', [ -30.8, 140.6], 5);
     var Oceania = new ViewControl(ViewDiv, map, 'Global', [ 30., 0.5463], 2);
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(ViewDiv);
+    
+
 
     for (ce in ce_sites) {
 
+
+        var data = google.visualization.arrayToDataTable([['Status', 'No. of jobs'], ['Done', ce_sites[ce]['Done']], 
+                                                          ['Failed', ce_sites[ce]['Failed']]]);
         
+        var radius = ce_sites[ce]['Radius'];
+        var options = {
+               title: "No. of jobs",
+               legend: 'none',
+               width: radius,
+               height: radius,
+               chartArea: {width: '100%', height: '100%'},
+               backgroundColor: 'transparent',
+               colors: ['#FF0000', '#04FB03'],
+               pieStartAngle: 270,
+               pieSliceBorderColor: '#000000',
+               pieSliceText: 'none',
+               reverseCategories: true
+
+        };
+
+        
+        var chart_div = document.getElementById('piechart');
+        
+        var chart = new google.visualization.PieChart(chart_div);
+        window.alert('in')
+        var path = ''
+
+        google.visualization.events.addListener(chart, 'ready', function() {
+            path =  chart.getImageURI();
+
+        });
+        chart.draw(data, options);
 
         var ce_marker = new google.maps.Marker({
             position: {lat: ce_sites[ce]['Coordinates'][1], lng: ce_sites[ce]['Coordinates'][0]},
             map: map,
-            //icon: images[1],
+            icon: path,
             title: ce,
             //zIndex: ce_site[3],
             html: ce_sites[ce]['Description']
