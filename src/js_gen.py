@@ -121,13 +121,7 @@ class JSgen:
         copyfile('input/cloud.png','./web/images/cloud.png')
         self.ce_sites[key] = ce
 
-        #### To remove
-        pie_plot(key, int(ce['Done']), int(ce['Failed']), 'web/images/', size=(radius, radius))
-        if 'CLOUD' in key:
-            self.images_list.append(js_icon("images/cloud.png",0,0))
-        else:
-            self.images_list.append(js_icon("images/pie_" + key + ".png",0,0,radius*100))
-        ####
+        self.ce_sites[key]['Radius'] = radius * 70
 
         jobs_total = int(ce['Done']) + int(ce['Failed'])
         if jobs_total != 0:
