@@ -15,7 +15,10 @@ def get_se_sites():
      
     # Read the data from CSV file and returns dictionary
     coordinates_data = {}
-    csv_file = open('sites.tmp', "r")
+    try:
+        csv_file = open('sites.tmp', "r")
+    except IOError:
+        sys.exit("There are no coordinates info for SE. Get first the computing sites with get_ce_sites()")
     lines = csv_file.read().split("\n")
     for row in lines:
         if row != "":
@@ -24,7 +27,6 @@ def get_se_sites():
             site[2].replace('.','',1).replace('-','',1).isdigit():
                 coordinates_data[site[0]] = [float(site[1]),float(site[2])]      
     se_sites = {}
-    se_list = []
     manager = Manager()
     se_result = manager.listSEs()['Value']
     se_health = service.getHealthyProductionSEs()

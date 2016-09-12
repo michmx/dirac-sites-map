@@ -6,13 +6,6 @@ from datetime import datetime as dt
 
 from pprint import pprint
 
-#To use matplotlib without graphic enviroment
-try:
-    import matplotlib as mpl
-    mpl.use('Agg')
-    import matplotlib.pyplot as plt
-except ImportError:
-    sys.exit("Error: Matplotlib package not found. Please install running 'pip install matplotlib'.")
 
 
 # #### Functions #### #
@@ -89,19 +82,14 @@ class JSgen:
         if os.path.exists('input/health.tmp'):
             os.remove('input/health.tmp')
 
-    # Loads map style
-    def init_map(self):
-        map_style = []
-        map_style.append(dict(featureType = 'all',elementType = 'all', stylers = ['visibility','off']))
-        map_style.append(dict(featureType = 'landscape',elementType = 'labels', \
-                              stylers = [dict(visibility = 'off'),dict(color = '#fcfcfc')]))
-        map_style.append(dict(featureType = 'landscape',elementType = 'geometry', stylers = ['visibility','on']))
-        map_style.append(dict(featureType = 'water',elementType = 'labels', stylers = ['visibility','off']))
-        map_style.append(dict(featureType = 'water',elementType = 'geometry', \
-                              stylers = [dict(visibility = 'on'),dict(hue = '#5f94ff'),dict(lightness = 60)]))
-        self.js_writer.write('var mapStyle = \n')
-        self.js_writer.write(json.dumps(map_style,indent=2))
-        self.js_writer.write(';\n')
+
+    def make_map(self):
+        pass
+        # Finds the connections between the sites
+    #    for sites in [ce_sites,se_sites]:
+    #    for site in sites:
+    #            sites[site]['Destinations'] = find_destinations(site)
+                
 
     # Include a computing element in the map
     def add_ce_site(self, key, ce):
@@ -171,6 +159,7 @@ class JSgen:
                 included = True
         if not included:
             self.se_sites[key] = se
+            self.se_sites[key]['Endpoints'] = [key]
 
             description_text = '<strong>'+ se['Host'] + '</strong></br><hr>'
 
@@ -225,6 +214,7 @@ class JSgen:
         else:
             for included in self.se_sites:
                 if se['Host'] == self.se_sites[included]['Host'] and se['Token'] == self.se_sites[included]['Token']:
+                    self.se_sites[included]['Endpoints'].append(key)
                     self.se_sites[included]['Description'] += """----- </br>
                     <div style="padding-left: 5px;">Endpoint: """ + key + """ </br>
                     Path: """ + se['Path'] + "</br>"
@@ -261,69 +251,6 @@ class JSgen:
                                 self.se_sites[included]['Description'].replace('<!--abs-->',space_abs)
 
 
-
-
-
-    # Draw a line on the map
-    def draw_line(self, se1, se2, color='#FF0000',strokeWeight = 3):
-        line_coordinates = []
-        line_coordinates.append(dict(lat = float(se1.coordinates[1]), lng = float(se1.coordinates[0])))
-        line_coordinates.append(dict(lat = float(se2.coordinates[1]), lng = float(se2.coordinates[0])))
-        self.lines_list.append(line_coordinates)
-        self.lines_colors.append(color)
-        self.lines_stroke.append(strokeWeight)
-
-
-    # Pull data from Dashboard JSON file
-    def pull_dashboard(self, path, hours=720):
-        se1 = SE_site()
-        se2 = SE_site()
-
-        js_data = urllib2.urlopen(path).read()
-        # Testing locally
-        #js_data = open('/Users/michmx/Dashboard.js','r').read()
-
-        dashboard = json.loads(js_data)
-        # For now, we only need the data transfer info
-        data_matrix = dashboard['transfers']['rows']
-        # Search the pair of SE elements
-        for cell in data_matrix:
-            for se in self.se_sites:
-                if se.host[0] == cell[0]:
-                    se1 = se;
-            for se in self.se_sites:
-                if se.host[0] == cell[1]:
-                    se2 = se;
-            #We calculate the speed on kBs
-            speed = cell[2]/float(hours * 60 * 1000)
-            self.total_speed += speed
-            efficiency = cell[3] *100 / (cell[3] + cell[4])
-            self.total_eff += efficiency
-
-            description_text = """<strong>Source = """ + se1.host[0] + """</br>
-            Destination = """ + se2.host[0] + """</strong></br><hr>
-            <font style="font-weight: bold">Connection info:</font> </br>
-            <div style="padding-left: 5px;">Throughput: %0.1f KB/s </br>"""%speed +\
-            """Efficiency: %0.0f"""%efficiency +  """% </br>
-            Transfer Successes: """ + str(cell[3]) +  """ </br>
-            Transfer Failures: """ + str(cell[4]) + """  </br>
-            </div><br />"""
-            # The color depends of the efficiency
-            if efficiency < 20:
-                color = '#FF0000'
-            elif efficiency >= 20 and efficiency < 60:
-                color = '#FFFF00'
-            elif efficiency >= 60 and efficiency < 80:
-                color = '#0033FF'
-            else:
-                color = '#00CC00'
-            # The stroke weight of the line depends of the throughput.
-            if speed < 1:
-                self.draw_line(se1, se2, color, 1)
-            else:
-                self.draw_line(se1, se2, color, 1 + math.log(speed,2))
-
-            self.lines_description.append(description_text)
 
 
     # Obtains SE health info
