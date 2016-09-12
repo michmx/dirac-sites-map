@@ -84,9 +84,9 @@ def find_destinations(source, hours = 720):
         Destination = """ + dest + """</strong></br><hr>
         <font style="font-weight: bold">Connection info:</font> </br>
         <div style="padding-left: 5px;">Throughput: %0.1f KB/s </br>"""%speed +\
-        """Efficiency: %0.0f"""%efficiency +  """%""" + \
-        "</br>Successful: %0.00f MB</br>"%(float(total - destinations[dest]['Failed'])/float(1000000.0)) + \
-        "Failed: %0.00f MB"%float(destinations[dest]['Failed']/float(1000000.0))  + """  </br>
+        """Efficiency: %.1f"""%efficiency +  """%""" + \
+        "</br>Successful: %.1f MB</br>"%(float(total - destinations[dest]['Failed'])/float(1000000.0)) + \
+        "Failed: %0.1f MB"%float(destinations[dest]['Failed']/float(1000000.0))  + """  </br>
         </div><br />"""
         # The color depends of the efficiency
         if efficiency < 20:

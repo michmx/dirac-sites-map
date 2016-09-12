@@ -25,7 +25,6 @@ if Dirac_env:
     # Include computing elements
     ce_sites = read_site_summary()
     se_sites = get_se_sites()
-    # Find the destinations of each site
     
 else:
     #To obtain the info without DIRAC enviroment (to test)
@@ -33,6 +32,7 @@ else:
     se_sites = read_gb2_list_se("info/gb2_list_se.txt")
 
 for ce in ce_sites:
+    ce_sites[ce]['Destinations'] = find_destinations(ce) 
     map.add_ce_site(ce,ce_sites[ce])
 
 for se in se_sites:
@@ -45,5 +45,4 @@ for se in se_sites:
 #                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
 #                     '&dst_grouping=host&interval=50000',50000)
 #
-map.make_map()
 map.close()

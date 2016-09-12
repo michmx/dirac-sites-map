@@ -83,14 +83,6 @@ class JSgen:
             os.remove('input/health.tmp')
 
 
-    def make_map(self):
-        pass
-        # Finds the connections between the sites
-    #    for sites in [ce_sites,se_sites]:
-    #    for site in sites:
-    #            sites[site]['Destinations'] = find_destinations(site)
-                
-
     # Include a computing element in the map
     def add_ce_site(self, key, ce):
         # Calculate the size of the pie plot based on total jobs
