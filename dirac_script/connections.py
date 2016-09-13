@@ -12,20 +12,6 @@ from datetime import date, time, datetime, timedelta
 import math
 
 
-# Pull data from Dashboard JSON file
-def pull_dashboard(self, path):
-
-    js_data = urllib2.urlopen(path).read()
-    # Testing locally
-    #js_data = open('/Users/michmx/Dashboard.js','r').read()
-
-    dashboard = json.loads(js_data)
-    # For now, we only need the data transfer info
-    data_matrix = dashboard['transfers']['rows']
-    # Search the pair of SE elements
-    return data_matrix
-
-
 # Find the transfers between source and its destinations (since last hours)
 def find_destinations(source, hours = 720):
     # Read the data from CSV file and returns dictionary

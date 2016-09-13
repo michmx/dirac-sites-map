@@ -8,36 +8,6 @@ from pprint import pprint
 
 
 
-# #### Functions #### #
-# Read the data from CSV file and returns dictionary
-def read_coordinates(file):
-    data = {}
-    csv_file = open(file, "r")
-    lines = csv_file.read().split("\n")
-    for row in lines:
-        if row != "":
-            site = row.split(',')
-            data[site[0]] = [site[1],site[2]]
-    return data
-
-
-# Draw a pie plot for each CE site
-def pie_plot(site, jobs_succeeded, jobs_failed, path = 'content/', dpi = 100, size = (0.5,0.5)):
-    if not os.path.exists(path):
-            os.mkdir(path)
-    labels = 'succeeded', 'failed'
-    sizes = [jobs_succeeded, jobs_failed]
-    colors = ['#04FB00', 'red']
-    plt.figure(figsize=size, dpi=dpi)
-    if jobs_failed + jobs_succeeded != 0:
-        plt.pie(sizes, colors=colors, startangle=180, radius=0.8)
-    else:
-        plt.pie([0,100],colors = ['black','white'], startangle = 180,radius = 0.8)
-    plt.axis('equal')
-    plt.savefig(path + 'pie_' + site + '.png', transparent=True, dpi = dpi, figsize = size)
-    plt.close()
-
-
 # Used to export Javascript objects
 def js_icon(url, anchorx = 0, anchory = 0, size=40):
     icon = {}
@@ -47,23 +17,15 @@ def js_icon(url, anchorx = 0, anchory = 0, size=40):
     icon['anchor'] = [anchorx,anchory]
     return icon
 
-
 # This encapsulates all the functions to generate Javascript file
 class JSgen:
-    def __init__(self, path, Dirac_proxy = False):
+    def __init__(self, path, hours, Dirac_proxy = False):
         self.js_writer = open(path,"w")
         self.ce_sites = {}
         self.se_sites = {}
-
         self.images_list = []
-
-        self.lines_list = []
-        self.lines_colors = []
-        self.lines_description = []
-        self.lines_stroke = []
-        self.total_speed = 0
-        self.total_eff = 0
         self.Dirac_env = Dirac_proxy
+        self.hours = hours
 
         # Images of the SE sites
         if not os.path.exists('./web/images/'):
@@ -79,9 +41,6 @@ class JSgen:
         copyfile('input/db_33y.png','./web/images/db_33y.png')
         copyfile('input/db_0y.png','./web/images/db_0y.png')
         
-        if os.path.exists('input/health.tmp'):
-            os.remove('input/health.tmp')
-
 
     # Include a computing element in the map
     def add_ce_site(self, key, ce):
@@ -130,9 +89,21 @@ class JSgen:
 
     # Include a storage element in the map
     def add_se_site(self, key, se):
+        # Obtains SE health info
+        def pull_se_health(se_name = ''):
+            if not self.Dirac_env:
+                #To work for now without Dirac enviroment
+                js_se_health = open('input/healty.dat','r')
+                se_health = pickle.load(js_se_health)['Value']
+                js_se_health.close()
+
+            if se_name in se_health:
+                return se_health[se_name]
+            else:
+                return 0
         # Take the health info of the SE sites
         if not self.Dirac_env:
-            health = self.pull_se_health(key)
+            health = pull_se_health(key)
             if health != 0:
                 se['Health'] = health[0]
                 se['Health'].pop('HealthUpdateTime',None)
@@ -245,51 +216,96 @@ class JSgen:
 
 
 
-    # Obtains SE health info
-    def pull_se_health(self, se_name = ''):
-        if not self.Dirac_env:
-            #To work for now without Dirac enviroment
-            js_se_health = open('input/healty.dat','r')
-            se_health = pickle.load(js_se_health)['Value']
-            js_se_health.close()
+    # Pull data from Dashboard JSON file
+    def pull_dashboard(self, path, hours = 720):
 
-        if se_name in se_health:
-            return se_health[se_name]
-        else:
-            return 0
+        minutes = hours * 60
+        js_data = urllib2.urlopen(path).read()
+        # Testing locally
+        #js_data = open('/Users/michmx/Dashboard.js','r').read()
+        dashboard = json.loads(js_data)
+
+        site1 = ''
+        site2 = ''
+        # For now, we only need the data transfer info
+        data_matrix = dashboard['transfers']['rows']
+        # Search the pair of SE elements
+        for cell in data_matrix:
+            for se in self.se_sites:
+                if self.se_sites[se]['Host'] == cell[0]:
+                    site1 = se
+                if self.se_sites[se]['Host'] == cell[1]:
+                    site2 = se
+            #We calculate the speed on kBs
+            speed = cell[2]/float(minutes * 60 * 1000)
+            efficiency = cell[3] *100 / (cell[3] + cell[4])
+
+            description_text = """<strong>Source = """ + self.se_sites[site1]['Host'] + """</br>
+            Destination = """ + self.se_sites[site2]['Host'] + """</strong></br><hr>
+            <font style="font-weight: bold">Connection info:</font> </br>
+            <div style="padding-left: 5px;">Throughput: %0.1f KB/s </br>"""%speed +\
+            """Efficiency: %0.0f"""%efficiency +  """% </br>
+            Transfer Successes: """ + str(cell[3]) +  """ </br>
+            Transfer Failures: """ + str(cell[4]) + """  </br>
+            </div><br />"""
+            # The color depends of the efficiency
+            if efficiency < 20:
+                color = '#FF0000'
+            elif efficiency >= 20 and efficiency < 60:
+                color = '#FFFF00'
+            elif efficiency >= 60 and efficiency < 80:
+                color = '#0033FF'
+            else:
+                color = '#00CC00'
+            # The stroke weight of the line depends of the throughput.
+            if speed < 1:
+                stroke = 1                
+            else:
+                stroke = 1 + math.log(speed,2)
+            
+            if not 'Destinations' in self.se_sites[site1]:
+                self.se_sites[site1]['Destinations'] = {}
+            self.se_sites[site1]['Destinations'].update({site2:{'Description':description_text, 'efficiency':efficiency, 'stroke': stroke, \
+                    'speed':speed, 'color':color, 'Successful':cell[3], 'Failed':cell[4], 'Coordinates':self.se_sites[site2]['Coordinates']}})
+
+
+
 
     # Finishes the Javascript code
-    def close(self):
+    def push_map(self):
         # Write the sites
         self.js_writer.write("\nvar ce_sites = \n" + json.dumps(self.ce_sites,indent = 2))
-
         self.js_writer.write("\nvar se_sites = \n" + json.dumps(self.se_sites,indent = 2))
-
-        #self.js_writer.write("\nvar se_contentString = \n" + json.dumps(self.se_description_list,indent = 2))
-        self.js_writer.write("\n\nvar images = \n" + json.dumps(self.images_list,indent = 2))
-        #self.js_writer.write("\n\nvar images_se = \n" + json.dumps(self.se_images_list,indent = 2).replace('"',''))
-        # Write the lines
-        #self.js_writer.write("\n\nvar lineCoordinates = \n" + \
-        #                     json.dumps(self.lines_list,indent = 2).replace('"',''))
-        #self.js_writer.write("\nvar linesColors = \n" + json.dumps(self.lines_colors,indent = 2))
-        #self.js_writer.write("\nvar linesDescription = \n" + json.dumps(self.lines_description,indent = 2))
-        #self.js_writer.write("\nvar linesStroke = \n" + json.dumps(self.lines_stroke,indent = 2))
         # Write statistics
-        global_statistics = []
-        global_statistics.append(round(self.total_speed/1000,1))
-        if len(self.lines_list) != 0:
-            global_statistics.append(round(self.total_eff/len(self.lines_list),1))
+        global_statistics = {}
+
+        
+        total_speed = 0.0
+        total_eff = 0.0
+        num_lines = 0
+        for sites in [self.se_sites,self.ce_sites]:
+            for site in sites:
+                if 'Destinations' in sites[site]:
+                    num_lines += len(sites[site]['Destinations'].keys())
+                    for key in sites[site]['Destinations']:
+                        total_speed += sites[site]['Destinations'][key]['speed']
+                        total_eff += sites[site]['Destinations'][key]['efficiency']
+
+        global_statistics['Throughput'] = round(total_speed/1000,1)
+        if num_lines != 0:
+            global_statistics['Efficiency'] = round(total_eff/num_lines,1)
         else:
-            global_statistics.append('-')
-        global_statistics.append(len(self.ce_sites))
-        global_statistics.append(len(self.se_sites))
-        global_statistics.append(len(self.lines_list))
+            global_statistics['Efficiency'] = '-'
+        
+        global_statistics['CEsites'] = len(self.ce_sites)
+        global_statistics['SEsites'] = len(self.se_sites)
+
+        global_statistics['Connections'] = num_lines
         # Get the date of the update
         now = dt.utcnow().strftime("%Y-%m-%d %H:%M") + ' UTC'
         if not self.Dirac_env:
             now += '</br></br> Debug mode. No real data.'
-        global_statistics.append(now)
+        global_statistics['Updated'] = now
+        global_statistics['Accounting_time'] = self.hours
         self.js_writer.write("\nvar global_statistics = \n" + json.dumps(global_statistics,indent = 2))
         self.js_writer.close()
-        if os.path.exists('input/health.tmp'):
-            os.remove('input/health.tmp')

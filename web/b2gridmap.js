@@ -84,7 +84,8 @@ var mapStyle =
 
 var SEsites = [];
 var CEsites = [];
-var Lines = [];
+var SELines = [];
+var CELines = [];
 
 // Contains the info of the map outside the initialize function
 var pointMap;
@@ -125,12 +126,13 @@ function initialize() {
     bandwidthDiv.style.paddingRight = '10px';
     bandwidthDiv.style.backgroundColor = 'white';
     bandwidthDiv.style.border = "thin solid black";;
-    bandwidthDiv.innerHTML = '<b>Total throughput: ' + global_statistics[0] + ' MB/s</b>';
-    bandwidthDiv.innerHTML += '<br /><b>Efficiency: ' + global_statistics[1] + '%</b><br />';
-    bandwidthDiv.innerHTML += '<br /><b>Compunting sites: '+ global_statistics[2] +'</b>';
-    bandwidthDiv.innerHTML += '<br /><b>Storage element sites: '+ global_statistics[3] + '</b>';
-    bandwidthDiv.innerHTML += '<br /><b>Total connections: '+ global_statistics[4] + '</b>';
-    bandwidthDiv.innerHTML += '<br /><br /><b>Last updated: <br />'+ global_statistics[5] + '</b>';
+    bandwidthDiv.innerHTML = '<b>Total throughput: ' + global_statistics['Throughput'] + ' MB/s</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Efficiency: ' + global_statistics['Efficiency'] + '%</b><br />';
+    bandwidthDiv.innerHTML += '<br /><b>Compunting sites: '+ global_statistics['CEsites'] +'</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Storage element sites: '+ global_statistics['SEsites'] + '</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Total connections: '+ global_statistics['Connections'] + '</b>';
+    bandwidthDiv.innerHTML += '<br /><br /><b>Accounting time: '+ global_statistics['Accounting_time'] + ' hours' + '</b>';
+    bandwidthDiv.innerHTML += '<br /><br /><b>Last updated: <br />'+ global_statistics['Updated'] + '</b>';
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(bandwidthDiv);
 
     var ViewDiv = document.createElement('div');
@@ -210,7 +212,7 @@ function initialize() {
               infowindow.open(map);
 
             });
-            Lines.push(flightPath);
+            CELines.push(flightPath);
         }
     }
 
@@ -247,28 +249,28 @@ function initialize() {
         SEsites.push(se_marker);
 
         // Make the connections
-        //for(destination in se_sites[se]['Destinations']){
-        //    var lineCoordinates = [se_position, {lat:se_sites[se]['Destinations'][destination]['Coordinates'][0], lng: se_sites[se]['Destinations'][destination]['Coordinates'][1]}]
+        for(destination in se_sites[se]['Destinations']){
+            var lineCoordinates = [se_position, {lat:se_sites[se]['Destinations'][destination]['Coordinates'][0], lng: se_sites[se]['Destinations'][destination]['Coordinates'][1]}]
 
-        //    var flightPath = new google.maps.Polyline({
-        //      path: lineCoordinates,
-        //      geodesic: true,
-        //      strokeColor: se_sites[se]['Destinations'][destination]['color'],
-        //      strokeOpacity: 0.7,
-        //      strokeWeight: se_sites[se]['Destinations'][destination]['stroke'],
-        //      html: se_sites[se]['Destinations'][destination]['Description']
-        //    });
-        //    flightPath.setMap(map);
-        //    flightPath.addListener('click',function(e)
-        //    {
-        //      infowindow = new google.maps.InfoWindow({content: "Loading..."});
-        //      infowindow.setContent(this.html);
-        //      infowindow.setPosition(e.latLng);
-        //      infowindow.open(map);
+            var flightPath = new google.maps.Polyline({
+              path: lineCoordinates,
+              geodesic: true,
+              strokeColor: se_sites[se]['Destinations'][destination]['color'],
+              strokeOpacity: 0.7,
+              strokeWeight: se_sites[se]['Destinations'][destination]['stroke'],
+              html: se_sites[se]['Destinations'][destination]['Description']
+            });
+            flightPath.setMap(map);
+            flightPath.addListener('click',function(e)
+            {
+              infowindow = new google.maps.InfoWindow({content: "Loading..."});
+              infowindow.setContent(this.html);
+              infowindow.setPosition(e.latLng);
+              infowindow.open(map);
 
-        //    });
-        //    Lines.push(flightPath);
-        //}
+            });
+            SELines.push(flightPath);
+        }
         
 
     }
@@ -291,7 +293,8 @@ function initialize() {
 // To know the status of the sites
 var CEvisible = true;
 var SEvisible = true;
-var Linesvisible = true;
+var SElinesvisible = true;
+var CElinesvisible = true;
 
 
 // Show or hide the sites
@@ -299,6 +302,8 @@ function toogleCE(){
   if(CEvisible){
     setMapOnAll(CEsites,null);
     CEvisible = false;
+    setMapOnAll(CELines,null);
+    CElinesvisible = false;
   }
   else{
    setMapOnAll(CEsites,pointMap);
@@ -310,8 +315,8 @@ function toogleSE(){
   if(SEvisible){
     setMapOnAll(SEsites,null);
     SEvisible = false;
-    //setMapOnAll(Lines,null);
-    //Linesvisible = false;
+    setMapOnAll(SELines,null);
+    SElinesvisible = false;
   }
   else{
    setMapOnAll(SEsites,pointMap);
@@ -319,16 +324,29 @@ function toogleSE(){
   }
 }
 
-function toogleLines(){
-  if(Linesvisible){
-    setMapOnAll(Lines,null);
-    Linesvisible = false;
+function toogleSELines(){
+  if(SElinesvisible){
+    setMapOnAll(SELines,null);
+    SElinesvisible = false;
   }
   else{
    setMapOnAll(SEsites,pointMap);
    SEvisible = true;
-   setMapOnAll(Lines,pointMap);
-   Linesvisible = true;
+   setMapOnAll(SELines,pointMap);
+   SElinesvisible = true;
+  }
+}
+
+function toogleCELines(){
+  if(CElinesvisible){
+    setMapOnAll(CELines,null);
+    CElinesvisible = false;
+  }
+  else{
+   setMapOnAll(CEsites,pointMap);
+   CEvisible = true;
+   setMapOnAll(CELines,pointMap);
+   CElinesvisible = true;
   }
 }
 
