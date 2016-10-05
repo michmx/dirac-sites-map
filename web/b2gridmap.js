@@ -92,6 +92,11 @@ var pointMap;
 
 
 function initialize() {
+    // To show the pie plots
+    var iDiv = document.createElement('div');
+    iDiv.id = 'piechart';
+    iDiv.style= 'width: 50px; height: 50px; display: none;';
+    document.getElementsByTagName('body')[0].appendChild(iDiv);
 
     var mapCanvas = document.getElementById('map');
 

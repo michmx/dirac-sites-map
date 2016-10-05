@@ -88,7 +88,7 @@ buildUI : function()
                                                                 mode = 0;
                                                                 removeMarkers();
                                                                 getDataAndDraw();
-                                                                addLegend();
+                                                                addLe:!d();
                                                                },
                                                      iconCls : "dirac-icon-refresh"
                                                     });

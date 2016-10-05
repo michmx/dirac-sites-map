@@ -7,7 +7,7 @@ from DIRAC.Core.DISET.RPCClient import RPCClient
 from utils.manager import Manager
 from controllers.utilCLController import listSE
 from DIRAC import gConfig
-from DIRAC.AccountingSystem.Client.ReportsClient                import ReportsClient
+from DIRAC.AccountingSystem.Client.ReportsClient import ReportsClient
 from datetime import date, time, datetime, timedelta
 import math
 
