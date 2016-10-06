@@ -7,9 +7,6 @@
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="https://raw.githubusercontent.com/michmx/kml-gen/master/web/oms.min.js"></script>
-
-
     <script type="text/javascript" src="{{base_url}}/static/core/js/utils/canvg-1.3/rgbcolor.js"></script>
 	<script type="text/javascript" src="{{base_url}}/static/core/js/utils/canvg-1.3/StackBlur.js"></script>
 	<script type="text/javascript" src="{{base_url}}/static/core/js/utils/canvg-1.3/canvg.js"></script>

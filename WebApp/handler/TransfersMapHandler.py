@@ -1,20 +1,18 @@
 from WebAppDIRAC.Lib.WebHandler import WebHandler, WErr, WOK, asyncGen
-from DIRAC import gConfig, S_OK, S_ERROR, gLogger
+from DIRAC import gConfig, gLogger
 from DIRAC.Core.DISET.RPCClient import RPCClient
 from DIRAC.Interfaces.API.DiracAdmin import DiracAdmin
-from utils.manager import Manager
+from BelleDIRAC.gbasf2.lib.utils.manager import Manager
+
 from DIRAC.Core.Base import Script
-from controllers.utilCLController import listSE
-from DIRAC.AccountingSystem.Client.ReportsClient import ReportsClient
+#from controllers.utilCLController import listSE
+#from DIRAC.AccountingSystem.Client.ReportsClient import ReportsClient
 
-Script.parseCommandLine()
+#Script.parseCommandLine()
 
-import json, os, urllib2, math, time
-from shutil import copyfile
+import json, urllib2, math, time
 from datetime import datetime as dt
 from datetime import timedelta
-
-
 
 class TransfersMapHandler(WebHandler):
 
@@ -34,26 +32,26 @@ class TransfersMapHandler(WebHandler):
         # Accounting time in hours
         hours = 720
         # A simple script to obtain the info for the map
-        map = JSgen(hours)
+        site_map = JSgen(hours)
         ce_sites = self.read_site_summary()
         se_sites = self.get_se_sites()
 
         for ce in ce_sites:
             # Find destinations of each computing site
             ce_sites[ce]['Destinations'] = self.find_destinations(ce, hours)
-            map.add_ce_site(ce, ce_sites[ce])
+            site_map.add_ce_site(ce, ce_sites[ce])
 
         for se in se_sites:
-            map.add_se_site(se, se_sites[se])
+            site_map.add_se_site(se, se_sites[se])
 
         # Find the connections between SEs with dashboard
-        map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
+        site_map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                            'dashboard/request.py/transfer-matrix.json?' + \
                            'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host' + \
                            '&dst_grouping=host&interval=' + str(hours * 60), hours)
 
         # Send to the client {'CEsites':{...},'SEsites':{...},'Global':{...}}
-        self.write({"success": "true", "result": map.push_map()})
+        self.write({"success": "true", "result": site_map.push_map()})
 
 
     def getSiteList(self):
@@ -243,6 +241,7 @@ class JSgen:
         self.ce_sites = {}
         self.se_sites = {}
         self.hours = hours
+
 
     # Include a computing element in the map
     def add_ce_site(self, key, ce):

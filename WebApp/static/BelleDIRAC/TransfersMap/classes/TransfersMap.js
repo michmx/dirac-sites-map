@@ -1,5 +1,9 @@
 // Sites map v0.2  -- Michel
 
+var imported = document.createElement('script');
+imported.src = 'oms.min.js';
+document.head.appendChild(imported);
+
 google.load( 'visualization', '1', { packages:['corechart'] });
 
 // Stores the info from the server
