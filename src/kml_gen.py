@@ -1,6 +1,13 @@
 #! /usr/bin/env python
 
-import matplotlib.pyplot as plt
+#To use matplotlib without graphic enviroment
+try:
+    import matplotlib as mpl
+    mpl.use('Agg')
+    import matplotlib.pyplot as plt
+except ImportError:
+    sys.exit("Error: Matplotlib package not found. Please install running 'pip install matplotlib'.")
+
 from lxml import etree
 import json, urllib2, math, pickle
 import os

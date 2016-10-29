@@ -1,5 +1,9 @@
 // Sites map v0.2  -- Michel
 
+var imported = document.createElement('script');
+imported.src = 'oms.min.js';
+document.head.appendChild(imported);
+
 google.load( 'visualization', '1', { packages:['corechart'] });
 
 function ViewControl(controlDiv, map, name, latLng, zoom) {
@@ -139,6 +143,8 @@ function initialize() {
     bandwidthDiv.innerHTML += '<br /><br /><b>Accounting time: '+ global_statistics['Accounting_time'] + ' hours' + '</b>';
     bandwidthDiv.innerHTML += '<br /><br /><b>Last updated: <br />'+ global_statistics['Updated'] + '</b>';
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(bandwidthDiv);
+
+
 
     var ViewDiv = document.createElement('div');
     var Asia = new ViewControl(ViewDiv, map, 'Asia', [37.6, 110.6], 4);
