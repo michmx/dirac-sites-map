@@ -90,7 +90,6 @@ def find_destinations(source, hours = 720):
         else:
             tmp_stroke = 1 + math.log(speed,2)
             if tmp_stroke > 8:
-                print tmp_stroke
                 destinations[dest]['stroke'] = 8
             else:    
                 destinations[dest]['stroke'] = tmp_stroke

@@ -40,7 +40,7 @@ for se in se_sites:
 # Find the connections between SEs with dashboard
 map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                      'dashboard/request.py/transfer-matrix.json?' + \
-                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
+                     'vo=belle&server=kek2-fts.cc.kek.jp&src_grouping=host' + \
                      '&dst_grouping=host&interval='+str(hours*60),hours)
 
 # Creates datagrid.js file
