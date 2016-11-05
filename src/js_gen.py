@@ -260,6 +260,8 @@ class JSgen:
             # The stroke weight of the line depends of the throughput.
             if speed < 1:
                 stroke = 1                
+            elif speed > 7:
+                stroke = 7
             else:
                 stroke = 1 + math.log(speed,2)
             

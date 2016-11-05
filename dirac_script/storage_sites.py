@@ -63,6 +63,6 @@ def get_health():
     return result
 
 if __name__ == "__main__":
-    result = get_se_sites()
+    result = get_health()
     pprint(result)
     #get_se_list()

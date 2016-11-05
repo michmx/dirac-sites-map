@@ -13,7 +13,7 @@ except ImportError:
     Dirac_env = False
 
 # Accounting time in hours
-hours = 720
+hours = 24
 
 # A simple script to obtain the info for the map
 map = JSgen('web/datagrid.js', hours, Dirac_env)
