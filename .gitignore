@@ -8,3 +8,4 @@ content/
 *.pyo
 *.zip
 *.o
+*.pyo

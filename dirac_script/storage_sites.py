@@ -2,13 +2,12 @@
 from pprint import pprint
 
 from DIRAC.Core.Base import Script
-Script.parseCommandLine()
 from DIRAC.Core.DISET.RPCClient import RPCClient
 from utils.manager import Manager
-from controllers.utilCLController import listSE
+#from controllers.utilCLController import listSE
 from DIRAC import gConfig
 
-
+Script.parseCommandLine()
 service = RPCClient('DistributedDataManagement/StorageElementStatus')
 
 def get_se_sites():
