@@ -88,9 +88,9 @@ def find_destinations(source, hours = 720):
         if speed < 1:
             destinations[dest]['stroke'] = 1
         else:
-            tmp_stroke = 1 + math.log(speed,2)
-            if tmp_stroke > 8:
-                destinations[dest]['stroke'] = 8
+            tmp_stroke = 1 + math.log(speed,10)
+            if tmp_stroke > 7:
+                destinations[dest]['stroke'] = 7
             else:    
                 destinations[dest]['stroke'] = tmp_stroke
 

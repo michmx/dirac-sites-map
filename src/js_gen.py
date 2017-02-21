@@ -221,6 +221,7 @@ class JSgen:
 
         minutes = hours * 60
         js_data = urllib2.urlopen(path).read()
+
         # Testing locally
         #js_data = open('/Users/michmx/Dashboard.js','r').read()
         dashboard = json.loads(js_data)
@@ -236,10 +237,14 @@ class JSgen:
                     site1 = se
                 if self.se_sites[se]['Host'] == cell[1]:
                     site2 = se
+
+            if site1 == "" or site2 == "":
+                continue
+
             #We calculate the speed on kBs
             speed = cell[2]/float(minutes * 60 * 1000)
             efficiency = cell[3] *100 / (cell[3] + cell[4])
-
+            
             description_text = """<strong>Source = """ + self.se_sites[site1]['Host'] + """</br>
             Destination = """ + self.se_sites[site2]['Host'] + """</strong></br><hr>
             <font style="font-weight: bold">Connection info:</font> </br>
@@ -260,10 +265,10 @@ class JSgen:
             # The stroke weight of the line depends of the throughput.
             if speed < 1:
                 stroke = 1                
-            elif speed > 7:
+            elif speed > 1000:
                 stroke = 7
             else:
-                stroke = 1 + math.log(speed,2)
+                stroke = 1 + math.log(speed,10)
             
             if not 'Destinations' in self.se_sites[site1]:
                 self.se_sites[site1]['Destinations'] = {}

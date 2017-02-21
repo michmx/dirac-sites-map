@@ -1,5 +1,10 @@
 // Sites map v0.2  -- Michel
 
+var imported = document.createElement('script');
+var time_now = new Date();
+imported.src = 'datagrid.js?t=' + time_now.getTime();
+document.head.appendChild(imported);
+
 google.load( 'visualization', '1', { packages:['corechart'] });
 
 function ViewControl(controlDiv, map, name, latLng, zoom) {
