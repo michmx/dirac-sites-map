@@ -213,7 +213,6 @@ class JSgen:
                             self.se_sites[included]['Description'] = \
                                 self.se_sites[included]['Description'].replace('<!--abs-->',space_abs)
 
-        print self.se_sites
 
 
     # Pull data from Dashboard JSON file

@@ -35,7 +35,6 @@ for ce in ce_sites:
     map.add_ce_site(ce,ce_sites[ce])
 
 for se in se_sites:
-    print se
     map.add_se_site(se,se_sites[se])
 
 # Find the connections between SEs with dashboard
