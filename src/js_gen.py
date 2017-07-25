@@ -213,7 +213,7 @@ class JSgen:
                             self.se_sites[included]['Description'] = \
                                 self.se_sites[included]['Description'].replace('<!--abs-->',space_abs)
 
-
+        print self.se_sites
 
 
     # Pull data from Dashboard JSON file
@@ -243,7 +243,10 @@ class JSgen:
 
             #We calculate the speed on kBs
             speed = cell[2]/float(minutes * 60 * 1000)
-            efficiency = cell[3] *100 / (cell[3] + cell[4])
+            if (cell[3] + cell[4]) != 0:
+                efficiency = cell[3] *100 / (cell[3] + cell[4])
+            else:
+                efficiency = 0
             
             description_text = """<strong>Source = """ + self.se_sites[site1]['Host'] + """</br>
             Destination = """ + self.se_sites[site2]['Host'] + """</strong></br><hr>
@@ -265,14 +268,15 @@ class JSgen:
             # The stroke weight of the line depends of the throughput.
             if speed < 1:
                 stroke = 1                
-            elif speed > 1000:
-                stroke = 7
             else:
-                stroke = 1 + math.log(speed,10)
-            
+                stroke = 1 + math.log(speed, 2)
+                if stroke > 8:
+                    stroke = 8 
+
             if not 'Destinations' in self.se_sites[site1]:
                 self.se_sites[site1]['Destinations'] = {}
-            self.se_sites[site1]['Destinations'].update({site2:{'Description':description_text, 'efficiency':efficiency, 'stroke': stroke, \
+            if 'Coordinates' in self.se_sites[site2]:
+                self.se_sites[site1]['Destinations'].update({site2:{'Description':description_text, 'efficiency':efficiency, 'stroke': stroke, \
                     'speed':speed, 'color':color, 'Successful':cell[3], 'Failed':cell[4], 'Coordinates':self.se_sites[site2]['Coordinates']}})
 
 

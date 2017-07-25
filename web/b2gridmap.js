@@ -235,48 +235,56 @@ function initialize() {
 
     for (se in se_sites) {
         
-        var se_position = {lat: se_sites[se]['Coordinates'][0], lng: se_sites[se]['Coordinates'][1]};
-        var se_marker = new google.maps.Marker({
+        console.debug("Adding: %s", se);
+        if('Coordinates' in se_sites[se]){
+            var se_position = {lat: se_sites[se]['Coordinates'][0], lng: se_sites[se]['Coordinates'][1]};
+            var se_marker = new google.maps.Marker({
 
-            position: se_position,
-            map: map,
-            icon: {
-               url: se_sites[se]['Icon']['url'],
-               origin: new google.maps.Point(0,0), 
-               anchor: new google.maps.Point(35, 0), 
-               size: new google.maps.Size(40, 40)
-            },
-            title: se,
-            html: se_sites[se]['Description']
-        });
-        
-        oms_se.addMarker(se_marker);
-        SEsites.push(se_marker);
-
-        // Make the connections
-        for(destination in se_sites[se]['Destinations']){
-            var lineCoordinates = [se_position, {lat:se_sites[se]['Destinations'][destination]['Coordinates'][0], lng: se_sites[se]['Destinations'][destination]['Coordinates'][1]}]
-
-            var flightPath = new google.maps.Polyline({
-              path: lineCoordinates,
-              geodesic: true,
-              strokeColor: se_sites[se]['Destinations'][destination]['color'],
-              strokeOpacity: 0.7,
-              strokeWeight: se_sites[se]['Destinations'][destination]['stroke'],
-              html: se_sites[se]['Destinations'][destination]['Description']
+                position: se_position,
+                map: map,
+                icon: {
+                   url: se_sites[se]['Icon']['url'],
+                   origin: new google.maps.Point(0,0), 
+                   anchor: new google.maps.Point(35, 0), 
+                   size: new google.maps.Size(40, 40)
+                },
+                title: se,
+                html: se_sites[se]['Description']
             });
-            flightPath.setMap(map);
-            flightPath.addListener('click',function(e)
-            {
-              infowindow = new google.maps.InfoWindow({content: "Loading..."});
-              infowindow.setContent(this.html);
-              infowindow.setPosition(e.latLng);
-              infowindow.open(map);
+            
+            oms_se.addMarker(se_marker);
+            SEsites.push(se_marker);
 
-            });
-            SELines.push(flightPath);
-        }
-        
+            // Make the connections
+            for(destination in se_sites[se]['Destinations']){
+                if('Coordinates' in se_sites[se]['Destinations'][destination]){    
+                    var lineCoordinates = [se_position, {lat:se_sites[se]['Destinations'][destination]['Coordinates'][0], lng: se_sites[se]['Destinations'][destination]['Coordinates'][1]}]
+
+                    var flightPath = new google.maps.Polyline({
+                      path: lineCoordinates,
+                      geodesic: true,
+                      strokeColor: se_sites[se]['Destinations'][destination]['color'],
+                      strokeOpacity: 0.7,
+                      strokeWeight: se_sites[se]['Destinations'][destination]['stroke'],
+                      html: se_sites[se]['Destinations'][destination]['Description']
+                    });
+                    flightPath.setMap(map);
+                    flightPath.addListener('click',function(e)
+                    {
+                      infowindow = new google.maps.InfoWindow({content: "Loading..."});
+                      infowindow.setContent(this.html);
+                      infowindow.setPosition(e.latLng);
+                      infowindow.open(map);
+
+                    });
+                    SELines.push(flightPath);
+                }
+                else
+                    console.warn("No coordinates info for %s", destination)
+            }
+        }    
+        else
+            console.warn("No coordinates info for %s", destination)
 
     }
 
