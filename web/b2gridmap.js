@@ -34,6 +34,13 @@ function initialize() {
   legend.addTo(map);
 
 
+    //var Asia = new ViewControl(ViewDiv, map, 'Asia', [37.6, 110.6], 4);
+    //var Europe = new ViewControl(ViewDiv, map, 'Europe', [46.0, 14.5], 5);
+    //var America = new ViewControl(ViewDiv, map, 'America', [ 30.8, -87.6], 4);
+    //var Oceania = new ViewControl(ViewDiv, map, 'Oceania', [ -30.8, 140.6], 5);
+    //var Oceania = new ViewControl(ViewDiv, map, 'Global', [ 30., 0.5463], 2);
+
+
 
   // To display multiple markers at the same point
   var oms = new OverlappingMarkerSpiderfier(map,
@@ -81,11 +88,28 @@ function initialize() {
       iconAnchor: [radius/2,radius/2]
     });
 
-    ce_marker = L.marker(ce_sites[ce]['Coordinates'],{icon: pieIcon}).addTo(map)//.bindPopup(ce_sites[ce]['Description']);
+    ce_marker = L.marker(ce_sites[ce]['Coordinates'],{icon: pieIcon}).addTo(map)
     ce_marker.desc = ce_sites[ce]['Description']
 
     oms.addMarker(ce_marker);
     CEsites.push(ce_marker);
+
+    for(destination in ce_sites[ce]['Destinations']){
+      var pointA = new L.LatLng(ce_sites[ce]['Coordinates'][0], ce_sites[ce]['Coordinates'][1]);
+      var pointB = new L.LatLng(ce_sites[ce]['Destinations'][destination]['Coordinates'][0], 
+                                ce_sites[ce]['Destinations'][destination]['Coordinates'][1]);
+      
+
+      var flightPath = new L.geodesic([], {
+        color: ce_sites[ce]['Destinations'][destination]['color'],
+        weight: ce_sites[ce]['Destinations'][destination]['stroke'],
+        opacity: 0.7,
+        steps: 100
+      });
+      flightPath.addTo(map);
+      flightPath.setLatLngs([[pointA, pointB]])
+      flightPath.bindPopup(ce_sites[ce]['Destinations'][destination]['Description'])
+    }
 
   }
 
@@ -114,6 +138,23 @@ function initialize() {
       se_marker.desc = se_sites[se]['Description']
       oms_se.addMarker(se_marker);
       SEsites.push(se_marker);  
+    }
+
+    for(destination in se_sites[se]['Destinations']){
+      var pointA = new L.LatLng(se_sites[se]['Coordinates'][0], se_sites[se]['Coordinates'][1]);
+      var pointB = new L.LatLng(se_sites[se]['Destinations'][destination]['Coordinates'][0], 
+                                se_sites[se]['Destinations'][destination]['Coordinates'][1]);
+      
+
+      var flightPath = new L.geodesic([], {
+        color: se_sites[ce]['Destinations'][destination]['color'],
+        weight: se_sites[ce]['Destinations'][destination]['stroke'],
+        opacity: 0.7,
+        steps: 100
+      });
+      flightPath.addTo(map);
+      flightPath.setLatLngs([[pointA, pointB]])
+      flightPath.bindPopup(se_sites[se]['Destinations'][destination]['Description'])      
     }
 
   }
