@@ -47,9 +47,14 @@
 
     </style>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+  integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+  crossorigin=""></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
   <script src="datagrid.js"></script>  
   <script src="b2gridmap.js"></script>  
   
@@ -58,6 +63,7 @@
   <META HTTP-EQUIV="Expires" CONTENT="-1">
   </head>
   <body>
+
     <!-- [START region_toolbar] -->
     <div id="floating-panel">
         Show / Hide :
@@ -66,27 +72,22 @@
       <input type="button" value="Computing Connections" onclick="toogleCELines();"></input>
       <input type="button" value="Storage Connections" onclick="toogleSELines();"></input>
     </div>
-<!-- [END region_toolbar] -->
+    <!-- [END region_toolbar] -->
   
     <div id="map"></div>
 
     <script type="text/javascript">
-      var map = L.map('map').setView([30., 0.5463], 2);
+      var map = L.map('map', { zoomControl: false }).setView([30., 0.5463], 2);
 
-      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
-            {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, \
-            <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; \
-            <a href="http://cloudmade.com">CloudMade</a>',
-            maxZoom: 18
-            }).addTo(map);
-
-      L.control.scale().addTo(map);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}).addTo(map);
 
 
     </script>
 
     
     <div id='piechart' style="width: 50px; height: 50px; display: none;"></div>
+
+
 
  </body>
 </html>

@@ -10,6 +10,39 @@ google.charts.setOnLoadCallback(initialize);
 
 function initialize() {
 
+  //L.control({position: 'topright'}).scale().addTo(map);
+
+  var legend = L.control({position: 'topleft'});
+  legend.onAdd = function (map) {
+    var bandwidthDiv = document.createElement('h3');
+    bandwidthDiv.style.fontFamily='Helvetica';
+    bandwidthDiv.style.fontSize='12px';
+    bandwidthDiv.style.color = 'black';
+    bandwidthDiv.style.padding = '10px';
+    bandwidthDiv.style.margin = '10px';
+    bandwidthDiv.style.paddingLeft = '10px';
+    bandwidthDiv.style.paddingRight = '10px';
+    bandwidthDiv.style.backgroundColor = 'white';
+    bandwidthDiv.style.border = "thin solid black";;
+    bandwidthDiv.innerHTML = '<b>Total throughput: ' + global_statistics['Throughput'] + ' MB/s</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Efficiency: ' + global_statistics['Efficiency'] + '%</b><br />';
+    bandwidthDiv.innerHTML += '<br /><b>Compunting sites: '+ global_statistics['CEsites'] +'</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Storage element sites: '+ global_statistics['SEsites'] + '</b>';
+    bandwidthDiv.innerHTML += '<br /><b>Total connections: '+ global_statistics['Connections'] + '</b>';
+    bandwidthDiv.innerHTML += '<br /><br /><b>Accounting time: '+ global_statistics['Accounting_time'] + ' hours' + '</b>';
+    bandwidthDiv.innerHTML += '<br /><br /><b>Last updated: <br />'+ global_statistics['Updated'] + '</b>';
+    return bandwidthDiv;
+  };
+  legend.addTo(map);
+
+
+
+  // To display multiple markers at the same point
+  var oms = new OverlappingMarkerSpiderfier(map,
+          {markersWontMove: false, markersWontHide: false, nearbyDistance: 20, circleSpiralSwitchover: Infinity});
+  var oms_se = new OverlappingMarkerSpiderfier(map,
+          {markersWontMove: false, markersWontHide: false, nearbyDistance: 20, circleSpiralSwitchover: Infinity});
+
   for (ce in ce_sites) {
 
     var data = google.visualization.arrayToDataTable([
@@ -47,17 +80,29 @@ function initialize() {
 
     var pieIcon = L.icon({
       iconUrl: path,
-      //iconSize: [30, 30], // size of the icon 
+      iconSize: [radius, radius], // size of the icon 
       iconAnchor: [radius/2,radius/2]
     });
 
-    L.marker(ce_sites[ce]['Coordinates'],{icon: pieIcon}).addTo(map);
+    ce_marker = L.marker(ce_sites[ce]['Coordinates'],{icon: pieIcon}).addTo(map)//.bindPopup(ce_sites[ce]['Description']);
+    ce_marker.desc = ce_sites[ce]['Description']
 
-  
-    //CEsites.push(ce_marker);
+    oms.addMarker(ce_marker);
+    CEsites.push(ce_marker);
 
     
 
   }
+
+  var popup = new L.Popup();
+  oms.addListener('click', function(marker) {
+    popup.setContent(marker.desc);
+    popup.setLatLng(marker.getLatLng());
+    map.openPopup(popup);
+  });
+
+  oms.addListener('spiderfy', function(markers) {
+    map.closePopup();
+  });
 
 }
