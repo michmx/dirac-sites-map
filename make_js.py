@@ -13,7 +13,7 @@ except ImportError:
     Dirac_env = False
 
 # Accounting time in hours
-hours = 720
+hours = 24
 
 # A simple script to obtain the info for the map
 map = JSgen('web/datagrid.js', hours, Dirac_env)
@@ -40,7 +40,7 @@ for se in se_sites:
 # Find the connections between SEs with dashboard
 map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
                      'dashboard/request.py/transfer-matrix.json?' + \
-                     'vo=belle&server=b2fts3.cc.kek.jp&src_grouping=host'+ \
+                     'vo=belle&server=kek2-fts.cc.kek.jp&src_grouping=host' + \
                      '&dst_grouping=host&interval='+str(hours*60),hours)
 
 # Creates datagrid.js file

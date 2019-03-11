@@ -215,12 +215,12 @@ class JSgen:
 
 
 
-
     # Pull data from Dashboard JSON file
     def pull_dashboard(self, path, hours = 720):
 
         minutes = hours * 60
         js_data = urllib2.urlopen(path).read()
+
         # Testing locally
         #js_data = open('/Users/michmx/Dashboard.js','r').read()
         dashboard = json.loads(js_data)
@@ -236,10 +236,17 @@ class JSgen:
                     site1 = se
                 if self.se_sites[se]['Host'] == cell[1]:
                     site2 = se
+
+            if site1 == "" or site2 == "":
+                continue
+
             #We calculate the speed on kBs
             speed = cell[2]/float(minutes * 60 * 1000)
-            efficiency = cell[3] *100 / (cell[3] + cell[4])
-
+            if (cell[3] + cell[4]) != 0:
+                efficiency = cell[3] *100 / (cell[3] + cell[4])
+            else:
+                efficiency = 0
+            
             description_text = """<strong>Source = """ + self.se_sites[site1]['Host'] + """</br>
             Destination = """ + self.se_sites[site2]['Host'] + """</strong></br><hr>
             <font style="font-weight: bold">Connection info:</font> </br>
@@ -261,11 +268,14 @@ class JSgen:
             if speed < 1:
                 stroke = 1                
             else:
-                stroke = 1 + math.log(speed,2)
-            
+                stroke = 1 + math.log(speed, 2)
+                if stroke > 8:
+                    stroke = 8 
+
             if not 'Destinations' in self.se_sites[site1]:
                 self.se_sites[site1]['Destinations'] = {}
-            self.se_sites[site1]['Destinations'].update({site2:{'Description':description_text, 'efficiency':efficiency, 'stroke': stroke, \
+            if 'Coordinates' in self.se_sites[site2]:
+                self.se_sites[site1]['Destinations'].update({site2:{'Description':description_text, 'efficiency':efficiency, 'stroke': stroke, \
                     'speed':speed, 'color':color, 'Successful':cell[3], 'Failed':cell[4], 'Coordinates':self.se_sites[site2]['Coordinates']}})
 
 

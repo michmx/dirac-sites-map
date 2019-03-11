@@ -9,6 +9,12 @@
             maxZoom: 18
             }).addTo(map);
 
+var imported = document.createElement('script');
+var time_now = new Date();
+imported.src = 'datagrid.js?t=' + time_now.getTime();
+document.head.appendChild(imported);
+
+
   L.control.scale().addTo(map);
 
   var SEsites = [];
