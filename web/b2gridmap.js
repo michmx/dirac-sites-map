@@ -1,5 +1,4 @@
 
-
 var SEsites = [];
 var CEsites = [];
 var SELines = [];
@@ -7,6 +6,32 @@ var CELines = [];
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(initialize);
+
+
+
+function ViewControl(controlDiv, name, latLng, zoom) {
+  controlDiv.style.padding = '10px';
+  var controlUI = document.createElement('div');
+  controlUI.style.backgroundColor = 'white';
+  controlUI.style.border='1px solid';
+  controlUI.style.padding = '10px';
+  controlUI.style.margin = '10px';
+  controlUI.style.cursor = 'pointer';
+  controlUI.style.textAlign = 'center';
+  controlDiv.appendChild(controlUI);
+  var controlText = document.createElement('div');
+  controlText.style.fontFamily='Helvetica';
+  controlText.style.fontSize='12px';
+  controlText.style.paddingLeft = '5px';
+  controlText.style.paddingRight = '5px';
+  controlText.innerHTML = '<b>'+name+'<b>'
+  controlUI.appendChild(controlText);
+
+  controlUI.addEventListener('click', function(event) {
+    map.setView([latLng[0], latLng[1]], zoom);
+  });
+}
+
 
 function initialize() {
 
@@ -32,6 +57,18 @@ function initialize() {
     return bandwidthDiv;
   };
   legend.addTo(map);
+
+  var viewMap = L.control({position: 'topright'});
+  viewMap.onAdd = function (map) {
+    var ViewDiv = document.createElement('div');
+    var Asia = new ViewControl(ViewDiv, 'Asia', [37.6, 110.6], 4);
+    var Europe = new ViewControl(ViewDiv, 'Europe', [46.0, 14.5], 5);
+    var America = new ViewControl(ViewDiv, 'America', [ 30.8, -87.6], 4);
+    var Oceania = new ViewControl(ViewDiv, 'Oceania', [ -30.8, 140.6], 5);
+    var Oceania = new ViewControl(ViewDiv, 'Global', [ 30., 0.5463], 2);
+    return ViewDiv;
+  };
+  viewMap.addTo(map);
 
 
     //var Asia = new ViewControl(ViewDiv, map, 'Asia', [37.6, 110.6], 4);
@@ -171,3 +208,4 @@ function initialize() {
   });
 
 }
+
