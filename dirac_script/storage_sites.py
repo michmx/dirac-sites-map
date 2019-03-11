@@ -42,8 +42,8 @@ def get_se_sites():
             result = result['Value']
             result2 = result2['Value']
             se_site = result2
-            se_site['Read'] = result['ReadAccess']
-            se_site['Write'] = result['WriteAccess']
+            #se_site['Read'] = result['ReadAccess']
+            #se_site['Write'] = result['WriteAccess']
 
             if se.split('-')[0] in coordinates_data:
                 se_site['Coordinates'] = coordinates_data[se.split('-')[0]]

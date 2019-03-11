@@ -38,10 +38,10 @@ for se in se_sites:
     map.add_se_site(se,se_sites[se])
 
 # Find the connections between SEs with dashboard
-map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
-                     'dashboard/request.py/transfer-matrix.json?' + \
-                     'vo=belle&server=kek2-fts.cc.kek.jp&src_grouping=host' + \
-                     '&dst_grouping=host&interval='+str(hours*60),hours)
+#map.pull_dashboard('http://dashb-fts-transfers.cern.ch/' + \
+#                     'dashboard/request.py/transfer-matrix.json?' + \
+#                     'vo=belle&server=kek2-fts.cc.kek.jp&src_grouping=host' + \
+#                     '&dst_grouping=host&interval='+str(hours*60),hours)
 
 # Creates datagrid.js file
 map.push_map()
