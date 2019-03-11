@@ -10,8 +10,6 @@ google.charts.setOnLoadCallback(initialize);
 
 function initialize() {
 
-  //L.control({position: 'topright'}).scale().addTo(map);
-
   var legend = L.control({position: 'topleft'});
   legend.onAdd = function (map) {
     var bandwidthDiv = document.createElement('h3');
@@ -51,7 +49,6 @@ function initialize() {
                                                      ['Done', ce_sites[ce]['Done']], 
                                                      ['Failed', ce_sites[ce]['Failed']]
                                                      ]);
-
     var radius = ce_sites[ce]['Radius'];
     var options = {
       title: "No. of jobs",
@@ -90,8 +87,6 @@ function initialize() {
     oms.addMarker(ce_marker);
     CEsites.push(ce_marker);
 
-    
-
   }
 
   var popup = new L.Popup();
@@ -102,6 +97,35 @@ function initialize() {
   });
 
   oms.addListener('spiderfy', function(markers) {
+    map.closePopup();
+  });
+
+
+
+  for (se in se_sites){
+    
+    var seIcon = L.icon({
+      iconUrl: se_sites[se]['Icon']['url'],
+      iconSize: [38, 38], // size of the icon 
+      iconAnchor: [38, -10]
+    });
+    if("Coordinates" in se_sites[se]){
+      se_marker = L.marker(se_sites[se]['Coordinates'],{icon: seIcon}).addTo(map)
+      se_marker.desc = se_sites[se]['Description']
+      oms_se.addMarker(se_marker);
+      SEsites.push(se_marker);  
+    }
+
+  }
+
+  var popup = new L.Popup();
+  oms_se.addListener('click', function(marker) {
+    popup.setContent(marker.desc);
+    popup.setLatLng(marker.getLatLng());
+    map.openPopup(popup);
+  });
+
+  oms_se.addListener('spiderfy', function(markers) {
     map.closePopup();
   });
 
