@@ -1,6 +1,12 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
   <head>
+    
+
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+
     <style>
       html, body {
           height: 100%;
@@ -28,28 +34,19 @@
         line-height: 30px;
         padding-left: 10px;
       }
-
-
-    </style>
-    
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="oms.min.js"></script>
-    <script src="datagrid.js"></script>
-    <script src="b2gridmap.js"></script>    
-    <style>
       #legend {
         background: white;
         padding: 10px;
       }
+
     </style>
+    
   <TITLE> Belle II Grid System </TITLE>
   <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
   <META HTTP-EQUIV="Expires" CONTENT="-1">
   </head>
   <body>
-
-<!-- [START region_toolbar] -->
+    <!-- [START region_toolbar] -->
     <div id="floating-panel">
         Show / Hide :
       <input type="button" value="Computing sites" onclick="toogleCE();"></input>
@@ -58,10 +55,12 @@
       <input type="button" value="Storage Connections" onclick="toogleSELines();"></input>
     </div>
 <!-- [END region_toolbar] -->
+  
     <div id="map"></div>
+    <script src="datagrid.js"></script>
+    <script type="text/javascript" src="b2gridmap.js"></script>    
 
     <div id='piechart' style="width: 50px; height: 50px; display: none;"></div>
-
 
  </body>
 </html>
