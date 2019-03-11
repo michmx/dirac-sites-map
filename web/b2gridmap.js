@@ -1,31 +1,63 @@
-  var map = L.map('map').
-     setView([30., 0.5463],
-     2);
-
-  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
-            {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, \
-            <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; \
-            <a href="http://cloudmade.com">CloudMade</a>',
-            maxZoom: 18
-            }).addTo(map);
-
-var imported = document.createElement('script');
-var time_now = new Date();
-imported.src = 'datagrid.js?t=' + time_now.getTime();
-document.head.appendChild(imported);
 
 
-  L.control.scale().addTo(map);
+var SEsites = [];
+var CEsites = [];
+var SELines = [];
+var CELines = [];
 
-  var SEsites = [];
-  var CEsites = [];
-  var SELines = [];
-  var CELines = [];
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(initialize);
 
-  L.marker([41.66, -4.71],{draggable: false}).addTo(map);
+function initialize() {
 
   for (ce in ce_sites) {
 
-    L.marker(ce_sites[ce]['Coordinates'],{draggable: false}).addTo(map);
+    var data = google.visualization.arrayToDataTable([
+                                                     [{label: 'Status', type: 'string'},
+                                                      {label: 'No. of jobs', type: 'number'}], 
+                                                     ['Done', ce_sites[ce]['Done']], 
+                                                     ['Failed', ce_sites[ce]['Failed']]
+                                                     ]);
+
+    var radius = ce_sites[ce]['Radius'];
+    var options = {
+      title: "No. of jobs",
+      legend: 'none',
+      width: radius,
+      height: radius,
+      chartArea: {width: '100%', height: '100%'},
+      backgroundColor: 'transparent',
+      colors: ['#FF0000', '#04FB03'],
+      pieStartAngle: 270,
+      pieSliceBorderColor: '#000000',
+      pieSliceText: 'none',
+      reverseCategories: true
+    };
+
+
+    var chart_div = document.getElementById('piechart');
+
+    var chart = new google.visualization.PieChart(chart_div);
+    var path = ''
+
+    google.visualization.events.addListener(chart, 'ready', function() {
+      path =  chart.getImageURI();
+    });
+    chart.draw(data, options);
+
+    var pieIcon = L.icon({
+      iconUrl: path,
+      //iconSize: [30, 30], // size of the icon 
+      iconAnchor: [radius/2,radius/2]
+    });
+
+    L.marker(ce_sites[ce]['Coordinates'],{icon: pieIcon}).addTo(map);
+
+  
+    //CEsites.push(ce_marker);
+
+    
 
   }
+
+}
