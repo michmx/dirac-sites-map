@@ -57,7 +57,13 @@
   <script src="Leaflet.Geodesic.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
-  <script src="datagrid.js"></script>  
+  <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
+  <script type="text/javascript">
+    var imported = document.createElement('script');
+    var time_now = new Date();
+    imported.src = 'datagrid.js?t=' + time_now.getTime();
+    document.head.appendChild(imported);
+  </script>  
   <script src="b2gridmap.js"></script>  
   
   <TITLE> Belle II Grid System </TITLE>
