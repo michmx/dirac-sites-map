@@ -28,12 +28,12 @@ def get_se_sites():
                 coordinates_data[site[0]] = [float(site[1]),float(site[2])]      
     se_sites = {}
     manager = Manager()
-    se_result = manager.listSEs()['Value']
+    se_result = manager.listSEs(activeOnly=True)
     se_health = service.getHealthyProductionSEs()
     #se_health = service.getAllStorageElementStatus()
     if not se_health['OK']: 
         print "[WARNING]: No health info for SE sites"
-    for se in sorted(se_result['Active']):
+    for se in sorted(se_result):
         se_site = {}
         result = gConfig.getOptionsDict('/Resources/StorageElements/' + se)
         result2 = gConfig.getOptionsDict('/Resources/StorageElements/' + se \

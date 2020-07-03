@@ -33,7 +33,7 @@ def read_site_summary():
     # For now, for sites without coordinates info in DIRAC
     coord_file.write("\nAdelaide,-34.910836,138.57121")
     coord_file.write("\nIPHC,48.6056,7.7095")
-    coord_file.write("\nKEK,36.06,140.2303")
+    coord_file.write("\nKEK2,36.06,140.2303")
 
     for site in sorted(sitelists):
 
