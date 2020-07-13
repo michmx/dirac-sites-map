@@ -9,10 +9,29 @@ import datetime
 import sys
 def getSiteList():
     from DIRAC.Interfaces.API.DiracAdmin import DiracAdmin
+    # Active sites
     result = DiracAdmin().getSiteMask()
     if not result['OK']:
         return []
-    return result['Value']
+    sites = result['Value']
+    # Banned and degraded sites
+    result = DiracAdmin().getSiteMask(status='Degraded')
+    if not result['OK']:
+        return []
+    sites += result['Value']
+    #result = DiracAdmin().getSiteMask(status='Banned')
+    #if not result['OK']:
+    #    return []
+    #sites += result['Value']
+    return sites
+
+def getBanSiteList():
+    from DIRAC.Interfaces.API.DiracAdmin import DiracAdmin
+    result = DiracAdmin().getSiteMask(status='Banned')
+    if not result['OK']:
+        return []
+    sites = result['Value']
+    return sites
 
 def read_site_summary():
     active_sites = {}
@@ -27,6 +46,7 @@ def read_site_summary():
     #return sitesummary
     #print sitesummary
     sitelists = getSiteList()
+    siteBanList = getBanSiteList()
     # Write the coordinates in a temporal file
     coord_file = open('sites.tmp','w')
     coord_file.write("Sites,x,y")
@@ -45,6 +65,8 @@ def read_site_summary():
         status = "production"
         if 'Status' in optionsdict:
             status = optionsdict['Status']
+        print site    
+        print status
         if status not in ['production', 'commissioning']:
             continue
         if site not in sitesummary:
@@ -59,7 +81,23 @@ def read_site_summary():
             coord_file.write('\n'+ site.split('.')[1]+','+ str(x) + ',' + str(y))
         else:
             print "[WARNING:] No location info for",site
-            
+    # Get coordinates for Banned sites
+    for site in siteBanList:
+        ele = site.split('.')
+        result = gConfig.getOptionsDict('Resources/Sites/%s/%s' % ( ele[0], site ))
+        if not result['OK']:
+            continue
+        optionsdict=result['Value']
+        if site not in sitesummary:
+            continue
+        x='0'
+        y='0'
+        if 'Coordinates' in optionsdict:
+            [y,x] = optionsdict['Coordinates'].split(':')
+            coord_file.write('\n'+ site.split('.')[1]+','+ str(x) + ',' + str(y))
+        else:
+            print "[WARNING:] No location info for",site
+
     coord_file.close()
     return active_sites
 
