@@ -1,4 +1,4 @@
-# kml-gen
+# DIRAC sites map
 Takes information from DIRAC environment and generates JSON data to use on Google Maps, and kml file to use on Google Earth.
 
 The script `make_js.py` generates JSON data located on `web/datagrid.js`.
